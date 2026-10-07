@@ -35,7 +35,7 @@
         "Focal length": "2032 mm (f/10)",
         "Mount": "Computerized alt-azimuth GoTo",
         "Optical design": "Schmidt-Cassegrain",
-        "Weight": "~24 kg assembled"
+        "Weight": "~11–14 kg assembled (≈24 lbs)"
       },
       "tagline": "The computerized 8-inch that finds it for you."
     },
@@ -146,9 +146,9 @@
       "slug": "skywatcher-star-adventurer-2i",
       "specs": {
         "Payload": "5 kg (11 lb)",
-        "Polar scope": "Illuminated, with app assist",
-        "Power": "USB rechargeable",
-        "Tracking rates": "Sidereal, solar, lunar, custom",
+        "Polar scope": "Built-in polar scope (illuminator in Pro Pack)",
+        "Power": "4× AA batteries or external 5V USB (no internal battery)",
+        "Tracking rates": "Sidereal, solar, lunar (+ time-lapse modes)",
         "Weight": "1.2 kg"
       },
       "tagline": "Turn any camera into a deep-sky rig."
@@ -187,7 +187,7 @@
         "Field of view": "4.4°",
         "Magnification": "15x",
         "Tripod adaptable": "Yes",
-        "Weight": "1.5 kg"
+        "Weight": "1.36 kg"
       },
       "tagline": "The cheapest serious sky upgrade."
     },
@@ -279,7 +279,7 @@
       ],
       "specs": {
         "Aperture": "70 mm",
-        "Focal length": "900 mm (f/12.9)",
+        "Focal length": "900 mm (f/13)",
         "Mount": "Alt-azimuth",
         "Optical design": "Refractor"
       },
@@ -508,7 +508,7 @@
         "Phone cameras have limits"
       ],
       "specs": {
-        "Compatibility": "Most phones + 1.25/2-inch eyepieces",
+        "Compatibility": "Eyepieces 35–60mm diameter (covers 1.25\" and 2\" eyepieces); phones 65–90mm wide",
         "Adjustment": "3-axis (X/Y/Z)",
         "Mount": "Clamp"
       },
