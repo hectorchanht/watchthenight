@@ -1,0 +1,397 @@
+{
+  "_notes": "price_usd is an APPROXIMATE street price, not a live quote — rendered with 'around'. retailer.url values marked TODO are placeholders: replace with real affiliate deep links after joining each program. amazon_query builds an Amazon search URL with AMAZON_TAG (realufo pattern).",
+  "products": [
+    {
+      "amazon_query": "Celestron NexStar 8SE telescope",
+      "blurb": "The classic 8-inch computerized Schmidt-Cassegrain. Type in a target — or just let the GoTo mount find it — and you're looking at Saturn's rings in minutes. If you want to check a light in the sky against a known satellite or star, this is the rig that makes it easy.",
+      "category": "telescopes",
+      "cons": [
+        "Heavy for one person to carry far",
+        "Needs power (battery pack or AC)",
+        "Premium price for a first scope"
+      ],
+      "name": "Celestron NexStar 8SE",
+      "price_usd": 1589,
+      "pros": [
+        "8-inch aperture gathers serious light",
+        "Computerized GoTo finds 40,000+ objects",
+        "Proven workhorse with huge community"
+      ],
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program for higher commission than Amazon.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "celestron-nexstar-8se",
+      "specs": {
+        "Aperture": "8 in (203 mm)",
+        "Focal length": "2032 mm (f/10)",
+        "Mount": "Computerized alt-azimuth GoTo",
+        "Optical design": "Schmidt-Cassegrain",
+        "Weight": "~24 kg assembled"
+      },
+      "tagline": "The computerized 8-inch that finds it for you."
+    },
+    {
+      "amazon_query": "Apertura AD8 Dobsonian telescope",
+      "blurb": "Eight inches of aperture on a simple push-to Dobsonian base — the most light per dollar in amateur astronomy. No batteries, no menus: point it at the sky and sweep. For scanning a patch of sky where something was reported, nothing beats a big Dob.",
+      "category": "telescopes",
+      "cons": [
+        "Bulky tube — needs car transport",
+        "No tracking (objects drift out of view)",
+        "Collimation needed now and then"
+      ],
+      "name": "Apertura AD8 8\" Dobsonian",
+      "price_usd": 700,
+      "pros": [
+        "Huge 8-inch aperture for the money",
+        "Dead simple — no power needed",
+        "Great for wide sky sweeps"
+      ],
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Apertura is High Point's house brand — their affiliate program is the natural fit.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "apertura-ad8-dobsonian",
+      "specs": {
+        "Aperture": "8 in (203 mm)",
+        "Focal length": "1200 mm (f/5.9)",
+        "Focuser": "2-inch dual-speed Crayford",
+        "Mount": "Dobsonian (push-to)",
+        "Optical design": "Newtonian reflector"
+      },
+      "tagline": "Maximum aperture per dollar. Point and sweep."
+    },
+    {
+      "amazon_query": "Celestron StarSense Explorer DX 130AZ",
+      "blurb": "A 130mm reflector that uses your phone to plate-solve the sky and guide you to targets — training wheels that actually teach you the sky. Perfect first scope for someone whose interest started with 'what was that light?'",
+      "category": "telescopes",
+      "cons": [
+        "Phone mount adds fiddliness",
+        "130mm won't resolve fine planetary detail",
+        "Alt-azimuth mount, no tracking"
+      ],
+      "name": "Celestron StarSense Explorer DX 130AZ",
+      "price_usd": 480,
+      "pros": [
+        "Phone-assisted finding really works",
+        "130mm is a real step up from toy scopes",
+        "Light and genuinely portable"
+      ],
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "celestron-starsense-explorer-dx-130az",
+      "specs": {
+        "Aperture": "130 mm (5.1 in)",
+        "Focal length": "650 mm (f/5)",
+        "Mount": "Alt-azimuth, manual",
+        "Optical design": "Newtonian reflector",
+        "Phone dock": "StarSense Explorer app (iOS/Android)"
+      },
+      "tagline": "Your phone guides you to 100+ targets."
+    },
+    {
+      "amazon_query": "Sky-Watcher Star Adventurer 2i",
+      "blurb": "A portable star tracker that rotates your camera with the Earth, turning 30-second exposures into 3-minute ones. This is the piece of gear that takes a skywatch photo from 'blurry dot' to 'that's clearly structured'.",
+      "category": "camera-gear",
+      "cons": [
+        "Learning curve on polar alignment",
+        "Payload limited (~5 kg)",
+        "Needs a sturdy tripod (sold separately)"
+      ],
+      "name": "Sky-Watcher Star Adventurer 2i",
+      "price_usd": 430,
+      "pros": [
+        "Turns any DSLR/mirrorless into an astro rig",
+        "Built-in WiFi + intervalometer",
+        "Fits in a camera bag"
+      ],
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "skywatcher-star-adventurer-2i",
+      "specs": {
+        "Payload": "5 kg (11 lb)",
+        "Polar scope": "Illuminated, with app assist",
+        "Power": "USB rechargeable",
+        "Tracking rates": "Sidereal, solar, lunar, custom",
+        "Weight": "1.2 kg"
+      },
+      "tagline": "Turn any camera into a deep-sky rig."
+    },
+    {
+      "amazon_query": "Celestron SkyMaster 15x70 binoculars",
+      "blurb": "Before you buy a telescope, buy binoculars. 15x70s show you Jupiter's moons, star clusters and the Andromeda galaxy's core — and they're how you scan a wide patch of sky fast when something's been reported overhead.",
+      "category": "binoculars",
+      "cons": [
+        "Heavy — needs a tripod for long sessions",
+        "Narrower field than 10x50s",
+        "Not waterproof"
+      ],
+      "name": "Celestron SkyMaster 15x70",
+      "price_usd": 110,
+      "pros": [
+        "Huge light grasp for the price",
+        "Instant wide-sky scanning",
+        "Zero setup, always ready"
+      ],
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        },
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        }
+      ],
+      "slug": "celestron-skymaster-15x70",
+      "specs": {
+        "Aperture": "70 mm",
+        "Field of view": "4.4°",
+        "Magnification": "15x",
+        "Tripod adaptable": "Yes",
+        "Weight": "1.5 kg"
+      },
+      "tagline": "The cheapest serious sky upgrade."
+    },
+    {
+      "amazon_query": "Celestron red LED astronomy flashlight",
+      "blurb": "White light kills your night vision for 20+ minutes; red light doesn't. The least glamorous, most-used item in any observer's kit — and the difference between fumbling in the dark and actually enjoying the session.",
+      "category": "accessories",
+      "cons": [
+        "It's a flashlight — don't overthink it",
+        "Batteries not included"
+      ],
+      "name": "Astronomy red LED flashlight",
+      "price_usd": 15,
+      "pros": [
+        "Preserves night vision",
+        "Dim + bright modes",
+        "Weighs nothing"
+      ],
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "red-led-astronomy-flashlight",
+      "specs": {
+        "Brightness": "2 modes (dim/bright)",
+        "Color": "Red LED",
+        "Power": "3x AAA",
+        "Weight": "~60 g"
+      },
+      "tagline": "Protect your night vision for $15."
+    },
+    {
+      "slug": "skywatcher-heritage-150p",
+      "name": "Sky-Watcher Heritage 150P",
+      "category": "telescopes",
+      "tagline": "6 inches of tabletop Dobsonian — the sweet spot starter scope.",
+      "blurb": "A 150mm collapsible Dobsonian that sits on a table or stool and shows you Saturn's rings, Jupiter's bands and hundreds of deep-sky objects. The most recommended first real telescope in the hobby for a reason: huge views, tiny price, zero setup fuss.",
+      "price_usd": 300,
+      "pros": [
+        "150mm aperture punches far above its price",
+        "Collapsible tube fits in a car boot",
+        "Simple Dobsonian base — point and look"
+      ],
+      "cons": [
+        "Needs a sturdy table or stool",
+        "No tracking — planets drift",
+        "Collimation needed occasionally"
+      ],
+      "specs": {
+        "Aperture": "150 mm (6 in)",
+        "Focal length": "750 mm (f/5)",
+        "Mount": "Tabletop Dobsonian",
+        "Optical design": "Newtonian reflector",
+        "Tube": "Collapsible"
+      },
+      "amazon_query": "Sky-Watcher Heritage 150P telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "url": "TODO: affiliate deep link",
+          "note": "Specialist astro retailer — join their affiliate program."
+        },
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    },
+    {
+      "slug": "celestron-astromaster-70az",
+      "name": "Celestron AstroMaster 70AZ",
+      "category": "telescopes",
+      "tagline": "The classic sub-$200 first refractor.",
+      "blurb": "A 70mm long-tube refractor on a simple alt-azimuth mount — the default answer to 'what's a good cheap first telescope?' for a decade. Won't rival an 8-inch Dob, but the Moon and planets look great and it's dead easy to use.",
+      "price_usd": 150,
+      "pros": [
+        "Very affordable entry point",
+        "Refractor — no collimation ever",
+        "Lightweight and portable"
+      ],
+      "cons": [
+        "70mm limits deep-sky views",
+        "Basic mount is wobbly at high power",
+        "You'll outgrow it"
+      ],
+      "specs": {
+        "Aperture": "70 mm",
+        "Focal length": "900 mm (f/12.9)",
+        "Mount": "Alt-azimuth",
+        "Optical design": "Refractor"
+      },
+      "amazon_query": "Celestron AstroMaster 70AZ telescope",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        },
+        {
+          "name": "High Point Scientific",
+          "url": "TODO: affiliate deep link",
+          "note": "Specialist astro retailer — join their affiliate program."
+        }
+      ]
+    },
+    {
+      "slug": "nikon-aculon-a211-10x50",
+      "name": "Nikon Aculon A211 10x50",
+      "category": "binoculars",
+      "tagline": "The 10x50 every observer should own.",
+      "blurb": "Before (and after) you buy a telescope, you need 10x50s. The Aculon is the benchmark budget pair: bright, sharp enough, and tough. Scan the Milky Way, split double stars, catch satellites — all handheld, all instantly.",
+      "price_usd": 120,
+      "pros": [
+        "Benchmark optics for the money",
+        "Handheld — true grab-and-go",
+        "Useful forever, even with a telescope"
+      ],
+      "cons": [
+        "Narrower view than 7x50s",
+        "Gets heavy on long sessions",
+        "Not waterproof"
+      ],
+      "specs": {
+        "Magnification": "10x",
+        "Aperture": "50 mm",
+        "Prisms": "BAK4 Porro"
+      },
+      "amazon_query": "Nikon Aculon A211 10x50 binoculars",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    },
+    {
+      "slug": "telrad-reflex-finder",
+      "name": "Telrad reflex finder",
+      "category": "accessories",
+      "tagline": "Point your telescope like pointing your finger.",
+      "blurb": "A zero-magnification reflex sight that projects red rings onto the sky. Star-hopping with a Telrad is so intuitive it feels like cheating — the single best upgrade for any Dobsonian owner.",
+      "price_usd": 45,
+      "pros": [
+        "Makes finding objects dramatically easier",
+        "No magnification — see the real sky",
+        "Loved by Dob owners everywhere"
+      ],
+      "cons": [
+        "Needs a dark site to shine",
+        "Batteries (AA) not included"
+      ],
+      "specs": {
+        "Type": "Reflex sight, 1x",
+        "Reticle": "Red concentric rings",
+        "Power": "2x AA"
+      },
+      "amazon_query": "Telrad telescope finder",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        },
+        {
+          "name": "High Point Scientific",
+          "url": "TODO: affiliate deep link",
+          "note": "Specialist astro retailer — join their affiliate program."
+        }
+      ]
+    },
+    {
+      "slug": "planisphere-40n",
+      "name": "Large planisphere (40°N)",
+      "category": "accessories",
+      "tagline": "The whole sky on a spinning wheel. No batteries.",
+      "blurb": "Dial in the date and time, and the planisphere shows you exactly what's up tonight. No app, no phone glare killing your night vision, no battery. Every beginner should learn the sky on one of these before touching a GoTo mount.",
+      "price_usd": 15,
+      "pros": [
+        "Teaches you the actual sky",
+        "No batteries, no screen glare",
+        "Practically indestructible"
+      ],
+      "cons": [
+        "Latitude-specific — get 40°N for most of the US",
+        "Small print in the dark"
+      ],
+      "specs": {
+        "Type": "Rotating star chart",
+        "Latitude": "~40°N",
+        "Size": "Large (10 inch)"
+      },
+      "amazon_query": "large planisphere 40N star chart",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+/* Nightwatch — dark night-sky theme, mobile-first */
+:root {
+  --bg: #05070f;
+  --bg2: #0a0e1c;
+  --card: #0d1326;
+  --line: #1c2540;
+  --text: #e8ecf7;
+  --muted: #9aa4c4;
+  --accent: #7cc4ff;
+  --gold: #ffd479;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 50% -10%, #0b1230 0%, var(--bg) 60%) fixed, var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.1rem; }
+a { color: var(--accent); }
+
+/* header */
+header { border-bottom: 1px solid var(--line); background: rgba(5,7,15,.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: .8rem 1.1rem; gap: 1rem; }
+.logo { font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: .02em; }
+nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+nav a:hover { color: var(--text); }
+
+/* hero */
+.hero { padding: 3.2rem 0 2rem; }
+.kicker { color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; margin: 0 0 .6rem; }
+h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 .8rem; }
+.lede { color: var(--muted); font-size: 1.05rem; max-width: 44rem; }
+h2 { font-size: 1.3rem; margin: 2.4rem 0 1rem; }
+
+/* cards */
+.grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2.6rem; } }
+.card {
+  display: block; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 1.2rem; text-decoration: none; color: var(--text);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.card h3 { margin: .3rem 0 .4rem; font-size: 1.1rem; }
+.tagline { color: var(--muted); font-size: .95rem; margin: 0 0 .6rem; }
+.tagline.big { font-size: 1.15rem; }
+.price { color: var(--gold); font-weight: 700; margin: .4rem 0; }
+.price.big { font-size: 1.3rem; }
+.cta { color: var(--accent); font-size: .9rem; font-weight: 600; }
+
+/* product page */
+.crumb { color: var(--muted); font-size: .85rem; margin: 1.6rem 0 .4rem; }
+.crumb a { color: var(--muted); }
+.buybox { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem; margin: 1.6rem 0; }
+.buybox h2 { margin-top: 0; }
+.buyrow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-top: 1px solid var(--line); }
+.buyrow:first-of-type { border-top: none; }
+.buyrow p { color: var(--muted); font-size: .85rem; margin: .2rem 0 0; }
+.btn {
+  display: inline-block; background: var(--gold); color: #1a1405; font-weight: 700;
+  padding: .6rem 1.1rem; border-radius: 10px; text-decoration: none; white-space: nowrap;
+}
+.btn.disabled { background: var(--line); color: var(--muted); cursor: default; }
+.cols { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+@media (min-width: 720px) { .cols { grid-template-columns: 1fr 1fr; } }
+ul.pros, ul.cons { padding-left: 1.2rem; }
+ul.pros li::marker { content: "✓ "; color: #6fdc8c; }
+ul.cons li::marker { content: "– "; color: var(--gold); }
+table.specs { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
+table.specs th, table.specs td { text-align: left; padding: .6rem .8rem; border-bottom: 1px solid var(--line); font-size: .95rem; }
+table.specs th { color: var(--muted); font-weight: 600; width: 38%; }
+
+/* how / footer */
+.how p { color: var(--muted); max-width: 44rem; }
+footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 2rem 0 2.5rem; }
+footer .brand { font-weight: 700; }
+footer .brand span { color: var(--muted); font-weight: 400; }
+.disc { color: var(--muted); font-size: .85rem; max-width: 52rem; }
+.fine { color: var(--muted); font-size: .85rem; }
+.fine a { color: var(--muted); }
