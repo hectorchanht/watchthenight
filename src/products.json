@@ -392,6 +392,197 @@
           "note": "Search link with affiliate tag."
         }
       ]
+    },
+    {
+      "slug": "orion-skyquest-xt6",
+      "name": "Orion SkyQuest XT6",
+      "category": "telescopes",
+      "tagline": "The classic 6-inch Dobsonian — decades of beginners can't be wrong.",
+      "blurb": "A 150mm f/8 Dobsonian that's been the default first serious telescope for decades. Long focal length means crisp, high-contrast views of the Moon and planets. If you want one telescope that does everything well, this is the shape of it.",
+      "price_usd": 450,
+      "pros": [
+        "150mm f/8 gives sharp planetary views",
+        "Legendary beginner-friendly design",
+        "Huge secondhand market"
+      ],
+      "cons": [
+        "Long tube needs car transport",
+        "No tracking",
+        "You will want accessories"
+      ],
+      "specs": {
+        "Aperture": "150 mm (6 in)",
+        "Focal length": "1200 mm (f/8)",
+        "Mount": "Dobsonian",
+        "Optical design": "Newtonian reflector"
+      },
+      "amazon_query": "Orion SkyQuest XT6 Dobsonian",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        },
+        {
+          "name": "High Point Scientific",
+          "url": "TODO: affiliate deep link",
+          "note": "Specialist astro retailer — join their affiliate program."
+        }
+      ]
+    },
+    {
+      "slug": "orion-starblast-4-5",
+      "name": "Orion StarBlast 4.5 Astro Reflector",
+      "category": "telescopes",
+      "tagline": "The grab-and-go tabletop that hooks kids and adults alike.",
+      "blurb": "A 114mm wide-field reflector on a tiny Dobsonian base — put it on a table and you're observing in 60 seconds. The perfect 'is this hobby for me?' telescope: cheap, fun, and genuinely capable on the Moon, planets and bright deep-sky.",
+      "price_usd": 250,
+      "pros": [
+        "Sets up in a minute, anywhere",
+        "Wide-field views are gorgeous",
+        "Great for kids and quick sessions"
+      ],
+      "cons": [
+        "Needs a sturdy table",
+        "Fast f/4 mirror needs collimation",
+        "Small aperture limits faint objects"
+      ],
+      "specs": {
+        "Aperture": "114 mm (4.5 in)",
+        "Focal length": "450 mm (f/4)",
+        "Mount": "Tabletop Dobsonian",
+        "Optical design": "Newtonian reflector"
+      },
+      "amazon_query": "Orion StarBlast 4.5 telescope",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    },
+    {
+      "slug": "celestron-cometron-7x50",
+      "name": "Celestron Cometron 7x50",
+      "category": "binoculars",
+      "tagline": "The $40 binoculars that started a thousand hobbies.",
+      "blurb": "7x50 is the classic astronomy binocular format: bright, steady, wide. The Cometron is the cheapest honest pair — perfect for learning the sky, comets, and the Milky Way without thinking twice about the price.",
+      "price_usd": 40,
+      "pros": [
+        "Bright 7x50 views, easy to hold steady",
+        "Wide field — great for comets",
+        "Absurdly affordable"
+      ],
+      "cons": [
+        "Basic coatings vs pricier pairs",
+        "Not waterproof"
+      ],
+      "specs": {
+        "Magnification": "7x",
+        "Aperture": "50 mm"
+      },
+      "amazon_query": "Celestron Cometron 7x50 binoculars",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    },
+    {
+      "slug": "celestron-nexyz-adapter",
+      "name": "Celestron NexYZ 3-Axis Smartphone Adapter",
+      "category": "accessories",
+      "tagline": "Your phone + any telescope = astrophotography tonight.",
+      "blurb": "Clamps your phone to almost any eyepiece and aligns the camera in three axes — the fiddly part of phone astrophotography, solved. This is the $60 bridge between 'I saw it' and 'I captured it', and the heart of the citizen-skywatch kit.",
+      "price_usd": 60,
+      "pros": [
+        "Fits almost any phone and eyepiece",
+        "3-axis alignment actually works",
+        "Cheapest way into astrophotography"
+      ],
+      "cons": [
+        "Takes practice to align quickly",
+        "Phone cameras have limits"
+      ],
+      "specs": {
+        "Compatibility": "Most phones + 1.25/2-inch eyepieces",
+        "Adjustment": "3-axis (X/Y/Z)",
+        "Mount": "Clamp"
+      },
+      "amazon_query": "Celestron NexYZ smartphone adapter",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        },
+        {
+          "name": "High Point Scientific",
+          "url": "TODO: affiliate deep link",
+          "note": "Specialist astro retailer — join their affiliate program."
+        }
+      ]
+    },
+    {
+      "slug": "red-led-headlamp",
+      "name": "Red LED headlamp",
+      "category": "accessories",
+      "tagline": "Hands-free red light. You'll wonder how you lived without it.",
+      "blurb": "A headlamp with a red mode keeps both hands free for eyepieces, charts and focus knobs — while your night vision stays intact. The most-used $20 in the kit after the red flashlight.",
+      "price_usd": 20,
+      "pros": [
+        "Hands-free observing",
+        "Red mode preserves night vision",
+        "Useful beyond astronomy"
+      ],
+      "cons": [
+        "Cheap ones have flimsy straps"
+      ],
+      "specs": {
+        "Modes": "Red + white",
+        "Power": "AAA batteries"
+      },
+      "amazon_query": "red LED headlamp astronomy",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
+    },
+    {
+      "slug": "canon-eos-rebel-t7",
+      "name": "Canon EOS Rebel T7",
+      "category": "camera-gear",
+      "tagline": "The default budget astrophotography DSLR.",
+      "blurb": "24 megapixels, a huge used-lens market, and full compatibility with the <a href=\"/gear/skywatcher-star-adventurer-2i/\">Star Adventurer 2i</a>. Pair this with a tracker and a $100 nifty-fifty, and you're shooting nebulae. The camera half of the citizen-skywatch rig.",
+      "price_usd": 500,
+      "pros": [
+        "24MP APS-C sensor",
+        "Enormous affordable lens ecosystem",
+        "Pairs perfectly with a star tracker"
+      ],
+      "cons": [
+        "Kit lens is limiting for deep sky",
+        "Consider used to save more"
+      ],
+      "specs": {
+        "Sensor": "24.1 MP APS-C CMOS",
+        "Mount": "Canon EF/EF-S",
+        "Video": "Full HD 1080p"
+      },
+      "amazon_query": "Canon EOS Rebel T7 DSLR",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "url": "AMAZON",
+          "note": "Search link with affiliate tag."
+        }
+      ]
     }
   ]
 }

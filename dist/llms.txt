@@ -15,6 +15,12 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 - [Nikon Aculon A211 10x50](https://watchthenight.com/gear/nikon-aculon-a211-10x50/) — The 10x50 every observer should own.
 - [Telrad reflex finder](https://watchthenight.com/gear/telrad-reflex-finder/) — Point your telescope like pointing your finger.
 - [Large planisphere (40°N)](https://watchthenight.com/gear/planisphere-40n/) — The whole sky on a spinning wheel. No batteries.
+- [Orion SkyQuest XT6](https://watchthenight.com/gear/orion-skyquest-xt6/) — The classic 6-inch Dobsonian — decades of beginners can't be wrong.
+- [Orion StarBlast 4.5 Astro Reflector](https://watchthenight.com/gear/orion-starblast-4-5/) — The grab-and-go tabletop that hooks kids and adults alike.
+- [Celestron Cometron 7x50](https://watchthenight.com/gear/celestron-cometron-7x50/) — The $40 binoculars that started a thousand hobbies.
+- [Celestron NexYZ 3-Axis Smartphone Adapter](https://watchthenight.com/gear/celestron-nexyz-adapter/) — Your phone + any telescope = astrophotography tonight.
+- [Red LED headlamp](https://watchthenight.com/gear/red-led-headlamp/) — Hands-free red light. You'll wonder how you lived without it.
+- [Canon EOS Rebel T7](https://watchthenight.com/gear/canon-eos-rebel-t7/) — The default budget astrophotography DSLR.
 
 ## Categories
 
@@ -27,3 +33,5 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 
 - [How to choose your first telescope](https://watchthenight.com/guides/first-telescope/) — Aperture, mounts, and the three picks we'd actually recommend — no spec-sheet scams.
 - [Start with binoculars](https://watchthenight.com/guides/start-with-binoculars/) — Why the $110 upgrade beats a $500 telescope for your first night out.
+- [Shoot the night sky with your phone](https://watchthenight.com/guides/smartphone-astrophotography/) — Afocal photography: phone + telescope + a $60 adapter.
+- [What can you actually see with a telescope?](https://watchthenight.com/guides/what-can-you-see/) — Honest expectations: the Moon will blow your mind, galaxies will humble you.
