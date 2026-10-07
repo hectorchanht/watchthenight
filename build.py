@@ -37,6 +37,11 @@ SITE = load("site.json")
 PRODUCTS = load("products.json")["products"]
 GUIDES = load("guides.json")["guides"]
 CATS = SITE["categories"]
+TONIGHT = None
+_tonight_path = os.path.join(SRC, "tonight.json")
+if os.path.exists(_tonight_path):
+    with open(_tonight_path, encoding="utf-8") as _f:
+        TONIGHT = json.load(_f)
 DOMAIN = SITE["domain"]
 BASE = f"https://{DOMAIN}"
 
@@ -149,12 +154,22 @@ def index_page():
         for c, v in CATS.items()
     )
     picks_html = "".join(card(p) for p in PRODUCTS)
+    tonight_html = ""
+    if TONIGHT:
+        t = TONIGHT
+        tonight_html = (
+            '\n<section class="tonight">\n'
+            f'  <h2>Tonight\'s sky <span class="date">{esc(t["date"])}</span></h2>\n'
+            f'  <p class="moon">{t["emoji"]} <strong>{esc(t["phase"])}</strong> — {t["illumination_pct"]}% illuminated</p>\n'
+            f'  <p class="tip">Tonight\'s tip: {esc(t["tip"])}</p>\n'
+            "</section>"
+        )
     body = f"""
 <section class="hero">
   <p class="kicker">Citizen skywatch gear guide</p>
   <h1>{esc(SITE['tagline'])}</h1>
   <p class="lede">{esc(SITE['tagline_zh'])} — {esc(SITE['description'])}</p>
-</section>
+</section>{tonight_html}
 <section>
   <h2>Shop by category</h2>
   <div class="grid">{cats_html}</div>
