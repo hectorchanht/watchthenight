@@ -1,1 +1,26 @@
-{"_notes":"Prices in products.json are approximate street prices, not live quotes.","brand":"Watch the Night","categories":{"accessories":{"blurb":"The small things that decide whether you actually go outside at night.","label":"Accessories"},"binoculars":{"blurb":"The cheapest serious upgrade. Wide-field scanning, zero setup, always in the car.","label":"Binoculars"},"camera-gear":{"blurb":"Star trackers and mounts that turn an ordinary camera into a deep-sky rig.","label":"Camera gear"},"telescopes":{"blurb":"From first-light tabletop scopes to computerized GoTo rigs — pick the aperture that matches your sky.","label":"Telescopes"}},"description":"Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star trackers and accessories for people who want to look at the night sky themselves — and capture what they see.","domain":"watchthenight.com","email":"hello@watchthenight.com","tagline":"Watch the night.","tagline_zh":"自己睇返轉頭"}
+{
+  "_notes": "Prices in products.json are approximate street prices, not live quotes.",
+  "brand": "Watch the Night",
+  "categories": {
+    "accessories": {
+      "blurb": "The small things that decide whether you actually go outside at night.",
+      "label": "Accessories"
+    },
+    "binoculars": {
+      "blurb": "The cheapest serious upgrade. Wide-field scanning, zero setup, always in the car.",
+      "label": "Binoculars"
+    },
+    "camera-gear": {
+      "blurb": "Star trackers and mounts that turn an ordinary camera into a deep-sky rig.",
+      "label": "Camera gear"
+    },
+    "telescopes": {
+      "blurb": "From first-light tabletop scopes to computerized GoTo rigs — pick the aperture that matches your sky.",
+      "label": "Telescopes"
+    }
+  },
+  "description": "Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star trackers and accessories for people who want to look at the night sky themselves — and capture what they see.",
+  "domain": "watchthenight.com",
+  "email": "hello@watchthenight.com",
+  "tagline": "Watch the night."
+}

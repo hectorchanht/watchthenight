@@ -68,7 +68,7 @@ NAV_LINKS = "".join(
 FOOTER = f"""
 <footer>
   <div class="wrap">
-    <p class="brand">{esc(SITE['brand'])} <span>· {esc(SITE['tagline_zh'])}</span></p>
+    <p class="brand">{esc(SITE['brand'])}</p>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
     <p class="fine">© {datetime.date.today().year} {esc(SITE['brand'])}. Look up.</p>
@@ -168,7 +168,7 @@ def index_page():
 <section class="hero">
   <p class="kicker">Citizen skywatch gear guide</p>
   <h1>{esc(SITE['tagline'])}</h1>
-  <p class="lede">{esc(SITE['tagline_zh'])} — {esc(SITE['description'])}</p>
+  <p class="lede">{esc(SITE['description'])}</p>
 </section>{tonight_html}
 <section>
   <h2>Shop by category</h2>
