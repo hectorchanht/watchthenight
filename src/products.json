@@ -3,7 +3,7 @@
   "products": [
     {
       "amazon_query": "Celestron NexStar 8SE telescope",
-      "blurb": "The classic 8-inch computerized Schmidt-Cassegrain. Type in a target — or just let the GoTo mount find it — and you're looking at Saturn's rings in minutes. If you want to check a light in the sky against a known satellite or star, this is the rig that makes it easy.",
+      "blurb": "This is the scope I'd hand you if you said 'I want to see Saturn's rings tonight, and I don't want to learn star charts first.' Type in a target, the mount finds it, and there are the rings. It's heavy, it needs power, and your wallet will feel it — but for pure point-me-at-the-cool-stuff joy, this is the one.",
       "category": "telescopes",
       "cons": [
         "Heavy for one person to carry far",
@@ -37,11 +37,11 @@
         "Optical design": "Schmidt-Cassegrain",
         "Weight": "~11–14 kg assembled (≈24 lbs)"
       },
-      "tagline": "The computerized 8-inch that finds it for you."
+      "tagline": "The 8-inch that finds things for you, so you can just look up."
     },
     {
       "amazon_query": "Apertura AD8 Dobsonian telescope",
-      "blurb": "Eight inches of aperture on a simple push-to Dobsonian base — the most light per dollar in amateur astronomy. No batteries, no menus: point it at the sky and sweep. For scanning a patch of sky where something was reported, nothing beats a big Dob.",
+      "blurb": "Eight inches of mirror on a base so simple there's nothing to break — no batteries, no menus, just you and the sky. If your budget stretches this far and you can carry it outside, nothing shows you more for the money. Honest take: this is the most telescope most people will ever need.",
       "category": "telescopes",
       "cons": [
         "Bulky tube — needs car transport",
@@ -75,11 +75,11 @@
         "Mount": "Dobsonian (push-to)",
         "Optical design": "Newtonian reflector"
       },
-      "tagline": "Maximum aperture per dollar. Point and sweep."
+      "tagline": "Big mirror, simple mount, honest price. Just point and sweep."
     },
     {
       "amazon_query": "Celestron StarSense Explorer DX 130AZ",
-      "blurb": "A 130mm reflector that uses your phone to plate-solve the sky and guide you to targets — training wheels that actually teach you the sky. Perfect first scope for someone whose interest started with 'what was that light?'",
+      "blurb": "A 130mm reflector with a clever trick: your phone plate-solves the sky and walks you to 100+ targets. Training wheels that actually teach you to ride. Saw a weird light last Tuesday? This helps you check whether it was a satellite — and you'll learn the sky doing it.",
       "category": "telescopes",
       "cons": [
         "Phone mount adds fiddliness",
@@ -113,11 +113,11 @@
         "Optical design": "Newtonian reflector",
         "Phone dock": "StarSense Explorer app (iOS/Android)"
       },
-      "tagline": "Your phone guides you to 100+ targets."
+      "tagline": "Your phone teaches you the sky while you observe."
     },
     {
       "amazon_query": "Sky-Watcher Star Adventurer 2i",
-      "blurb": "A portable star tracker that rotates your camera with the Earth, turning 30-second exposures into 3-minute ones. This is the piece of gear that takes a skywatch photo from 'blurry dot' to 'that's clearly structured'.",
+      "blurb": "This little tracker rotates your camera with the Earth, stretching 30-second shots into 3-minute ones. It's the difference between 'blurry dot' and 'wait, that's actually structured.' Already own a camera? This is the cheapest ticket into real astrophotography — and into photographing what you see up there.",
       "category": "camera-gear",
       "cons": [
         "Learning curve on polar alignment",
@@ -151,11 +151,11 @@
         "Tracking rates": "Sidereal, solar, lunar (+ time-lapse modes)",
         "Weight": "1.2 kg"
       },
-      "tagline": "Turn any camera into a deep-sky rig."
+      "tagline": "Turns the camera you own into a deep-sky machine."
     },
     {
       "amazon_query": "Celestron SkyMaster 15x70 binoculars",
-      "blurb": "Before you buy a telescope, buy binoculars. 15x70s show you Jupiter's moons, star clusters and the Andromeda galaxy's core — and they're how you scan a wide patch of sky fast when something's been reported overhead.",
+      "blurb": "Rule number one from your 表哥: binoculars before telescopes. These 15x70s show Jupiter's moons, star clusters, and the glow of Andromeda — and when something's reported overhead, they're how you scan a huge patch of sky in seconds. More sky per dollar than anything else on this site.",
       "category": "binoculars",
       "cons": [
         "Heavy — needs a tripod for long sessions",
@@ -189,11 +189,11 @@
         "Tripod adaptable": "Yes",
         "Weight": "1.36 kg"
       },
-      "tagline": "The cheapest serious sky upgrade."
+      "tagline": "Before a telescope, get these. Trust me on this one."
     },
     {
       "amazon_query": "Celestron red LED astronomy flashlight",
-      "blurb": "White light kills your night vision for 20+ minutes; red light doesn't. The least glamorous, most-used item in any observer's kit — and the difference between fumbling in the dark and actually enjoying the session.",
+      "blurb": "White light nukes your night vision for 20+ minutes; red light doesn't. Nobody brags about owning one, but everyone who's serious has one in their pocket. It's the difference between fumbling in the dark and actually enjoying your night out.",
       "category": "accessories",
       "cons": [
         "It's a flashlight — don't overthink it",
@@ -220,14 +220,14 @@
         "Power": "3x AAA",
         "Weight": "~60 g"
       },
-      "tagline": "Protect your night vision for $15."
+      "tagline": "The least glamorous $15 you'll spend. Also the most used."
     },
     {
       "slug": "skywatcher-heritage-150p",
       "name": "Sky-Watcher Heritage 150P",
       "category": "telescopes",
-      "tagline": "6 inches of tabletop Dobsonian — the sweet spot starter scope.",
-      "blurb": "A 150mm collapsible Dobsonian that sits on a table or stool and shows you Saturn's rings, Jupiter's bands and hundreds of deep-sky objects. The most recommended first real telescope in the hobby for a reason: huge views, tiny price, zero setup fuss.",
+      "tagline": "Six inches of 'oh wow' that fits on a camping table.",
+      "blurb": "A 150mm Dobsonian that collapses down, sits on a table, and shows you Saturn's rings like it's no big deal. Ask ten astronomers what first scope to buy and half will say this one. The other half are just being contrarian.",
       "price_usd": 300,
       "pros": [
         "150mm aperture punches far above its price",
@@ -264,8 +264,8 @@
       "slug": "celestron-astromaster-70az",
       "name": "Celestron AstroMaster 70AZ",
       "category": "telescopes",
-      "tagline": "The classic sub-$200 first refractor.",
-      "blurb": "A 70mm long-tube refractor on a simple alt-azimuth mount — the default answer to 'what's a good cheap first telescope?' for a decade. Won't rival an 8-inch Dob, but the Moon and planets look great and it's dead easy to use.",
+      "tagline": "The honest $150 start. No shame in starting here.",
+      "blurb": "A 70mm refractor on a simple mount — the classic answer to 'what's a cheap first telescope?' for a decade. It won't beat an 8-inch Dob, obviously, but the Moon looks fantastic and there's zero learning curve. If the hobby doesn't stick, you're out the price of a nice dinner.",
       "price_usd": 150,
       "pros": [
         "Very affordable entry point",
@@ -301,8 +301,8 @@
       "slug": "nikon-aculon-a211-10x50",
       "name": "Nikon Aculon A211 10x50",
       "category": "binoculars",
-      "tagline": "The 10x50 every observer should own.",
-      "blurb": "Before (and after) you buy a telescope, you need 10x50s. The Aculon is the benchmark budget pair: bright, sharp enough, and tough. Scan the Milky Way, split double stars, catch satellites — all handheld, all instantly.",
+      "tagline": "The 10x50s you'll still own in twenty years.",
+      "blurb": "Before a telescope, after a telescope — you always need 10x50s. The Aculon is the benchmark budget pair: bright, sharp enough, and tough enough to survive being lent to curious friends. Scan the Milky Way, split double stars, catch satellites. Instant, handheld, wonderful.",
       "price_usd": 120,
       "pros": [
         "Benchmark optics for the money",
@@ -332,8 +332,8 @@
       "slug": "telrad-reflex-finder",
       "name": "Telrad reflex finder",
       "category": "accessories",
-      "tagline": "Point your telescope like pointing your finger.",
-      "blurb": "A zero-magnification reflex sight that projects red rings onto the sky. Star-hopping with a Telrad is so intuitive it feels like cheating — the single best upgrade for any Dobsonian owner.",
+      "tagline": "Point at the sky like pointing with your finger.",
+      "blurb": "A reflex sight that projects glowing rings onto the sky — no magnification, just 'put the thing in the circle.' Star-hopping with a Telrad feels so natural you'll wonder why all finders aren't like this. The best $40 upgrade for any Dobsonian owner, and I don't say that lightly.",
       "price_usd": 45,
       "pros": [
         "Makes finding objects dramatically easier",
@@ -367,8 +367,8 @@
       "slug": "planisphere-40n",
       "name": "Large planisphere (40°N)",
       "category": "accessories",
-      "tagline": "The whole sky on a spinning wheel. No batteries.",
-      "blurb": "Dial in the date and time, and the planisphere shows you exactly what's up tonight. No app, no phone glare killing your night vision, no battery. Every beginner should learn the sky on one of these before touching a GoTo mount.",
+      "tagline": "The whole sky on a spinning wheel. No charging cable.",
+      "blurb": "Dial in tonight's date and time, and this shows you exactly what's overhead. No app, no phone glare wrecking your night vision, no dead battery at 11pm. Learn the sky on one of these before you let a computer do it for you — future you will be grateful.",
       "price_usd": 15,
       "pros": [
         "Teaches you the actual sky",
@@ -397,8 +397,8 @@
       "slug": "orion-skyquest-xt6",
       "name": "Orion SkyQuest XT6",
       "category": "telescopes",
-      "tagline": "The classic 6-inch Dobsonian — decades of beginners can't be wrong.",
-      "blurb": "A 150mm f/8 Dobsonian that's been the default first serious telescope for decades. Long focal length means crisp, high-contrast views of the Moon and planets. If you want one telescope that does everything well, this is the shape of it.",
+      "tagline": "The 6-inch Dobsonian that raised a generation of stargazers.",
+      "blurb": "A 150mm f/8 Dobsonian that's been the default first serious telescope for decades — because it works. Long focal length means crisp, contrasty Moon and planets. If you want one telescope that does everything well and never talks back, it's shaped exactly like this.",
       "price_usd": 450,
       "pros": [
         "150mm f/8 gives sharp planetary views",
@@ -434,8 +434,8 @@
       "slug": "orion-starblast-4-5",
       "name": "Orion StarBlast 4.5 Astro Reflector",
       "category": "telescopes",
-      "tagline": "The grab-and-go tabletop that hooks kids and adults alike.",
-      "blurb": "A 114mm wide-field reflector on a tiny Dobsonian base — put it on a table and you're observing in 60 seconds. The perfect 'is this hobby for me?' telescope: cheap, fun, and genuinely capable on the Moon, planets and bright deep-sky.",
+      "tagline": "On a table, observing in 60 seconds. Try the hobby on for size.",
+      "blurb": "A 114mm wide-field reflector on a tiny Dobsonian base — plop it on a table and you're counting craters in a minute. This is the 'is this hobby for me?' telescope: cheap, genuinely fun, and capable enough on the Moon and planets that you might just get hooked. (Sorry in advance to your wallet.)",
       "price_usd": 250,
       "pros": [
         "Sets up in a minute, anywhere",
@@ -466,8 +466,8 @@
       "slug": "celestron-cometron-7x50",
       "name": "Celestron Cometron 7x50",
       "category": "binoculars",
-      "tagline": "The $40 binoculars that started a thousand hobbies.",
-      "blurb": "7x50 is the classic astronomy binocular format: bright, steady, wide. The Cometron is the cheapest honest pair — perfect for learning the sky, comets, and the Milky Way without thinking twice about the price.",
+      "tagline": "Forty bucks. A thousand hobbies started right here.",
+      "blurb": "7x50 is the classic astronomy binocular format: bright, steady, wide. The Cometron is the cheapest honest pair — for the price of two pizzas you get the Milky Way, comets, and star clusters. Keep them by the back door; you'll reach for them more than you think.",
       "price_usd": 40,
       "pros": [
         "Bright 7x50 views, easy to hold steady",
@@ -495,8 +495,8 @@
       "slug": "celestron-nexyz-adapter",
       "name": "Celestron NexYZ 3-Axis Smartphone Adapter",
       "category": "accessories",
-      "tagline": "Your phone + any telescope = astrophotography tonight.",
-      "blurb": "Clamps your phone to almost any eyepiece and aligns the camera in three axes — the fiddly part of phone astrophotography, solved. This is the $60 bridge between 'I saw it' and 'I captured it', and the heart of the citizen-skywatch kit.",
+      "tagline": "Your phone + any telescope = photos tonight.",
+      "blurb": "Clamps your phone to almost any eyepiece and nails the alignment — the fiddly part of phone astrophotography, solved for sixty bucks. It's the bridge between 'I saw it!' and 'look what I caught.' If you ever want to show someone what that light in the sky actually was, start here.",
       "price_usd": 60,
       "pros": [
         "Fits almost any phone and eyepiece",
@@ -530,8 +530,8 @@
       "slug": "red-led-headlamp",
       "name": "Red LED headlamp",
       "category": "accessories",
-      "tagline": "Hands-free red light. You'll wonder how you lived without it.",
-      "blurb": "A headlamp with a red mode keeps both hands free for eyepieces, charts and focus knobs — while your night vision stays intact. The most-used $20 in the kit after the red flashlight.",
+      "tagline": "Hands-free red light. Future you says thanks.",
+      "blurb": "Red mode on, both hands free for eyepieces and focus knobs, night vision intact. After the red flashlight, this is the most-used twenty bucks in the kit. You'll wonder how you ever observed without one — probably while holding a flashlight in your teeth, like the rest of us did.",
       "price_usd": 20,
       "pros": [
         "Hands-free observing",
@@ -558,8 +558,8 @@
       "slug": "canon-eos-rebel-t7",
       "name": "Canon EOS Rebel T7",
       "category": "camera-gear",
-      "tagline": "The default budget astrophotography DSLR.",
-      "blurb": "24 megapixels, a huge used-lens market, and full compatibility with the <a href=\"/gear/skywatcher-star-adventurer-2i/\">Star Adventurer 2i</a>. Pair this with a tracker and a $100 nifty-fifty, and you're shooting nebulae. The camera half of the citizen-skywatch rig.",
+      "tagline": "The people's astrophotography DSLR.",
+      "blurb": "24 megapixels, a mountain of cheap used lenses, and it plays perfectly with the <a href=\"/gear/skywatcher-star-adventurer-2i/\">Star Adventurer 2i</a>. Add a $100 nifty-fifty and a tracker, and you're shooting nebulae. Nothing fancy — just the honest, affordable way into the deep sky.",
       "price_usd": 500,
       "pros": [
         "24MP APS-C sensor",
@@ -588,8 +588,8 @@
       "name": "Celestron NexStar 6SE",
       "slug": "celestron-nexstar-6se",
       "category": "telescopes",
-      "tagline": "The computerized 6-inch that finds it for you — lighter than the 8SE.",
-      "blurb": "A 6-inch computerized Schmidt-Cassegrain on the classic NexStar fork mount. Same GoTo brain as the 8SE, in a lighter, more portable package that's easier to carry to a dark site.",
+      "tagline": "The 8SE's lighter little brother. Easier to carry, still finds everything.",
+      "blurb": "Same GoTo brain as the 8SE in a 6-inch package you can actually carry to a dark site without negotiating with your spine. You give up some light-gathering; you gain a scope that leaves the house more often. And the best telescope, as I keep saying, is the one you actually use.",
       "price_usd": 1199,
       "pros": [
         "Computerized GoTo finds 40,000+ objects",
@@ -626,8 +626,8 @@
       "name": "Apertura AD10 10\" Dobsonian",
       "slug": "apertura-ad10-dobsonian",
       "category": "telescopes",
-      "tagline": "Ten inches of aperture — the deep-sky step up from the AD8.",
-      "blurb": "A 10-inch Dobsonian with the same simple push-to base as the AD8, but noticeably more light grasp. The classic 'bucket of light' upgrade for observers who want galaxies, not just planets.",
+      "tagline": "Ten inches of 'wait, I can see the spiral arms.'",
+      "blurb": "Same simple push-to Dobsonian idea as the AD8, with noticeably more light grasp. Galaxies stop being smudges and start showing structure. It's bigger and heavier — be honest with yourself about your car and your stairs — but for deep-sky obsession per dollar, this is the next rung up.",
       "price_usd": 899,
       "pros": [
         "10-inch aperture resolves globular clusters and spiral structure",
@@ -664,8 +664,8 @@
       "name": "Sky-Watcher Evostar 102",
       "slug": "skywatcher-evostar-102",
       "category": "telescopes",
-      "tagline": "The classic 4-inch achromatic refractor — sharp, simple, honest.",
-      "blurb": "A 102mm f/10 achromatic refractor: long tube, rack-and-pinion focuser, zero collimation ever. The old-school refractor that shows razor-sharp Moon and planets and doubles as a spotting scope by day.",
+      "tagline": "Old-school refractor. Razor-sharp Moon, zero maintenance.",
+      "blurb": "A 102mm f/10 achromat: long tube, smooth focuser, and mirrors you'll never align because there aren't any. The Moon and planets look razor-sharp, and it doubles as a spotting scope by day. Simple, honest, quietly excellent — the tortoise of telescopes.",
       "price_usd": 280,
       "pros": [
         "Refractor — never needs collimation",
@@ -701,8 +701,8 @@
       "name": "Vortex Diamondback HD 10x42",
       "slug": "vortex-diamondback-hd-10x42",
       "category": "binoculars",
-      "tagline": "The mid-range 10x42 that outclasses everything near its price.",
-      "blurb": "Vortex's best-selling binocular line with HD optical system and a lifetime VIP warranty. Brighter, sharper, and tougher than budget pairs — the buy-once upgrade for night-sky scanning and daytime birding alike.",
+      "tagline": "The 'buy once' binoculars.",
+      "blurb": "Brighter, sharper, and tougher than budget pairs, with Vortex's lifetime warranty — they'll fix it even if the damage was your fault. (We've all dropped things in the dark.) For night-sky scanning plus daytime birding, this is the pair you stop upgrading from.",
       "price_usd": 230,
       "pros": [
         "Noticeably sharper and brighter than budget 10x42s",
@@ -734,8 +734,8 @@
       "name": "Celestron Nature DX 8x42",
       "slug": "celestron-nature-dx-8x42",
       "category": "binoculars",
-      "tagline": "The friendlier 8x42 — wider view, steadier hand-hold.",
-      "blurb": "An 8x42 binocular with a wide field and forgiving eye relief — easier to hold steady than 10x pairs and great for sweeping the Milky Way. The pick for anyone who finds 10x shaky.",
+      "tagline": "Wider, steadier, friendlier — especially if 10x feels shaky.",
+      "blurb": "An 8x42 with a wide field and forgiving eye relief: easier to hold steady, easier on the eyes, lovely for sweeping the Milky Way. If 10x50s make your hands feel like they've had three coffees, these are your pair. No shame in it — steady views beat shaky magnification every time.",
       "price_usd": 150,
       "pros": [
         "Wider field than 10x42s — easier to find things",
@@ -767,8 +767,8 @@
       "name": "Turn Left at Orion",
       "slug": "turn-left-at-orion",
       "category": "accessories",
-      "tagline": "The hundred best things to see in a small telescope — and how to find them.",
-      "blurb": "Guy Consolmagno and Dan Davis's classic observing guide: one object per spread, star-hop maps, and what each target actually looks like through a small scope. Over 100,000 copies sold — the book every beginner's shelf needs.",
+      "tagline": "The book that teaches you what's actually up there.",
+      "blurb": "One object per spread, star-hop maps, and honest sketches of what each target looks like through a small scope — not Hubble photos that set you up for disappointment. Over 100,000 copies sold. If you buy one astronomy book, let it be this one. (This is me, your 表哥, insisting.)",
       "price_usd": 40,
       "pros": [
         "Shows exactly what objects look like in a small telescope",
@@ -800,8 +800,8 @@
       "name": "Sky & Telescope's Pocket Sky Atlas",
       "slug": "pocket-sky-atlas",
       "category": "accessories",
-      "tagline": "The whole sky in your coat pocket — 30,796 stars, zero batteries.",
-      "blurb": "The most recommended star atlas in the hobby: 30,796 stars down to magnitude 7.6 across 80 charts, compact enough to take anywhere. Never needs charging, never crashes, works at every dark site.",
+      "tagline": "30,796 stars in your coat pocket. Never needs charging.",
+      "blurb": "The most recommended star atlas in the hobby: 80 charts down to magnitude 7.6, compact enough to take anywhere. It'll never crash, never update at the worst moment, and works at every dark site on Earth. Pair it with a red flashlight and you're officially an observer.",
       "price_usd": 30,
       "pros": [
         "80 charts with 30,796 stars — deep enough for a telescope",
@@ -833,8 +833,8 @@
       "name": "Cheshire collimating eyepiece",
       "slug": "cheshire-collimating-eyepiece",
       "category": "accessories",
-      "tagline": "The $35 tool that keeps your reflector sharp.",
-      "blurb": "A simple sight tube with a crosshair and reflective ring — the classic tool for collimating (aligning the mirrors of) a Newtonian reflector. Ten minutes with a Cheshire beats guessing forever.",
+      "tagline": "Ten calm minutes with this beats guessing forever.",
+      "blurb": "A sight tube with a crosshair that takes the mystery out of collimating your reflector. New Dobsonian owners fear this job far more than they should — with a Cheshire it's a peaceful ten-minute ritual, and your views will thank you for it.",
       "price_usd": 35,
       "pros": [
         "Fast, repeatable collimation without starlight",
@@ -869,8 +869,8 @@
       "name": "Celestron X-Cel LX 2x Barlow",
       "slug": "celestron-x-cel-lx-2x-barlow",
       "category": "accessories",
-      "tagline": "Double every eyepiece you own — the cheapest magnification upgrade.",
-      "blurb": "A 3-element apochromatic Barlow that doubles the magnification of any eyepiece in your case. Slips into the focuser in seconds and effectively gives you two eyepiece sets for the price of one accessory.",
+      "tagline": "Double your eyepieces without buying eyepieces.",
+      "blurb": "A good 3-element Barlow that doubles the magnification of every eyepiece you own — slip it in and four eyepieces become eight. The cheapest meaningful upgrade in the hobby. One caveat from experience: more power isn't always better. The atmosphere gets a vote too.",
       "price_usd": 130,
       "pros": [
         "Doubles your whole eyepiece collection",
@@ -906,8 +906,8 @@
       "name": "iOptron SkyGuider Pro",
       "slug": "ioptron-skyguider-pro",
       "category": "camera-gear",
-      "tagline": "The tracker for serious Milky Way panoramas and telephoto nightscapes.",
-      "blurb": "A compact equatorial tracker with an 11 lb payload capacity — enough for a DSLR, telephoto lens, and guidescope. Built-in polar scope, multiple tracking rates, and a ST-4 autoguider port for deep-sky work.",
+      "tagline": "For when the Milky Way panoramas get serious.",
+      "blurb": "An 11 lb payload capacity means DSLR, telephoto lens, and guidescope all ride along happily. Built-in polar scope, multiple tracking rates, autoguider port — this is the tracker people graduate to once they've caught the bug and want sharper, deeper nightscapes.",
       "price_usd": 479,
       "pros": [
         "11 lb payload — handles telephoto lenses easily",
@@ -944,8 +944,8 @@
       "name": "Canon EF 50mm f/1.8 STM",
       "slug": "canon-ef-50mm-f18-stm",
       "category": "camera-gear",
-      "tagline": "The nifty fifty — the cheapest way into tracked Milky Way shots.",
-      "blurb": "Canon's legendary budget prime: f/1.8 aperture gathers ~8x more light than a kit lens at 50mm. Pair it with a star tracker and a Canon body for sharp, cheap wide-field nightscapes.",
+      "tagline": "The nifty fifty: f/1.8 of pure night-sky value.",
+      "blurb": "Canon's legendary budget prime gathers roughly 8x more light than a kit lens. Bolt it to a tracker and any Canon body, and you're shooting sharp Milky Way panoramas for about a hundred bucks. The best value in all of astrophotography, and honestly it's not close.",
       "price_usd": 125,
       "pros": [
         "f/1.8 gathers huge amounts of light for the price",
@@ -976,8 +976,8 @@
       "name": "ZWO Seestar S50",
       "slug": "zwo-seestar-s50",
       "category": "smart-telescopes",
-      "tagline": "The all-in-one smart scope — it finds, tracks, and stacks for you.",
-      "blurb": "A 50mm apochromatic smart telescope with built-in GoTo, plate solving, and live stacking, all controlled from your phone. Point it at the sky and watch deep-sky objects build up on screen — no eyepiece required.",
+      "tagline": "Point it at the sky. Watch galaxies appear on your phone.",
+      "blurb": "A 50mm smart scope that finds, tracks, and stacks everything by itself — you just watch deep-sky objects materialize on your screen. No eyepiece, no learning curve, no frozen fingers. Purists will grumble; you'll be too busy showing your friends the Whirlpool Galaxy to care.",
       "price_usd": 500,
       "pros": [
         "Fully automated — plate solving finds targets itself",
@@ -1014,8 +1014,8 @@
       "name": "Dwarf 3 by Dwarflab",
       "slug": "dwarf-3",
       "category": "smart-telescopes",
-      "tagline": "Pocket-size smart scope with dual cameras and AI tracking.",
-      "blurb": "Dwarflab's third-generation smart telescope: a telephoto camera plus a wide-angle camera in a package smaller than a soda can, with AI subject tracking. Shoots the Moon, Sun (with filter), deep sky — and birds by day.",
+      "tagline": "A smart telescope smaller than a soda can.",
+      "blurb": "Telephoto plus wide-angle cameras, AI tracking, fits in a jacket pocket. It shoots the Moon, the Sun (with the filter, please — I worry), deep sky — and birds on weekends. The 'bring it everywhere' scope, for people whose best observing sessions are the unplanned ones.",
       "price_usd": 600,
       "pros": [
         "Dual cameras: telephoto + wide-angle in one device",
@@ -1046,8 +1046,8 @@
       "name": "Celestron Origin",
       "slug": "celestron-origin",
       "category": "smart-telescopes",
-      "tagline": "Observatory-class smart imaging in a 6-inch RASA.",
-      "blurb": "Celestron's flagship smart telescope: a 6-inch f/2.2 RASA optical tube on a fully automated mount with built-in camera and AI-assisted processing. The closest thing to a personal observatory you can buy.",
+      "tagline": "A personal observatory that sets itself up.",
+      "blurb": "Celestron's flagship smart scope: a 6-inch f/2.2 RASA with built-in camera and automated everything. It's the closest thing to owning an observatory — at observatory prices, to be fair. If money is no object and you want the best images with the least fuss, this is the dream machine.",
       "price_usd": 4000,
       "pros": [
         "Fast f/2.2 RASA optics — serious deep-sky speed",

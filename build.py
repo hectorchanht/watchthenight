@@ -51,38 +51,38 @@ ROUNDUPS = [
     {
         "title": "Best telescopes under $500",
         "slug": "best-telescopes-under-500",
-        "description": "Ranked by price: the best telescopes you can buy for under $500, with honest tradeoffs for each.",
-        "intro": "Every scope here costs under $500 — ranked from cheapest to priciest. Under $500 is the sweet spot for a first telescope: enough aperture to show you Saturn's rings and real deep-sky objects, without the regret if you upgrade later.",
+        "description": "The telescopes under $500 I’d actually hand to family — ranked by price, tradeoffs included.",
+        "intro": "Every scope here costs under $500 — ranked from cheapest to priciest, because I know that’s how you’re reading it. This is the sweet spot for a first telescope: enough aperture for Saturn’s rings and real deep-sky objects, without the regret if you upgrade later. (You probably will. We all do.)",
         "picks": [
-            ("celestron-astromaster-70az", "The honest $150 start. A real refractor with no collimation — good for the Moon and planets, and cheap enough that it doesn't matter if the hobby doesn't stick."),
-            ("orion-starblast-4-5", "The tabletop Dobsonian classic. More aperture per dollar than cheap refractors, though the mount is basic and it needs something to sit on."),
-            ("skywatcher-evostar-102", "A sharp 4-inch achromatic refractor — but it's the optical tube only, so budget a mount and tripod before it fits under $500."),
-            ("skywatcher-heritage-150p", "Our sweet-spot pick: 6 inches of Dobsonian that shows Saturn's rings, Jupiter's bands, and hundreds of deep-sky objects."),
-            ("orion-skyquest-xt6", "The full-size 6-inch Dobsonian — the classic 'most telescope for the money' at this price."),
-            ("celestron-starsense-explorer-dx-130az", "Your phone plate-solves the sky and guides you to 100+ targets. Training wheels that actually teach you the constellations."),
+            ("celestron-astromaster-70az", "The honest $150 start. A real refractor with zero collimation fuss — lovely on the Moon and planets, and cheap enough that it doesn't matter if the hobby doesn't stick."),
+            ("orion-starblast-4-5", "The tabletop Dobsonian classic. More sky per dollar than cheap refractors — though you’ll need to put it on something sturdy, like the world’s most exciting side table."),
+            ("skywatcher-evostar-102", "A sharp 4-inch refractor — but heads up, it’s the tube only, so save room in the budget for a mount and tripod."),
+            ("skywatcher-heritage-150p", "My sweet-spot pick, and I’ll defend it at family dinner: 6 inches of Dobsonian showing Saturn’s rings, Jupiter’s bands, and hundreds of deep-sky objects."),
+            ("orion-skyquest-xt6", "The full-size 6-inch Dobsonian — the one that’s been making beginners happy for decades. Classics are classics for a reason."),
+            ("celestron-starsense-explorer-dx-130az", "Your phone guides you to 100+ targets — training wheels that actually teach you the constellations instead of doing your homework for you."),
         ],
     },
     {
         "title": "Best binoculars for stargazing",
         "slug": "best-binoculars-stargazing",
-        "description": "Ranked by price: the best binoculars for the night sky, from $40 sweepers to the buy-once upgrade.",
-        "intro": "If you only buy one thing for the night sky, make it binoculars. Ranked cheapest to priciest — every pair here is genuinely useful under the stars, not just a daytime compromise.",
+        "description": "The binoculars I’d hand to family — from $40 sweepers to the buy-once upgrade.",
+        "intro": "If you only buy one thing for the night sky, make it binoculars — yes, I’m serious, and yes, I’ll keep saying it. Ranked cheapest to priciest; every pair here is genuinely lovely under the stars, not a daytime compromise.",
         "picks": [
-            ("celestron-cometron-7x50", "The $40 wide-field sweeper. Light, forgiving, and the cheapest serious way to learn the sky."),
-            ("nikon-aculon-a211-10x50", "The benchmark beginner pair. Bright, sharp enough, and useful forever — even after you buy a telescope."),
-            ("celestron-nature-dx-8x42", "Wider and steadier than 10x42s. The pick if 10x feels shaky in your hands."),
-            ("celestron-skymaster-15x70", "Huge light grasp for the price — but heavy enough that you'll want a tripod for long sessions."),
-            ("vortex-diamondback-hd-10x42", "The buy-once upgrade: noticeably sharper glass plus Vortex's lifetime warranty."),
+            ("celestron-cometron-7x50", "The $40 wide-field sweeper. Light, forgiving, and the cheapest honest way to learn the sky — cheaper than the pizza you’ll order while using them."),
+            ("nikon-aculon-a211-10x50", "The benchmark beginner pair. Bright, sharp enough, and useful forever — yes, even after you buy a telescope. Especially after."),
+            ("celestron-nature-dx-8x42", "Wider and steadier than 10x pairs — the pick if 10x feels shaky in your hands. No shame; steady beats shaky."),
+            ("celestron-skymaster-15x70", "Huge light grasp for the price — but fair warning, your arms will vote for a tripod during long sessions."),
+            ("vortex-diamondback-hd-10x42", "The buy-once upgrade: noticeably sharper glass, plus a warranty so good it covers your own clumsiness."),
         ],
     },
     {
         "title": "Best star trackers for beginners",
         "slug": "best-star-trackers-beginners",
         "description": "The two star trackers worth buying first — ranked by price — and how to choose between them.",
-        "intro": "A star tracker is the single biggest upgrade in beginner astrophotography: it rotates your camera with the Earth, turning 8-second exposures into 2-minute ones. Only two trackers make our beginner list — both proven, both community-vetted.",
+        "intro": "A star tracker is the biggest single upgrade in beginner astrophotography: it rotates your camera with the Earth, turning 8-second exposures into 2-minute ones. Only two trackers made my beginner list — both proven, both loved by the community, neither will waste your money.",
         "picks": [
-            ("skywatcher-star-adventurer-2i", "The community standard: portable, proven, and it turns any DSLR or mirrorless camera into a deep-sky rig."),
-            ("ioptron-skyguider-pro", "Heavier 11-lb payload for telephoto lenses, plus an ST-4 autoguiding port for when you're ready to go deeper."),
+            ("skywatcher-star-adventurer-2i", "The community standard: portable, proven, and it turns any DSLR or mirrorless camera into a deep-sky rig. Start here unless you know you need the bigger one."),
+            ("ioptron-skyguider-pro", "Heavier 11-lb payload for telephoto lenses, plus an autoguider port for when you're ready to go deeper. The 'I’ve caught the bug' upgrade."),
         ],
     },
 ]
@@ -304,7 +304,7 @@ def index_page():
 </section>
 <section class="how">
   <h2>How we pick</h2>
-  <p>Every pick is gear we'd recommend to a friend who just saw something strange in the sky and wants to look for themselves. We favour aperture per dollar, portability you'll actually use, and upgrade paths that don't dead-end. Prices are approximate street prices — the retailer page has the live number.</p>
+  <p>Every pick here is something I'd recommend to my own cousin who just saw something strange in the sky and wants to look for themselves. I care about three things: views per dollar, portability you'll actually use, and upgrade paths that don't dead-end. Prices are approximate street prices — the retailer page has the live number. And if something isn't worth your money, I'll tell you that too.</p>
 </section>
 {newsletter_block()}"""
     return page(SITE["tagline"], SITE["description"], "/", body)
@@ -505,7 +505,7 @@ def compare_page():
     body = f"""
 <p class="crumb"><a href="/">Home</a> / Compare</p>
 <h1>Compare gear side by side</h1>
-<p class="lede">Pick up to three products and compare full specs, prices, strengths and tradeoffs in one table. Every spec below comes straight from our product pages — no hidden rankings.</p>
+<p class="lede">Pick up to three products and compare full specs, prices, strengths and tradeoffs in one table. Every spec comes straight from our product pages — no hidden rankings, no thumb on the scale.</p>
 <div class="compare-selects">{selects}</div>
 <p><label class="diff-toggle"><input type="checkbox" id="cmp-diff"> Show differences only</label></p>
 <div class="compare-wrap"><table class="compare" id="cmp-table" hidden></table></div>
@@ -585,7 +585,7 @@ def finder_page():
     body = f"""
 <p class="crumb"><a href="/">Home</a> / Finder</p>
 <h1>Gear finder</h1>
-<p class="lede">Filter every pick by what matters to you — category, budget, aperture, GoTo. Like a phone finder, but for the night sky.</p>
+<p class="lede">Filter every pick by what matters to you — category, budget, aperture, GoTo. Like a phone finder, but for the night sky. I'll sort the bargains to the top.</p>
 <div class="finder-filters">
   <div><label for="f-cat">Category</label><select id="f-cat">{cat_opts}</select></div>
   <div><label for="f-price">Max price: <output id="f-price-out"></output></label><input type="range" id="f-price" min="0" step="50" value="4000"></div>
@@ -609,9 +609,9 @@ def about_page():
     body = f"""
 <h1>About {esc(SITE['brand'])}</h1>
 <p class="lede">{esc(SITE['description'])}</p>
-<p>This site exists for one reason: people look up, see something they can't explain, and want better tools than a phone camera and a guess. We cover the gear that actually helps — telescopes, binoculars, star trackers, accessories — picked for real night-sky use, not spec-sheet racing.</p>
+<p>This site exists for one reason: you looked up, saw something you couldn't explain, and wanted better tools than a phone camera and a guess. Think of me as the cousin who got obsessed with telescopes years ago and never quite recovered — except I've done the homework so you don't have to. Every pick is gear I'd hand to family: honest advice, real tradeoffs, zero hype.</p>
 <h2>Affiliate disclosure</h2>
-<p>{esc(SITE['brand'])} is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you. As an Amazon Associate we earn from qualifying purchases. We only recommend gear we'd suggest to a friend — commissions never decide the picks.</p>
+<p>{esc(SITE['brand'])} is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you. As an Amazon Associate we earn from qualifying purchases. Here's my promise: I only recommend gear I'd suggest to family — commissions never decide the picks, and I'll tell you when something isn't worth it.</p>
 <h2>Contact</h2>
 <p><a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>"""
     return page("About", SITE["description"], "/about/", body)
@@ -632,7 +632,7 @@ def guide_card(g):
 def guides_index():
     body = """
 <h1>Skywatch guides</h1>
-<p class="lede">No-nonsense explainers for people who want to look at the night sky themselves — written from the citizen-skywatch angle, not the spec sheet.</p>
+<p class="lede">Plain-talk explainers for people who want to look at the night sky themselves — written by someone who remembers being confused by all of it, and wants to save you the trouble.</p>
 <div class="grid">""" + "".join(guide_card(g) for g in GUIDES) + "</div>"
     return page("Guides", "Practical skywatch guides: choosing your first telescope, starting with binoculars.", "/guides/", body)
 

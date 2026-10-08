@@ -1,7 +1,7 @@
 {
   "name": "Watch the Night",
   "short_name": "WatchNight",
-  "description": "Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star trackers and accessories for people who want to look at the night sky themselves \u2014 and capture what they see.",
+  "description": "Watch the Night is the gear guide I wish someone had handed me: telescopes, binoculars, star trackers and accessories, picked honestly for people who want to see the night sky themselves \u2014 and capture what they see. No hype, no junk, just what works.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#05070f",
