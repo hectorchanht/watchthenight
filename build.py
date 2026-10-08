@@ -5,7 +5,7 @@
     python3 build.py --dump-sql # emit INSERTs for the D1 gear_picks table
 
 Source of truth: src/products.json (+ src/site.json).
-Amazon tag comes from env AMAZON_TAG (default: yourtag-20 placeholder).
+Amazon tag: env AMAZON_TAG wins, else src/site.json "amazon_tag", else yourtag-20 placeholder.
 Retailer URLs starting with 'TODO:' render as 'link coming soon' placeholders.
 """
 import datetime
@@ -20,7 +20,6 @@ from urllib.parse import quote_plus
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
 DIST = os.path.join(ROOT, "dist")
-AMAZON_TAG = os.environ.get("AMAZON_TAG", "yourtag-20")
 TODAY = datetime.date.today().isoformat()
 
 
@@ -34,6 +33,7 @@ def esc(s):
 
 
 SITE = load("site.json")
+AMAZON_TAG = os.environ.get("AMAZON_TAG") or SITE.get("amazon_tag") or "yourtag-20"
 PRODUCTS = load("products.json")["products"]
 GUIDES = load("guides.json")["guides"]
 CATS = SITE["categories"]
