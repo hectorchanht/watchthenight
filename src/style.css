@@ -43,7 +43,8 @@ a { color: var(--accent); }
 /* header */
 header { border-bottom: 1px solid var(--line); background: var(--header-bg); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: .5rem 1.1rem; gap: 1rem; }
-.logo { font-weight: 800; font-size: 1.02rem; color: var(--text); text-decoration: none; letter-spacing: .02em; }
+.logo { font-weight: 800; font-size: 1.02rem; color: var(--text); text-decoration: none; letter-spacing: .02em; display: inline-flex; align-items: center; gap: .5rem; }
+.logo img { width: 28px; height: 28px; border-radius: 7px; display: block; }
 nav { display: flex; gap: 1rem; flex-wrap: wrap; }
 nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
 nav a:hover { color: var(--text); }

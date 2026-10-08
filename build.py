@@ -36,6 +36,7 @@ SITE = load("site.json")
 AMAZON_TAG = os.environ.get("AMAZON_TAG") or SITE.get("amazon_tag") or "yourtag-20"
 PRODUCTS = load("products.json")["products"]
 GUIDES = load("guides.json")["guides"]
+GLOSSARY = load("glossary.json")["terms"]
 CATS = SITE["categories"]
 TONIGHT = None
 _tonight_path = os.path.join(SRC, "tonight.json")
@@ -198,17 +199,23 @@ def page(title, desc, path, body, jsonld=None):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
+<meta property="og:image" content="{BASE}/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" id="meta-theme-color" content="#05070f">
 {THEME_HEAD_SCRIPT}
 <link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 {jd}
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a class="logo" href="/">✦ {esc(SITE['brand'])}</a>
+    <a class="logo" href="/"><img src="/logo.png" alt="" width="28" height="28"> {esc(SITE['brand'])}</a>
     {THEME_TOGGLE}
   </div>
 </header>
@@ -839,6 +846,22 @@ def write(path, content):
 def build():
     os.makedirs(DIST, exist_ok=True)
     shutil.copy(os.path.join(SRC, "style.css"), os.path.join(DIST, "style.css"))
+    for asset in ("logo.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png",
+                  "favicon.ico", "favicon-32x32.png", "favicon-16x16.png"):
+        shutil.copy(os.path.join(SRC, "assets", asset), os.path.join(DIST, asset))
+    write("site.webmanifest", json.dumps({
+        "name": "Watch the Night",
+        "short_name": "WatchNight",
+        "description": SITE["description"],
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#05070f",
+        "theme_color": "#05070f",
+        "icons": [
+            {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
+        ],
+    }, indent=2))
     write("index.html", index_page())
     write("about/index.html", about_page())
     write("tonight/index.html", tonight_page())
