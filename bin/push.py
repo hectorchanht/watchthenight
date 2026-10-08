@@ -10,12 +10,19 @@ import base64, hashlib, json, os, subprocess, sys
 REPO_ID = "1408626059"
 ROOT = os.path.expanduser("~/workspace/sites/skygear")
 GHAPI = os.path.expanduser("~/workspace/skills/github-pat/bin/ghapi")
+GHPOST = os.path.join(ROOT, "bin", "ghpost.py")
 
 def api(method, path, data=None):
-    cmd = [GHAPI, method, f"/repositories/{REPO_ID}{path}"]
     if data is not None:
-        cmd += ["--data", json.dumps(data)]
-    out = subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
+        # pipe big JSON bodies via stdin: argv entries are capped at 128KB
+        # (breaks large blob uploads through `ghapi --data`)
+        out = subprocess.run(
+            [sys.executable, GHPOST, method, f"/repositories/{REPO_ID}{path}"],
+            input=json.dumps(data), capture_output=True, text=True, check=True,
+        ).stdout
+    else:
+        cmd = [GHAPI, method, f"/repositories/{REPO_ID}{path}"]
+        out = subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
     return json.loads(out)
 
 def main():

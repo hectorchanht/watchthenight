@@ -199,7 +199,7 @@ def page(title, desc, path, body, jsonld=None):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
-<meta property="og:image" content="{BASE}/logo.png">
+<meta property="og:image" content="{BASE}/og-image.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" id="meta-theme-color" content="#05070f">
@@ -846,7 +846,7 @@ def write(path, content):
 def build():
     os.makedirs(DIST, exist_ok=True)
     shutil.copy(os.path.join(SRC, "style.css"), os.path.join(DIST, "style.css"))
-    for asset in ("logo.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png",
+    for asset in ("logo.png", "og-image.jpg", "apple-touch-icon.png", "icon-192.png", "icon-512.png",
                   "favicon.ico", "favicon-32x32.png", "favicon-16x16.png"):
         shutil.copy(os.path.join(SRC, "assets", asset), os.path.join(DIST, asset))
     write("site.webmanifest", json.dumps({
