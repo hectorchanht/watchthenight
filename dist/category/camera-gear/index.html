@@ -76,14 +76,14 @@
 <footer>
   <div class="wrap">
     <p class="brand">Watch the Night</p>
-    <nav class="footer-nav" aria-label="Site"><a href="/category/accessories/">Accessories</a><a href="/category/binoculars/">Binoculars</a><a href="/category/camera-gear/">Camera gear</a><a href="/category/smart-telescopes/">Smart telescopes</a><a href="/category/telescopes/">Telescopes</a><a href="/roundups/">Roundups</a><a href="/tonight/">Tonight</a><a href="/guides/">Guides</a><a href="/compare/">Compare</a><a href="/about/">About</a></nav>
+    <nav class="footer-nav" aria-label="Site"><a href="/category/accessories/">Accessories</a><a href="/category/binoculars/">Binoculars</a><a href="/category/camera-gear/">Camera gear</a><a href="/category/smart-telescopes/">Smart telescopes</a><a href="/category/telescopes/">Telescopes</a><a href="/roundups/">Roundups</a><a href="/tonight/">Tonight</a><a href="/guides/">Guides</a><a href="/compare/">Compare</a><a href="/finder/">Finder</a><a href="/about/">About</a></nav>
     <p class="disc">Affiliate disclosure: Watch the Night is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     <div class="nl-compact"><p class="fine"><strong>Sky alerts.</strong> One email when the good stuff happens.</p><p class="nl-soon">Email alerts are coming soon — check back.</p></div>
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:hello@watchthenight.com">hello@watchthenight.com</a></p>
     <p class="fine">© 2026 Watch the Night. Look up.</p>
   </div>
 </footer>
-<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>
+<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}if(window.__wtnGiscusTheme)window.__wtnGiscusTheme(t);});})();</script>
 <script>
 (function(){
 var KEY='wtn-cmp', MAX=3;
@@ -112,6 +112,7 @@ document.addEventListener('change',function(e){
   if(!cb.checked&&i>=0){ s.splice(i,1); }
   set(s); render();
 });
+window.__wtnTrayRender=render;
 render();
 })();
 </script>

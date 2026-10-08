@@ -132,7 +132,7 @@ FOOTER = f"""
 <footer>
   <div class="wrap">
     <p class="brand">{esc(SITE['brand'])}</p>
-    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/compare/">Compare</a><a href="/about/">About</a></nav>
+    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/compare/">Compare</a><a href="/finder/">Finder</a><a href="/about/">About</a></nav>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     {newsletter_block(compact=True)}
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
@@ -145,7 +145,7 @@ THEME_HEAD_SCRIPT = """<script>(function(){try{var t=localStorage.getItem('wtn-t
 
 THEME_TOGGLE = """<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>"""
 
-THEME_SCRIPT = """<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>"""
+THEME_SCRIPT = """<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}if(window.__wtnGiscusTheme)window.__wtnGiscusTheme(t);});})();</script>"""
 
 
 COMPARE_TRAY_SCRIPT = """<script>
@@ -176,6 +176,7 @@ document.addEventListener('change',function(e){
   if(!cb.checked&&i>=0){ s.splice(i,1); }
   set(s); render();
 });
+window.__wtnTrayRender=render;
 render();
 })();
 </script>"""
@@ -312,11 +313,60 @@ def category_page(cat, meta):
     return page(meta["label"], meta["blurb"], f"/category/{cat}/", body)
 
 
+SPEC_SECTIONS = [
+    ("Optics", ["aperture", "focal", "optical design", "eyepiece", "magnification", "prism", "field of view", "coating", "glass"]),
+    ("Mount & tracking", ["mount", "tracking", "goto", "slow-motion", "tripod", "polar"]),
+    ("Camera & imaging", ["sensor", "payload", "wifi", "intervalometer", "shutter", "iso"]),
+    ("Power & physical", ["power", "battery", "weight", "dimensions", "length", "brightness", "color"]),
+]
+
+
+def spec_groups(p):
+    groups, used = [], set()
+    for title, keys in SPEC_SECTIONS:
+        items = [(k, v) for k, v in p["specs"].items()
+                 if k not in used and any(q in k.lower() for q in keys)]
+        if items:
+            groups.append((title, items))
+            used.update(k for k, _v in items)
+    rest = [(k, v) for k, v in p["specs"].items() if k not in used]
+    if rest:
+        groups.append(("Details", rest))
+    return groups
+
+
+def giscus_block():
+    g = SITE.get("giscus") or {}
+    if not g.get("repo_id") or not g.get("category_id"):
+        return ""
+    return f"""
+<div id="giscus-root"></div>
+<script>(function(){{
+  var cfg = {json.dumps({"repo": "hectorchanht/watchthenight", "repo_id": g["repo_id"], "category": g.get("category", "General"), "category_id": g["category_id"]})};
+  var theme = 'transparent_dark';
+  try{{ if((localStorage.getItem('wtn-theme')||'dark')==='light') theme='light'; }}catch(e){{}}
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.async = true; s.crossOrigin = 'anonymous';
+  var attrs = {{"data-repo": cfg.repo, "data-repo-id": cfg.repo_id, "data-category": cfg.category, "data-category-id": cfg.category_id, "data-mapping": "pathname", "data-strict": "0", "data-reactions-enabled": "1", "data-emit-metadata": "0", "data-input-position": "top", "data-theme": theme, "data-lang": "en"}};
+  for(var k in attrs){{ s.setAttribute(k, attrs[k]); }}
+  document.getElementById('giscus-root').appendChild(s);
+  window.__wtnGiscusTheme = function(t){{
+    var f = document.querySelector('iframe.giscus-frame');
+    if(f) f.contentWindow.postMessage({{giscus:{{setConfig:{{theme: t==='light'?'light':'transparent_dark'}}}}}}, 'https://giscus.app');
+  }};
+}})();</script>
+"""
+
+
 def product_page(p):
     pros = "".join(f"<li>{esc(x)}</li>" for x in p["pros"])
     cons = "".join(f"<li>{esc(x)}</li>" for x in p["cons"])
     specs = "".join(
-        f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in p["specs"].items()
+        f'<h3 class="spech">{esc(title)}</h3><table class="specs">'
+        + "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in items)
+        + "</table>"
+        for title, items in spec_groups(p)
     )
     related = [q for q in PRODUCTS if q["category"] == p["category"] and q["slug"] != p["slug"]][:3]
     rel_html = "".join(card(q) for q in related)
@@ -333,7 +383,9 @@ def product_page(p):
   <div><h2>Keep in mind</h2><ul class="cons">{cons}</ul></div>
 </div>
 <h2>Specs</h2>
-<table class="specs">{specs}</table>
+{specs}
+<h2>User opinions</h2>
+{giscus_block()}
 {f'<h2>Also in {esc(CATS[p["category"]]["label"])}</h2><div class="grid">{rel_html}</div>' if rel_html else ""}"""
     jsonld = {
         "@context": "https://schema.org",
@@ -458,6 +510,90 @@ def compare_page():
         "Compare gear",
         "Side-by-side comparison of telescopes, binoculars, star trackers and accessories: full specs, prices, pros and cons.",
         "/compare/",
+        body,
+    )
+
+
+FINDER_SCRIPT = """<script>
+(function(){
+var data = JSON.parse(document.getElementById('f-data').textContent);
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function apertureMm(p){
+  var v = p.specs['Aperture'] || '';
+  var m = v.match(/([\\d.]+)\\s*mm/);
+  return m ? parseFloat(m[1]) : 0;
+}
+function isGoto(p){ return /goto/i.test(p.name + ' ' + JSON.stringify(p.specs)); }
+var prices = data.map(function(p){ return p.price||0; }).filter(Boolean);
+var apers = data.map(apertureMm).filter(Boolean);
+var pMax = Math.ceil(Math.max.apply(null, prices)/500)*500;
+var aMax = Math.ceil(Math.max.apply(null, apers)/50)*50;
+var fCat=document.getElementById('f-cat'), fPrice=document.getElementById('f-price'),
+    fAper=document.getElementById('f-aper'), fGoto=document.getElementById('f-goto'),
+    pOut=document.getElementById('f-price-out'), aOut=document.getElementById('f-aper-out'),
+    res=document.getElementById('f-results'), count=document.getElementById('f-count');
+fPrice.max=pMax; fPrice.value=pMax; fAper.max=aMax; fAper.value=0;
+function cardHtml(p){
+  var price = p.price ? '<p class="price">around $'+Number(p.price).toLocaleString('en-US')+'</p>' : '';
+  return '<div class="cardwrap"><a class="card" href="/gear/'+p.slug+'/"><p class="kicker">'+esc(p.catlabel)+'</p><h3>'+esc(p.name)+'</h3><p class="tagline">'+esc(p.tagline)+'</p>'+price+'<span class="cta">Read the pick \\u2192</span></a><label class="cmp-add"><input type="checkbox" data-slug="'+p.slug+'" aria-label="Add '+esc(p.name)+' to compare"> Compare</label></div>';
+}
+function render(){
+  var cat=fCat.value, mp=parseFloat(fPrice.value), ma=parseFloat(fAper.value), go=fGoto.checked;
+  pOut.textContent = '$'+Number(mp).toLocaleString('en-US');
+  aOut.textContent = ma>0 ? ma+' mm' : 'any';
+  var out = data.filter(function(p){
+    if(cat!=='all' && p.cat!==cat) return false;
+    if(p.price && p.price>mp) return false;
+    if(ma>0 && apertureMm(p)<ma) return false;
+    if(go && !isGoto(p)) return false;
+    return true;
+  }).sort(function(a,b){ return (a.price||1e9)-(b.price||1e9); });
+  count.textContent = out.length + (out.length===1?' pick':' picks') + ' match';
+  res.innerHTML = out.map(cardHtml).join('') || '<p class="lede">Nothing matches — loosen a filter.</p>';
+  if(window.__wtnTrayRender) window.__wtnTrayRender();
+}
+[fCat,fPrice,fAper,fGoto].forEach(function(el){ el.addEventListener('input', render); el.addEventListener('change', render); });
+render();
+})();
+</script>"""
+
+
+def finder_page():
+    data = [
+        {
+            "slug": p["slug"],
+            "name": p["name"],
+            "cat": p["category"],
+            "catlabel": CATS[p["category"]]["label"],
+            "price": p.get("price_usd"),
+            "tagline": p["tagline"],
+            "specs": p["specs"],
+        }
+        for p in PRODUCTS
+    ]
+    data_json = json.dumps(data).replace("<", "\\u003c")
+    cat_opts = '<option value="all">All categories</option>' + "".join(
+        f'<option value="{c}">{esc(v["label"])}</option>' for c, v in CATS.items()
+    )
+    body = f"""
+<p class="crumb"><a href="/">Home</a> / Finder</p>
+<h1>Gear finder</h1>
+<p class="lede">Filter every pick by what matters to you — category, budget, aperture, GoTo. Like a phone finder, but for the night sky.</p>
+<div class="finder-filters">
+  <div><label for="f-cat">Category</label><select id="f-cat">{cat_opts}</select></div>
+  <div><label for="f-price">Max price: <output id="f-price-out"></output></label><input type="range" id="f-price" min="0" step="50" value="4000"></div>
+  <div><label for="f-aper">Min aperture: <output id="f-aper-out"></output></label><input type="range" id="f-aper" min="0" step="10" value="0"></div>
+  <div><label class="check" for="f-goto"><input type="checkbox" id="f-goto"> GoTo / computerized only</label></div>
+</div>
+<p class="fine" id="f-count"></p>
+<div class="grid" id="f-results"></div>
+<script type="application/json" id="f-data">{data_json}</script>
+{FINDER_SCRIPT}
+"""
+    return page(
+        "Gear finder",
+        "Filter every Watch the Night pick by category, budget, aperture and GoTo — find the right telescope, binoculars or star tracker.",
+        "/finder/",
         body,
     )
 
@@ -600,7 +736,7 @@ def tonight_page():
 # ---------------------------------------------------------------- seo files
 
 def sitemap():
-    urls = ["/", "/about/", "/tonight/", "/guides/", "/roundups/", "/compare/"] + [f"/category/{c}/" for c in CATS] + [
+    urls = ["/", "/about/", "/tonight/", "/guides/", "/roundups/", "/compare/", "/finder/"] + [f"/category/{c}/" for c in CATS] + [
         f"/gear/{p['slug']}/" for p in PRODUCTS
     ] + [f"/guides/{g['slug']}/" for g in GUIDES] + [f"/roundups/{r['slug']}/" for r in ROUNDUPS]
     items = "".join(
@@ -633,6 +769,7 @@ def llms_txt():
     lines.append(f"- [Tonight's sky]({BASE}/tonight/) — Tonight's moon phase plus Oct–Dec 2026 meteor and planet highlights.")
     lines += ["", "## Tools", ""]
     lines.append(f"- [Compare gear]({BASE}/compare/) — Side-by-side comparison of any products: full specs, prices, pros and cons.")
+    lines.append(f"- [Gear finder]({BASE}/finder/) — Filter every pick by category, budget, aperture and GoTo.")
     return "\n".join(lines) + "\n"
 
 
@@ -712,6 +849,7 @@ def build():
     for r in ROUNDUPS:
         write(f"roundups/{r['slug']}/index.html", roundup_page(r))
     write("compare/index.html", compare_page())
+    write("finder/index.html", finder_page())
     for c, v in CATS.items():
         write(f"category/{c}/index.html", category_page(c, v))
     for p in PRODUCTS:

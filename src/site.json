@@ -28,5 +28,10 @@
   "amazon_tag": "watchthenig0a-20",
   "email": "hello@watchthenight.com",
   "tagline": "Watch the night.",
-  "newsletter_endpoint": ""
+  "newsletter_endpoint": "",
+  "giscus": {
+    "repo_id": "",
+    "category": "General",
+    "category_id": ""
+  }
 }

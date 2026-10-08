@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gear finder · Watch the Night</title>
+<meta name="description" content="Filter every Watch the Night pick by category, budget, aperture and GoTo — find the right telescope, binoculars or star tracker.">
+<link rel="canonical" href="https://watchthenight.com/finder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Watch the Night">
+<meta property="og:title" content="Gear finder">
+<meta property="og:description" content="Filter every Watch the Night pick by category, budget, aperture and GoTo — find the right telescope, binoculars or star tracker.">
+<meta property="og:url" content="https://watchthenight.com/finder/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="meta-theme-color" content="#05070f">
+<script>(function(){try{var t=localStorage.getItem('wtn-theme')||'dark';document.documentElement.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">✦ Watch the Night</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+  </div>
+</header>
+<main class="wrap">
+
+<p class="crumb"><a href="/">Home</a> / Finder</p>
+<h1>Gear finder</h1>
+<p class="lede">Filter every pick by what matters to you — category, budget, aperture, GoTo. Like a phone finder, but for the night sky.</p>
+<div class="finder-filters">
+  <div><label for="f-cat">Category</label><select id="f-cat"><option value="all">All categories</option><option value="accessories">Accessories</option><option value="binoculars">Binoculars</option><option value="camera-gear">Camera gear</option><option value="smart-telescopes">Smart telescopes</option><option value="telescopes">Telescopes</option></select></div>
+  <div><label for="f-price">Max price: <output id="f-price-out"></output></label><input type="range" id="f-price" min="0" step="50" value="4000"></div>
+  <div><label for="f-aper">Min aperture: <output id="f-aper-out"></output></label><input type="range" id="f-aper" min="0" step="10" value="0"></div>
+  <div><label class="check" for="f-goto"><input type="checkbox" id="f-goto"> GoTo / computerized only</label></div>
+</div>
+<p class="fine" id="f-count"></p>
+<div class="grid" id="f-results"></div>
+<script type="application/json" id="f-data">[{"slug": "celestron-nexstar-8se", "name": "Celestron NexStar 8SE", "cat": "telescopes", "catlabel": "Telescopes", "price": 1589, "tagline": "The computerized 8-inch that finds it for you.", "specs": {"Aperture": "8 in (203 mm)", "Focal length": "2032 mm (f/10)", "Mount": "Computerized alt-azimuth GoTo", "Optical design": "Schmidt-Cassegrain", "Weight": "~11\u201314 kg assembled (\u224824 lbs)"}}, {"slug": "apertura-ad8-dobsonian", "name": "Apertura AD8 8\" Dobsonian", "cat": "telescopes", "catlabel": "Telescopes", "price": 700, "tagline": "Maximum aperture per dollar. Point and sweep.", "specs": {"Aperture": "8 in (203 mm)", "Focal length": "1200 mm (f/5.9)", "Focuser": "2-inch dual-speed Crayford", "Mount": "Dobsonian (push-to)", "Optical design": "Newtonian reflector"}}, {"slug": "celestron-starsense-explorer-dx-130az", "name": "Celestron StarSense Explorer DX 130AZ", "cat": "telescopes", "catlabel": "Telescopes", "price": 480, "tagline": "Your phone guides you to 100+ targets.", "specs": {"Aperture": "130 mm (5.1 in)", "Focal length": "650 mm (f/5)", "Mount": "Alt-azimuth, manual", "Optical design": "Newtonian reflector", "Phone dock": "StarSense Explorer app (iOS/Android)"}}, {"slug": "skywatcher-star-adventurer-2i", "name": "Sky-Watcher Star Adventurer 2i", "cat": "camera-gear", "catlabel": "Camera gear", "price": 430, "tagline": "Turn any camera into a deep-sky rig.", "specs": {"Payload": "5 kg (11 lb)", "Polar scope": "Built-in polar scope (illuminator in Pro Pack)", "Power": "4\u00d7 AA batteries or external 5V USB (no internal battery)", "Tracking rates": "Sidereal, solar, lunar (+ time-lapse modes)", "Weight": "1.2 kg"}}, {"slug": "celestron-skymaster-15x70", "name": "Celestron SkyMaster 15x70", "cat": "binoculars", "catlabel": "Binoculars", "price": 110, "tagline": "The cheapest serious sky upgrade.", "specs": {"Aperture": "70 mm", "Field of view": "4.4\u00b0", "Magnification": "15x", "Tripod adaptable": "Yes", "Weight": "1.36 kg"}}, {"slug": "red-led-astronomy-flashlight", "name": "Astronomy red LED flashlight", "cat": "accessories", "catlabel": "Accessories", "price": 15, "tagline": "Protect your night vision for $15.", "specs": {"Brightness": "2 modes (dim/bright)", "Color": "Red LED", "Power": "3x AAA", "Weight": "~60 g"}}, {"slug": "skywatcher-heritage-150p", "name": "Sky-Watcher Heritage 150P", "cat": "telescopes", "catlabel": "Telescopes", "price": 300, "tagline": "6 inches of tabletop Dobsonian \u2014 the sweet spot starter scope.", "specs": {"Aperture": "150 mm (6 in)", "Focal length": "750 mm (f/5)", "Mount": "Tabletop Dobsonian", "Optical design": "Newtonian reflector", "Tube": "Collapsible"}}, {"slug": "celestron-astromaster-70az", "name": "Celestron AstroMaster 70AZ", "cat": "telescopes", "catlabel": "Telescopes", "price": 150, "tagline": "The classic sub-$200 first refractor.", "specs": {"Aperture": "70 mm", "Focal length": "900 mm (f/13)", "Mount": "Alt-azimuth", "Optical design": "Refractor"}}, {"slug": "nikon-aculon-a211-10x50", "name": "Nikon Aculon A211 10x50", "cat": "binoculars", "catlabel": "Binoculars", "price": 120, "tagline": "The 10x50 every observer should own.", "specs": {"Magnification": "10x", "Aperture": "50 mm", "Prisms": "BAK4 Porro"}}, {"slug": "telrad-reflex-finder", "name": "Telrad reflex finder", "cat": "accessories", "catlabel": "Accessories", "price": 45, "tagline": "Point your telescope like pointing your finger.", "specs": {"Type": "Reflex sight, 1x", "Reticle": "Red concentric rings", "Power": "2x AA"}}, {"slug": "planisphere-40n", "name": "Large planisphere (40\u00b0N)", "cat": "accessories", "catlabel": "Accessories", "price": 15, "tagline": "The whole sky on a spinning wheel. No batteries.", "specs": {"Type": "Rotating star chart", "Latitude": "~40\u00b0N", "Size": "Large (10 inch)"}}, {"slug": "orion-skyquest-xt6", "name": "Orion SkyQuest XT6", "cat": "telescopes", "catlabel": "Telescopes", "price": 450, "tagline": "The classic 6-inch Dobsonian \u2014 decades of beginners can't be wrong.", "specs": {"Aperture": "150 mm (6 in)", "Focal length": "1200 mm (f/8)", "Mount": "Dobsonian", "Optical design": "Newtonian reflector"}}, {"slug": "orion-starblast-4-5", "name": "Orion StarBlast 4.5 Astro Reflector", "cat": "telescopes", "catlabel": "Telescopes", "price": 250, "tagline": "The grab-and-go tabletop that hooks kids and adults alike.", "specs": {"Aperture": "114 mm (4.5 in)", "Focal length": "450 mm (f/4)", "Mount": "Tabletop Dobsonian", "Optical design": "Newtonian reflector"}}, {"slug": "celestron-cometron-7x50", "name": "Celestron Cometron 7x50", "cat": "binoculars", "catlabel": "Binoculars", "price": 40, "tagline": "The $40 binoculars that started a thousand hobbies.", "specs": {"Magnification": "7x", "Aperture": "50 mm"}}, {"slug": "celestron-nexyz-adapter", "name": "Celestron NexYZ 3-Axis Smartphone Adapter", "cat": "accessories", "catlabel": "Accessories", "price": 60, "tagline": "Your phone + any telescope = astrophotography tonight.", "specs": {"Compatibility": "Eyepieces 35\u201360mm diameter (covers 1.25\" and 2\" eyepieces); phones 65\u201390mm wide", "Adjustment": "3-axis (X/Y/Z)", "Mount": "Clamp"}}, {"slug": "red-led-headlamp", "name": "Red LED headlamp", "cat": "accessories", "catlabel": "Accessories", "price": 20, "tagline": "Hands-free red light. You'll wonder how you lived without it.", "specs": {"Modes": "Red + white", "Power": "AAA batteries"}}, {"slug": "canon-eos-rebel-t7", "name": "Canon EOS Rebel T7", "cat": "camera-gear", "catlabel": "Camera gear", "price": 500, "tagline": "The default budget astrophotography DSLR.", "specs": {"Sensor": "24.1 MP APS-C CMOS", "Mount": "Canon EF/EF-S", "Video": "Full HD 1080p"}}, {"slug": "celestron-nexstar-6se", "name": "Celestron NexStar 6SE", "cat": "telescopes", "catlabel": "Telescopes", "price": 1199, "tagline": "The computerized 6-inch that finds it for you \u2014 lighter than the 8SE.", "specs": {"Aperture": "150 mm (6 in)", "Focal length": "1500 mm (f/10)", "Mount": "Computerized alt-azimuth GoTo", "Optical design": "Schmidt-Cassegrain", "Weight": "~9.5 kg (21 lb)"}}, {"slug": "apertura-ad10-dobsonian", "name": "Apertura AD10 10\" Dobsonian", "cat": "telescopes", "catlabel": "Telescopes", "price": 899, "tagline": "Ten inches of aperture \u2014 the deep-sky step up from the AD8.", "specs": {"Aperture": "254 mm (10 in)", "Focal length": "1250 mm (f/4.9)", "Focuser": "2-inch dual-speed Crayford", "Mount": "Dobsonian (alt-azimuth)", "Optical design": "Newtonian reflector"}}, {"slug": "skywatcher-evostar-102", "name": "Sky-Watcher Evostar 102", "cat": "telescopes", "catlabel": "Telescopes", "price": 280, "tagline": "The classic 4-inch achromatic refractor \u2014 sharp, simple, honest.", "specs": {"Aperture": "102 mm (4 in)", "Focal length": "1000 mm (f/10)", "Mount": "Optical tube only \u2014 mount sold separately", "Optical design": "Achromatic refractor"}}, {"slug": "vortex-diamondback-hd-10x42", "name": "Vortex Diamondback HD 10x42", "cat": "binoculars", "catlabel": "Binoculars", "price": 230, "tagline": "The mid-range 10x42 that outclasses everything near its price.", "specs": {"Magnification": "10x", "Aperture": "42 mm", "Prisms": "BAK4 roof, phase-corrected", "Field of view": "6.5\u00b0", "Waterproof": "Yes (IPX7)"}}, {"slug": "celestron-nature-dx-8x42", "name": "Celestron Nature DX 8x42", "cat": "binoculars", "catlabel": "Binoculars", "price": 150, "tagline": "The friendlier 8x42 \u2014 wider view, steadier hand-hold.", "specs": {"Magnification": "8x", "Aperture": "42 mm", "Prisms": "BAK4 roof, phase-coated", "Field of view": "8.1\u00b0", "Waterproof": "Yes"}}, {"slug": "turn-left-at-orion", "name": "Turn Left at Orion", "cat": "accessories", "catlabel": "Accessories", "price": 40, "tagline": "The hundred best things to see in a small telescope \u2014 and how to find them.", "specs": {"Authors": "Guy Consolmagno, Dan M. Davis", "Publisher": "Cambridge University Press", "Edition": "5th (2019)", "Pages": "256", "Binding": "Spiral-bound for outdoor use"}}, {"slug": "pocket-sky-atlas", "name": "Sky & Telescope's Pocket Sky Atlas", "cat": "accessories", "catlabel": "Accessories", "price": 30, "tagline": "The whole sky in your coat pocket \u2014 30,796 stars, zero batteries.", "specs": {"Publisher": "Sky & Telescope", "Edition": "2nd", "Stars charted": "30,796 to magnitude 7.6", "Charts": "80", "Size": "15.2 x 22.9 cm"}}, {"slug": "cheshire-collimating-eyepiece", "name": "Cheshire collimating eyepiece", "cat": "accessories", "catlabel": "Accessories", "price": 35, "tagline": "The $35 tool that keeps your reflector sharp.", "specs": {"Barrel": "1.25 inch", "Type": "Cheshire (sight tube + crosshair + reflective surface)", "Use": "Newtonian / Dobsonian reflectors"}}, {"slug": "celestron-x-cel-lx-2x-barlow", "name": "Celestron X-Cel LX 2x Barlow", "cat": "accessories", "catlabel": "Accessories", "price": 130, "tagline": "Double every eyepiece you own \u2014 the cheapest magnification upgrade.", "specs": {"Barrel": "1.25 inch", "Magnification": "2x", "Elements": "3 (apochromatic)", "Threading": "T-threads for camera adapters"}}, {"slug": "ioptron-skyguider-pro", "name": "iOptron SkyGuider Pro", "cat": "camera-gear", "catlabel": "Camera gear", "price": 479, "tagline": "The tracker for serious Milky Way panoramas and telephoto nightscapes.", "specs": {"Payload": "5 kg (11 lb)", "Tracking rates": "Sidereal, 1/2x, solar, lunar", "Polar scope": "Built-in illuminated", "Power": "8x AA or USB", "Autoguiding": "ST-4 port"}}, {"slug": "canon-ef-50mm-f18-stm", "name": "Canon EF 50mm f/1.8 STM", "cat": "camera-gear", "catlabel": "Camera gear", "price": 125, "tagline": "The nifty fifty \u2014 the cheapest way into tracked Milky Way shots.", "specs": {"Focal length": "50 mm", "Aperture": "f/1.8", "Mount": "Canon EF", "Weight": "160 g"}}, {"slug": "zwo-seestar-s50", "name": "ZWO Seestar S50", "cat": "smart-telescopes", "catlabel": "Smart telescopes", "price": 500, "tagline": "The all-in-one smart scope \u2014 it finds, tracks, and stacks for you.", "specs": {"Aperture": "50 mm (triplet apochromatic)", "Focal length": "250 mm (f/5)", "Sensor": "Sony IMX462 (2.06 MP)", "Control": "iOS / Android app", "Power": "Built-in rechargeable battery"}}, {"slug": "dwarf-3", "name": "Dwarf 3 by Dwarflab", "cat": "smart-telescopes", "catlabel": "Smart telescopes", "price": 600, "tagline": "Pocket-size smart scope with dual cameras and AI tracking.", "specs": {"Telephoto": "150 mm equivalent, f/4.3", "Sensor": "Sony IMX678", "Control": "iOS / Android app", "Weight": "~1.2 kg"}}, {"slug": "celestron-origin", "name": "Celestron Origin", "cat": "smart-telescopes", "catlabel": "Smart telescopes", "price": 4000, "tagline": "Observatory-class smart imaging in a 6-inch RASA.", "specs": {"Aperture": "152 mm (6 in)", "Focal length": "335 mm (f/2.2)", "Optical design": "Rowe-Ackermann Schmidt Astrograph", "Sensor": "Sony IMX178", "Control": "iOS / Android app"}}]</script>
+<script>
+(function(){
+var data = JSON.parse(document.getElementById('f-data').textContent);
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function apertureMm(p){
+  var v = p.specs['Aperture'] || '';
+  var m = v.match(/([\d.]+)\s*mm/);
+  return m ? parseFloat(m[1]) : 0;
+}
+function isGoto(p){ return /goto/i.test(p.name + ' ' + JSON.stringify(p.specs)); }
+var prices = data.map(function(p){ return p.price||0; }).filter(Boolean);
+var apers = data.map(apertureMm).filter(Boolean);
+var pMax = Math.ceil(Math.max.apply(null, prices)/500)*500;
+var aMax = Math.ceil(Math.max.apply(null, apers)/50)*50;
+var fCat=document.getElementById('f-cat'), fPrice=document.getElementById('f-price'),
+    fAper=document.getElementById('f-aper'), fGoto=document.getElementById('f-goto'),
+    pOut=document.getElementById('f-price-out'), aOut=document.getElementById('f-aper-out'),
+    res=document.getElementById('f-results'), count=document.getElementById('f-count');
+fPrice.max=pMax; fPrice.value=pMax; fAper.max=aMax; fAper.value=0;
+function cardHtml(p){
+  var price = p.price ? '<p class="price">around $'+Number(p.price).toLocaleString('en-US')+'</p>' : '';
+  return '<div class="cardwrap"><a class="card" href="/gear/'+p.slug+'/"><p class="kicker">'+esc(p.catlabel)+'</p><h3>'+esc(p.name)+'</h3><p class="tagline">'+esc(p.tagline)+'</p>'+price+'<span class="cta">Read the pick \u2192</span></a><label class="cmp-add"><input type="checkbox" data-slug="'+p.slug+'" aria-label="Add '+esc(p.name)+' to compare"> Compare</label></div>';
+}
+function render(){
+  var cat=fCat.value, mp=parseFloat(fPrice.value), ma=parseFloat(fAper.value), go=fGoto.checked;
+  pOut.textContent = '$'+Number(mp).toLocaleString('en-US');
+  aOut.textContent = ma>0 ? ma+' mm' : 'any';
+  var out = data.filter(function(p){
+    if(cat!=='all' && p.cat!==cat) return false;
+    if(p.price && p.price>mp) return false;
+    if(ma>0 && apertureMm(p)<ma) return false;
+    if(go && !isGoto(p)) return false;
+    return true;
+  }).sort(function(a,b){ return (a.price||1e9)-(b.price||1e9); });
+  count.textContent = out.length + (out.length===1?' pick':' picks') + ' match';
+  res.innerHTML = out.map(cardHtml).join('') || '<p class="lede">Nothing matches — loosen a filter.</p>';
+  if(window.__wtnTrayRender) window.__wtnTrayRender();
+}
+[fCat,fPrice,fAper,fGoto].forEach(function(el){ el.addEventListener('input', render); el.addEventListener('change', render); });
+render();
+})();
+</script>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">Watch the Night</p>
+    <nav class="footer-nav" aria-label="Site"><a href="/category/accessories/">Accessories</a><a href="/category/binoculars/">Binoculars</a><a href="/category/camera-gear/">Camera gear</a><a href="/category/smart-telescopes/">Smart telescopes</a><a href="/category/telescopes/">Telescopes</a><a href="/roundups/">Roundups</a><a href="/tonight/">Tonight</a><a href="/guides/">Guides</a><a href="/compare/">Compare</a><a href="/finder/">Finder</a><a href="/about/">About</a></nav>
+    <p class="disc">Affiliate disclosure: Watch the Night is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
+    <div class="nl-compact"><p class="fine"><strong>Sky alerts.</strong> One email when the good stuff happens.</p><p class="nl-soon">Email alerts are coming soon — check back.</p></div>
+    <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:hello@watchthenight.com">hello@watchthenight.com</a></p>
+    <p class="fine">© 2026 Watch the Night. Look up.</p>
+  </div>
+</footer>
+<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}if(window.__wtnGiscusTheme)window.__wtnGiscusTheme(t);});})();</script>
+<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+window.__wtnTrayRender=render;
+render();
+})();
+</script>
+</body>
+</html>

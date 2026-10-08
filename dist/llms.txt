@@ -68,3 +68,4 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 ## Tools
 
 - [Compare gear](https://watchthenight.com/compare/) — Side-by-side comparison of any products: full specs, prices, pros and cons.
+- [Gear finder](https://watchthenight.com/finder/) — Filter every pick by category, budget, aperture and GoTo.
