@@ -132,6 +132,7 @@ FOOTER = f"""
 <footer>
   <div class="wrap">
     <p class="brand">{esc(SITE['brand'])}</p>
+    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/about/">About</a></nav>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     {newsletter_block(compact=True)}
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
@@ -174,7 +175,7 @@ def page(title, desc, path, body, jsonld=None):
 <header>
   <div class="wrap nav">
     <a class="logo" href="/">✦ {esc(SITE['brand'])}</a>
-    <nav>{NAV_LINKS}<a href="/about/">About</a>{THEME_TOGGLE}</nav>
+    {THEME_TOGGLE}
   </div>
 </header>
 <main class="wrap">
