@@ -132,7 +132,7 @@ FOOTER = f"""
 <footer>
   <div class="wrap">
     <p class="brand">{esc(SITE['brand'])}</p>
-    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/about/">About</a></nav>
+    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/compare/">Compare</a><a href="/about/">About</a></nav>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     {newsletter_block(compact=True)}
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
@@ -290,6 +290,7 @@ def product_page(p):
 <p class="price big">around ${p['price_usd']:,}</p>
 <p class="lede">{esc(p['blurb'])}</p>
 {buy_box(p)}
+<p class="fine"><a href="/compare/?a={p['slug']}">Compare the {esc(p['name'])} with another pick →</a></p>
 <div class="cols">
   <div><h2>Why we like it</h2><ul class="pros">{pros}</ul></div>
   <div><h2>Keep in mind</h2><ul class="cons">{cons}</ul></div>
@@ -310,6 +311,102 @@ def product_page(p):
         },
     }
     return page(p["name"], p["tagline"], f"/gear/{p['slug']}/", body, jsonld)
+
+
+COMPARE_SCRIPT = """<script>
+(function(){
+var data = JSON.parse(document.getElementById('cmp-data').textContent);
+var bySlug = {};
+data.forEach(function(p){ bySlug[p.slug] = p; });
+var sels = ['A','B','C'].map(function(k){ return document.getElementById('cmp-'+k); });
+var table = document.getElementById('cmp-table');
+var hint = document.getElementById('cmp-hint');
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function money(n){ return n ? 'around $' + Number(n).toLocaleString('en-US') : '\\u2014'; }
+function render(){
+  var picks = sels.map(function(s){ return bySlug[s.value]; }).filter(Boolean);
+  var params = new URLSearchParams();
+  var keys = ['a','b','c'];
+  sels.forEach(function(s,i){ if(s.value) params.set(keys[i], s.value); });
+  var qs = params.toString();
+  try{ history.replaceState(null,'', qs ? '/compare/?'+qs : '/compare/'); }catch(e){}
+  if(picks.length < 2){ table.hidden = true; hint.hidden = false; return; }
+  hint.hidden = true; table.hidden = false;
+  var specKeys = [];
+  picks.forEach(function(p){ Object.keys(p.specs).forEach(function(k){ if(specKeys.indexOf(k)<0) specKeys.push(k); }); });
+  var html = '<thead><tr><th scope="col"><span class="muted">Pick</span></th>' + picks.map(function(p){
+    return '<th scope="col"><a href="/gear/'+p.slug+'/">'+esc(p.name)+'</a><br><span class="muted">'+esc(p.cat)+'</span></th>';
+  }).join('') + '</tr></thead><tbody>';
+  function row(label, cells){
+    html += '<tr><th scope="row" class="rowlabel">'+esc(label)+'</th>' + cells.map(function(c){ return '<td>'+c+'</td>'; }).join('') + '</tr>';
+  }
+  row('Price', picks.map(function(p){ return '<strong>'+money(p.price)+'</strong>'; }));
+  row('Tagline', picks.map(function(p){ return esc(p.tagline); }));
+  specKeys.forEach(function(k){
+    row(k, picks.map(function(p){ return p.specs[k] ? esc(p.specs[k]) : '<span class="muted">\\u2014</span>'; }));
+  });
+  row('Pros', picks.map(function(p){ return '<ul class="pros">'+p.pros.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }));
+  row('Cons', picks.map(function(p){ return '<ul class="cons">'+p.cons.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }));
+  row('Full review', picks.map(function(p){ return '<a class="btn" href="/gear/'+p.slug+'/">Read the full pick</a>'; }));
+  html += '</tbody>';
+  table.innerHTML = html;
+}
+sels.forEach(function(s){ s.addEventListener('change', render); });
+var q = new URLSearchParams(location.search);
+var vals = [q.get('a'), q.get('b'), q.get('c')];
+if(!vals[0] && !vals[1] && !vals[2]){ vals = ['celestron-nexstar-8se','apertura-ad8-dobsonian',null]; }
+vals.forEach(function(v,i){ if(v && bySlug[v]) sels[i].value = v; });
+render();
+})();
+</script>"""
+
+
+def compare_page():
+    data = [
+        {
+            "slug": p["slug"],
+            "name": p["name"],
+            "cat": CATS[p["category"]]["label"],
+            "price": p.get("price_usd"),
+            "tagline": p["tagline"],
+            "specs": p["specs"],
+            "pros": p["pros"],
+            "cons": p["cons"],
+        }
+        for p in PRODUCTS
+    ]
+    data_json = json.dumps(data).replace("<", "\\u003c")
+    opts = "".join(
+        f'<optgroup label="{esc(v["label"])}">'
+        + "".join(
+            f'<option value="{p["slug"]}">{esc(p["name"])}</option>'
+            for p in PRODUCTS
+            if p["category"] == c
+        )
+        + "</optgroup>"
+        for c, v in CATS.items()
+    )
+    selects = "".join(
+        f'<div><label for="cmp-{k}">Product {k}</label>'
+        f'<select id="cmp-{k}"><option value="">— Choose —</option>{opts}</select></div>'
+        for k in ("A", "B", "C")
+    )
+    body = f"""
+<p class="crumb"><a href="/">Home</a> / Compare</p>
+<h1>Compare gear side by side</h1>
+<p class="lede">Pick up to three products and compare full specs, prices, strengths and tradeoffs in one table. Every spec below comes straight from our product pages — no hidden rankings.</p>
+<div class="compare-selects">{selects}</div>
+<div class="compare-wrap"><table class="compare" id="cmp-table" hidden></table></div>
+<p class="fine" id="cmp-hint">Choose at least two products to start comparing.</p>
+<script type="application/json" id="cmp-data">{data_json}</script>
+{COMPARE_SCRIPT}
+"""
+    return page(
+        "Compare gear",
+        "Side-by-side comparison of telescopes, binoculars, star trackers and accessories: full specs, prices, pros and cons.",
+        "/compare/",
+        body,
+    )
 
 
 def about_page():
@@ -450,7 +547,7 @@ def tonight_page():
 # ---------------------------------------------------------------- seo files
 
 def sitemap():
-    urls = ["/", "/about/", "/tonight/", "/guides/", "/roundups/"] + [f"/category/{c}/" for c in CATS] + [
+    urls = ["/", "/about/", "/tonight/", "/guides/", "/roundups/", "/compare/"] + [f"/category/{c}/" for c in CATS] + [
         f"/gear/{p['slug']}/" for p in PRODUCTS
     ] + [f"/guides/{g['slug']}/" for g in GUIDES] + [f"/roundups/{r['slug']}/" for r in ROUNDUPS]
     items = "".join(
@@ -481,6 +578,8 @@ def llms_txt():
         lines.append(f"- [{r['title']}]({BASE}/roundups/{r['slug']}/) — {r['description']}")
     lines += ["", "## Tonight", ""]
     lines.append(f"- [Tonight's sky]({BASE}/tonight/) — Tonight's moon phase plus Oct–Dec 2026 meteor and planet highlights.")
+    lines += ["", "## Tools", ""]
+    lines.append(f"- [Compare gear]({BASE}/compare/) — Side-by-side comparison of any products: full specs, prices, pros and cons.")
     return "\n".join(lines) + "\n"
 
 
@@ -559,6 +658,7 @@ def build():
     write("roundups/index.html", roundups_index())
     for r in ROUNDUPS:
         write(f"roundups/{r['slug']}/index.html", roundup_page(r))
+    write("compare/index.html", compare_page())
     for c, v in CATS.items():
         write(f"category/{c}/index.html", category_page(c, v))
     for p in PRODUCTS:

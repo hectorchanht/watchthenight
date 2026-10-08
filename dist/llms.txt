@@ -64,3 +64,7 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 ## Tonight
 
 - [Tonight's sky](https://watchthenight.com/tonight/) — Tonight's moon phase plus Oct–Dec 2026 meteor and planet highlights.
+
+## Tools
+
+- [Compare gear](https://watchthenight.com/compare/) — Side-by-side comparison of any products: full specs, prices, pros and cons.

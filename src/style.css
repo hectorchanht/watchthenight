@@ -50,6 +50,19 @@ nav a:hover { color: var(--text); }
 .footer-nav { display: flex; flex-wrap: wrap; gap: .45rem 1.2rem; margin: 1rem 0 1.4rem; }
 .footer-nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
 .footer-nav a:hover { color: var(--text); }
+.muted { color: var(--muted); }
+
+/* compare */
+.compare-selects { display: grid; gap: .7rem; margin: 1.2rem 0; }
+@media (min-width: 720px) { .compare-selects { grid-template-columns: repeat(3, 1fr); } }
+.compare-selects label { display: block; font-size: .85rem; color: var(--muted); margin-bottom: .3rem; }
+.compare-selects select { width: 100%; padding: .6rem; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: .95rem; }
+.compare-wrap { overflow-x: auto; margin: 1.2rem 0; }
+table.compare { border-collapse: collapse; width: 100%; min-width: 620px; }
+table.compare th, table.compare td { border: 1px solid var(--line); padding: .55rem .7rem; text-align: left; vertical-align: top; font-size: .9rem; }
+table.compare thead th { background: var(--card); }
+table.compare th.rowlabel { color: var(--muted); font-weight: 600; white-space: nowrap; }
+table.compare td ul { margin: .15rem 0; }
 
 /* hero */
 .hero { padding: 3.2rem 0 2rem; }
