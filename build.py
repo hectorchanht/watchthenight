@@ -45,6 +45,50 @@ if os.path.exists(_tonight_path):
 DOMAIN = SITE["domain"]
 BASE = f"https://{DOMAIN}"
 
+# Best-of roundups: explicit pick lists; name/tagline/price render from products.json.
+ROUNDUPS = [
+    {
+        "title": "Best telescopes under $500",
+        "slug": "best-telescopes-under-500",
+        "description": "Ranked by price: the best telescopes you can buy for under $500, with honest tradeoffs for each.",
+        "intro": "Every scope here costs under $500 — ranked from cheapest to priciest. Under $500 is the sweet spot for a first telescope: enough aperture to show you Saturn's rings and real deep-sky objects, without the regret if you upgrade later.",
+        "picks": [
+            ("celestron-astromaster-70az", "The honest $150 start. A real refractor with no collimation — good for the Moon and planets, and cheap enough that it doesn't matter if the hobby doesn't stick."),
+            ("orion-starblast-4-5", "The tabletop Dobsonian classic. More aperture per dollar than cheap refractors, though the mount is basic and it needs something to sit on."),
+            ("skywatcher-evostar-102", "A sharp 4-inch achromatic refractor — but it's the optical tube only, so budget a mount and tripod before it fits under $500."),
+            ("skywatcher-heritage-150p", "Our sweet-spot pick: 6 inches of Dobsonian that shows Saturn's rings, Jupiter's bands, and hundreds of deep-sky objects."),
+            ("orion-skyquest-xt6", "The full-size 6-inch Dobsonian — the classic 'most telescope for the money' at this price."),
+            ("celestron-starsense-explorer-dx-130az", "Your phone plate-solves the sky and guides you to 100+ targets. Training wheels that actually teach you the constellations."),
+        ],
+    },
+    {
+        "title": "Best binoculars for stargazing",
+        "slug": "best-binoculars-stargazing",
+        "description": "Ranked by price: the best binoculars for the night sky, from $40 sweepers to the buy-once upgrade.",
+        "intro": "If you only buy one thing for the night sky, make it binoculars. Ranked cheapest to priciest — every pair here is genuinely useful under the stars, not just a daytime compromise.",
+        "picks": [
+            ("celestron-cometron-7x50", "The $40 wide-field sweeper. Light, forgiving, and the cheapest serious way to learn the sky."),
+            ("nikon-aculon-a211-10x50", "The benchmark beginner pair. Bright, sharp enough, and useful forever — even after you buy a telescope."),
+            ("celestron-nature-dx-8x42", "Wider and steadier than 10x42s. The pick if 10x feels shaky in your hands."),
+            ("celestron-skymaster-15x70", "Huge light grasp for the price — but heavy enough that you'll want a tripod for long sessions."),
+            ("vortex-diamondback-hd-10x42", "The buy-once upgrade: noticeably sharper glass plus Vortex's lifetime warranty."),
+        ],
+    },
+    {
+        "title": "Best star trackers for beginners",
+        "slug": "best-star-trackers-beginners",
+        "description": "The two star trackers worth buying first — ranked by price — and how to choose between them.",
+        "intro": "A star tracker is the single biggest upgrade in beginner astrophotography: it rotates your camera with the Earth, turning 8-second exposures into 2-minute ones. Only two trackers make our beginner list — both proven, both community-vetted.",
+        "picks": [
+            ("skywatcher-star-adventurer-2i", "The community standard: portable, proven, and it turns any DSLR or mirrorless camera into a deep-sky rig."),
+            ("ioptron-skyguider-pro", "Heavier 11-lb payload for telephoto lenses, plus an ST-4 autoguiding port for when you're ready to go deeper."),
+        ],
+    },
+]
+
+def product_by_slug(slug):
+    return next(p for p in PRODUCTS if p["slug"] == slug)
+
 
 def amazon_url(query):
     return f"https://www.amazon.com/s?k={quote_plus(query)}&tag={AMAZON_TAG}"
@@ -63,17 +107,44 @@ def retailer_url(r, product):
 
 NAV_LINKS = "".join(
     f'<a href="/category/{c}/">{esc(v["label"])}</a>' for c, v in CATS.items()
-) + '<a href="/guides/">Guides</a>'
+) + '<a href="/roundups/">Roundups</a><a href="/tonight/">Tonight</a><a href="/guides/">Guides</a>'
+
+def newsletter_block(compact=False):
+    ep = SITE.get("newsletter_endpoint", "")
+    if ep:
+        form = (
+            f'<form class="nl-form" method="post" action="{esc(ep)}">'
+            '<input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">'
+            '<button class="btn" type="submit">Subscribe</button></form>'
+        )
+    else:
+        form = '<p class="nl-soon">Email alerts are coming soon — check back.</p>'
+    if compact:
+        return f'<div class="nl-compact"><p class="fine"><strong>Sky alerts.</strong> One email when the good stuff happens.</p>{form}</div>'
+    return (
+        '<section class="newsletter"><h2>Get the sky in your inbox</h2>'
+        '<p class="lede">Meteor showers, planet highlights, new gear picks — one short email, only when it\u2019s worth looking up.</p>'
+        f'{form}</section>'
+    )
+
 
 FOOTER = f"""
 <footer>
   <div class="wrap">
     <p class="brand">{esc(SITE['brand'])}</p>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
+    {newsletter_block(compact=True)}
     <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
     <p class="fine">© {datetime.date.today().year} {esc(SITE['brand'])}. Look up.</p>
   </div>
 </footer>"""
+
+
+THEME_HEAD_SCRIPT = """<script>(function(){try{var t=localStorage.getItem('wtn-theme')||'dark';document.documentElement.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>"""
+
+THEME_TOGGLE = """<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>"""
+
+THEME_SCRIPT = """<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>"""
 
 
 def page(title, desc, path, body, jsonld=None):
@@ -93,7 +164,9 @@ def page(title, desc, path, body, jsonld=None):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#05070f">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="meta-theme-color" content="#05070f">
+{THEME_HEAD_SCRIPT}
 <link rel="stylesheet" href="/style.css">
 {jd}
 </head>
@@ -101,13 +174,14 @@ def page(title, desc, path, body, jsonld=None):
 <header>
   <div class="wrap nav">
     <a class="logo" href="/">✦ {esc(SITE['brand'])}</a>
-    <nav>{NAV_LINKS}<a href="/about/">About</a></nav>
+    <nav>{NAV_LINKS}<a href="/about/">About</a>{THEME_TOGGLE}</nav>
   </div>
 </header>
 <main class="wrap">
 {body}
 </main>
 {FOOTER}
+{THEME_SCRIPT}
 </body>
 </html>
 """
@@ -185,7 +259,8 @@ def index_page():
 <section class="how">
   <h2>How we pick</h2>
   <p>Every pick is gear we'd recommend to a friend who just saw something strange in the sky and wants to look for themselves. We favour aperture per dollar, portability you'll actually use, and upgrade paths that don't dead-end. Prices are approximate street prices — the retailer page has the live number.</p>
-</section>"""
+</section>
+{newsletter_block()}"""
     return page(SITE["tagline"], SITE["description"], "/", body)
 
 
@@ -278,12 +353,105 @@ def guide_page(g):
     return page(g["title"], g["description"], f"/guides/{g['slug']}/", body)
 
 
+# ---------------------------------------------------------------- roundups
+
+def roundup_card(r):
+    n = len(r["picks"])
+    return f"""
+<a class="card" href="/roundups/{r['slug']}/">
+  <p class="kicker">{n} ranked picks</p>
+  <h3>{esc(r['title'])}</h3>
+  <p class="tagline">{esc(r['description'])}</p>
+  <span class="cta">See the ranking →</span>
+</a>"""
+
+
+def roundups_index():
+    body = """
+<h1>Best-of roundups</h1>
+<p class="lede">Ranked, opinionated, honest: our best-of lists, generated from the same product data as every gear page — prices and tradeoffs included.</p>
+<div class="grid">""" + "".join(roundup_card(r) for r in ROUNDUPS) + "</div>"
+    return page("Roundups", "Ranked best-of lists: best telescopes under $500, best binoculars for stargazing, best star trackers for beginners.", "/roundups/", body)
+
+
+def roundup_page(r):
+    rows = []
+    for i, (slug, verdict) in enumerate(r["picks"], 1):
+        p = product_by_slug(slug)
+        cons = "".join(f"<li>{esc(x)}</li>" for x in p["cons"][:2])
+        rows.append(f"""
+<article class="rank">
+  <p class="kicker">#{i}</p>
+  <h3><a href="/gear/{p['slug']}/">{esc(p['name'])}</a> <span class="price">around ${p['price_usd']:,}</span></h3>
+  <p class="verdict">{esc(verdict)}</p>
+  <p class="tagline">{esc(p['tagline'])}</p>
+  <ul class="cons"><li><strong>Watch out:</strong></li>{cons}</ul>
+  <a class="cta" href="/gear/{p['slug']}/">Read the full pick →</a>
+</article>""")
+    body = f"""
+<p class="crumb"><a href="/">Home</a> / <a href="/roundups/">Roundups</a> / {esc(r['title'])}</p>
+<h1>{esc(r['title'])}</h1>
+<p class="lede">{esc(r['intro'])}</p>
+{''.join(rows)}
+<h2>More roundups</h2>
+<div class="grid">""" + "".join(roundup_card(o) for o in ROUNDUPS if o["slug"] != r["slug"]) + """</div>"""
+    jsonld = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": r["title"],
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i,
+                "name": product_by_slug(slug)["name"],
+                "url": f"{BASE}/gear/{product_by_slug(slug)['slug']}/",
+            }
+            for i, (slug, _v) in enumerate(r["picks"], 1)
+        ],
+    }
+    return page(r["title"], r["description"], f"/roundups/{r['slug']}/", body, jsonld)
+
+
+# ---------------------------------------------------------------- tonight page
+
+def tonight_page():
+    t = TONIGHT or {}
+    hero = ""
+    if t:
+        hero = (
+            '<section class="tonight">\n'
+            f'  <h2>Tonight\'s sky <span class="date">{esc(t.get("date", ""))}</span></h2>\n'
+            f'  <p class="moon">{t.get("emoji", "")} <strong>{esc(t.get("phase", ""))}</strong> — {t.get("illumination_pct", "")}% illuminated</p>\n'
+            f'  <p class="tip">Tonight\'s tip: {esc(t.get("tip", ""))}</p>\n'
+            "</section>"
+        )
+    body = f"""
+<h1>Tonight's sky</h1>
+<p class="lede">What's worth looking at, updated daily. Monthly highlights below — positions shift through the season, so confirm details in a free planetarium app (Stellarium, SkySafari) before you go out.</p>
+{hero}
+<h2>October 2026</h2>
+<p><strong>Orionids — peak night of Oct 21–22.</strong> Debris from Halley's Comet, roughly 20 fast meteors an hour. The Moon is bright early in the night (waning gibbous), so wait until after moonset — roughly 3am — for the best hours before dawn. Best with just your eyes and a reclining chair; <a href="/gear/nikon-aculon-a211-10x50/">binoculars</a> help sweep the sky between meteors.</p>
+<p><strong>Saturn</strong> is just past its early-October opposition — this is prime ring-viewing season. Any of our <a href="/roundups/best-telescopes-under-500/">telescopes under $500</a> will show the rings.</p>
+<h2>November 2026</h2>
+<p><strong>Leonids — peak night of Nov 16–17.</strong> Swift meteors, about 10 an hour, with occasional bright fireballs. Best after midnight; the Moon is out of the way this year.</p>
+<p><strong>Mars meets Jupiter.</strong> The two planets share the pre-dawn sky all month and pass close together around Nov 14 — a fine binocular sight. <strong>Venus</strong> climbs back into the morning sky as the month goes on, brilliant before sunrise.</p>
+<h2>December 2026</h2>
+<p><strong>Geminids — peak night of Dec 13–14.</strong> The year's best meteor shower: up to ~100 multicoloured meteors an hour under near-moonless skies. Dress warm, bring a <a href="/gear/red-led-astronomy-flashlight/">red flashlight</a> and a <a href="/gear/planisphere-40n/">planisphere</a>, and give it at least an hour.</p>
+<p><strong>Mars at opposition (Dec 8).</strong> The red planet at its biggest and brightest of the year — small telescopes show surface shading and the polar cap. Jupiter keeps brightening in the evening sky behind it.</p>
+<h2>Gear for the season</h2>
+<div class="grid">""" + "".join(
+        card(product_by_slug(s))
+        for s in ["nikon-aculon-a211-10x50", "red-led-astronomy-flashlight", "planisphere-40n"]
+    ) + """</div>"""
+    return page("Tonight's sky", "Tonight's moon phase plus October–December 2026 highlights: Orionids, Leonids, Geminids, and the planets.", "/tonight/", body)
+
+
 # ---------------------------------------------------------------- seo files
 
 def sitemap():
-    urls = ["/", "/about/", "/guides/"] + [f"/category/{c}/" for c in CATS] + [
+    urls = ["/", "/about/", "/tonight/", "/guides/", "/roundups/"] + [f"/category/{c}/" for c in CATS] + [
         f"/gear/{p['slug']}/" for p in PRODUCTS
-    ] + [f"/guides/{g['slug']}/" for g in GUIDES]
+    ] + [f"/guides/{g['slug']}/" for g in GUIDES] + [f"/roundups/{r['slug']}/" for r in ROUNDUPS]
     items = "".join(
         f"  <url><loc>{BASE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls
     )
@@ -307,6 +475,11 @@ def llms_txt():
     lines += ["", "## Guides", ""]
     for g in GUIDES:
         lines.append(f"- [{g['title']}]({BASE}/guides/{g['slug']}/) — {g['description']}")
+    lines += ["", "## Roundups", ""]
+    for r in ROUNDUPS:
+        lines.append(f"- [{r['title']}]({BASE}/roundups/{r['slug']}/) — {r['description']}")
+    lines += ["", "## Tonight", ""]
+    lines.append(f"- [Tonight's sky]({BASE}/tonight/) — Tonight's moon phase plus Oct–Dec 2026 meteor and planet highlights.")
     return "\n".join(lines) + "\n"
 
 
@@ -320,6 +493,26 @@ def feed():
     <pubDate>{TODAY}</pubDate>
   </item>
 """ for p in PRODUCTS
+    )
+    items += "".join(
+        f"""  <item>
+    <title>Guide: {esc(g['title'])}</title>
+    <link>{BASE}/guides/{g['slug']}/</link>
+    <guid>{BASE}/guides/{g['slug']}/</guid>
+    <description>{esc(g['description'])}</description>
+    <pubDate>{TODAY}</pubDate>
+  </item>
+""" for g in GUIDES
+    )
+    items += "".join(
+        f"""  <item>
+    <title>Roundup: {esc(r['title'])}</title>
+    <link>{BASE}/roundups/{r['slug']}/</link>
+    <guid>{BASE}/roundups/{r['slug']}/</guid>
+    <description>{esc(r['description'])}</description>
+    <pubDate>{TODAY}</pubDate>
+  </item>
+""" for r in ROUNDUPS
     )
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -358,9 +551,13 @@ def build():
     shutil.copy(os.path.join(SRC, "style.css"), os.path.join(DIST, "style.css"))
     write("index.html", index_page())
     write("about/index.html", about_page())
+    write("tonight/index.html", tonight_page())
     write("guides/index.html", guides_index())
     for g in GUIDES:
         write(f"guides/{g['slug']}/index.html", guide_page(g))
+    write("roundups/index.html", roundups_index())
+    for r in ROUNDUPS:
+        write(f"roundups/{r['slug']}/index.html", roundup_page(r))
     for c, v in CATS.items():
         write(f"category/{c}/index.html", category_page(c, v))
     for p in PRODUCTS:
@@ -371,7 +568,7 @@ def build():
     write("feed.xml", feed())
     key = indexnow_key()
     write(f"{key}.txt", key)
-    print(f"built {len(PRODUCTS)} products, {len(CATS)} categories -> {DIST}")
+    print(f"built {len(PRODUCTS)} products, {len(CATS)} categories, {len(GUIDES)} guides, {len(ROUNDUPS)} roundups -> {DIST}")
     print(f"AMAZON_TAG={AMAZON_TAG}" + ("  <-- PLACEHOLDER, set env AMAZON_TAG" if AMAZON_TAG == "yourtag-20" else ""))
 
 

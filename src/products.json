@@ -583,6 +583,502 @@
           "note": "Search link with affiliate tag."
         }
       ]
+    },
+    {
+      "name": "Celestron NexStar 6SE",
+      "slug": "celestron-nexstar-6se",
+      "category": "telescopes",
+      "tagline": "The computerized 6-inch that finds it for you — lighter than the 8SE.",
+      "blurb": "A 6-inch computerized Schmidt-Cassegrain on the classic NexStar fork mount. Same GoTo brain as the 8SE, in a lighter, more portable package that's easier to carry to a dark site.",
+      "price_usd": 1199,
+      "pros": [
+        "Computerized GoTo finds 40,000+ objects",
+        "Much lighter than the 8SE — genuinely portable",
+        "Long f/10 focal length great for planets and the Moon"
+      ],
+      "cons": [
+        "Less light grasp than the 8SE for deep sky",
+        "Needs power (battery pack or AC)",
+        "Batteries drain fast in the cold"
+      ],
+      "specs": {
+        "Aperture": "150 mm (6 in)",
+        "Focal length": "1500 mm (f/10)",
+        "Mount": "Computerized alt-azimuth GoTo",
+        "Optical design": "Schmidt-Cassegrain",
+        "Weight": "~9.5 kg (21 lb)"
+      },
+      "amazon_query": "Celestron NexStar 6SE telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Apertura AD10 10\" Dobsonian",
+      "slug": "apertura-ad10-dobsonian",
+      "category": "telescopes",
+      "tagline": "Ten inches of aperture — the deep-sky step up from the AD8.",
+      "blurb": "A 10-inch Dobsonian with the same simple push-to base as the AD8, but noticeably more light grasp. The classic 'bucket of light' upgrade for observers who want galaxies, not just planets.",
+      "price_usd": 899,
+      "pros": [
+        "10-inch aperture resolves globular clusters and spiral structure",
+        "Most light per dollar at this size",
+        "Dead simple — no power, no setup fuss"
+      ],
+      "cons": [
+        "Big and heavy — a two-person carry to the car",
+        "Needs a large vehicle and storage space",
+        "Collimation needed now and then"
+      ],
+      "specs": {
+        "Aperture": "254 mm (10 in)",
+        "Focal length": "1250 mm (f/4.9)",
+        "Focuser": "2-inch dual-speed Crayford",
+        "Mount": "Dobsonian (alt-azimuth)",
+        "Optical design": "Newtonian reflector"
+      },
+      "amazon_query": "Apertura AD10 Dobsonian telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Apertura is High Point's house brand — their affiliate program is the natural fit.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Sky-Watcher Evostar 102",
+      "slug": "skywatcher-evostar-102",
+      "category": "telescopes",
+      "tagline": "The classic 4-inch achromatic refractor — sharp, simple, honest.",
+      "blurb": "A 102mm f/10 achromatic refractor: long tube, rack-and-pinion focuser, zero collimation ever. The old-school refractor that shows razor-sharp Moon and planets and doubles as a spotting scope by day.",
+      "price_usd": 280,
+      "pros": [
+        "Refractor — never needs collimation",
+        "Superb lunar and planetary sharpness for the money",
+        "Doubles as a daytime spotting scope"
+      ],
+      "cons": [
+        "Optical tube only — needs a mount and tripod",
+        "Achromatic design shows false color on bright objects",
+        "Long tube is awkward to store and transport"
+      ],
+      "specs": {
+        "Aperture": "102 mm (4 in)",
+        "Focal length": "1000 mm (f/10)",
+        "Mount": "Optical tube only — mount sold separately",
+        "Optical design": "Achromatic refractor"
+      },
+      "amazon_query": "Sky-Watcher Evostar 102 telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Vortex Diamondback HD 10x42",
+      "slug": "vortex-diamondback-hd-10x42",
+      "category": "binoculars",
+      "tagline": "The mid-range 10x42 that outclasses everything near its price.",
+      "blurb": "Vortex's best-selling binocular line with HD optical system and a lifetime VIP warranty. Brighter, sharper, and tougher than budget pairs — the buy-once upgrade for night-sky scanning and daytime birding alike.",
+      "price_usd": 230,
+      "pros": [
+        "Noticeably sharper and brighter than budget 10x42s",
+        "Lifetime VIP warranty — Vortex fixes or replaces it",
+        "Waterproof, fogproof, rubber-armored"
+      ],
+      "cons": [
+        "Costs twice the budget pairs — real money",
+        "Still a 10x — a tripod helps for long sessions",
+        "Bulky next to compacts"
+      ],
+      "specs": {
+        "Magnification": "10x",
+        "Aperture": "42 mm",
+        "Prisms": "BAK4 roof, phase-corrected",
+        "Field of view": "6.5°",
+        "Waterproof": "Yes (IPX7)"
+      },
+      "amazon_query": "Vortex Diamondback HD 10x42 binoculars",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Celestron Nature DX 8x42",
+      "slug": "celestron-nature-dx-8x42",
+      "category": "binoculars",
+      "tagline": "The friendlier 8x42 — wider view, steadier hand-hold.",
+      "blurb": "An 8x42 binocular with a wide field and forgiving eye relief — easier to hold steady than 10x pairs and great for sweeping the Milky Way. The pick for anyone who finds 10x shaky.",
+      "price_usd": 150,
+      "pros": [
+        "Wider field than 10x42s — easier to find things",
+        "Steadier hand-held views, forgiving eye relief",
+        "Waterproof and fogproof"
+      ],
+      "cons": [
+        "Less magnification than 10x pairs",
+        "Optics a step below premium 8x42s",
+        "A bit chunky for its class"
+      ],
+      "specs": {
+        "Magnification": "8x",
+        "Aperture": "42 mm",
+        "Prisms": "BAK4 roof, phase-coated",
+        "Field of view": "8.1°",
+        "Waterproof": "Yes"
+      },
+      "amazon_query": "Celestron Nature DX 8x42 binoculars",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Turn Left at Orion",
+      "slug": "turn-left-at-orion",
+      "category": "accessories",
+      "tagline": "The hundred best things to see in a small telescope — and how to find them.",
+      "blurb": "Guy Consolmagno and Dan Davis's classic observing guide: one object per spread, star-hop maps, and what each target actually looks like through a small scope. Over 100,000 copies sold — the book every beginner's shelf needs.",
+      "price_usd": 40,
+      "pros": [
+        "Shows exactly what objects look like in a small telescope",
+        "Star-hop instructions you can follow at the eyepiece",
+        "100 targets — years of observing nights"
+      ],
+      "cons": [
+        "5th edition targets lean Northern Hemisphere",
+        "Not a substitute for a real star atlas",
+        "Heavy book to juggle at the telescope"
+      ],
+      "specs": {
+        "Authors": "Guy Consolmagno, Dan M. Davis",
+        "Publisher": "Cambridge University Press",
+        "Edition": "5th (2019)",
+        "Pages": "256",
+        "Binding": "Spiral-bound for outdoor use"
+      },
+      "amazon_query": "Turn Left at Orion Consolmagno Davis",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Sky & Telescope's Pocket Sky Atlas",
+      "slug": "pocket-sky-atlas",
+      "category": "accessories",
+      "tagline": "The whole sky in your coat pocket — 30,796 stars, zero batteries.",
+      "blurb": "The most recommended star atlas in the hobby: 30,796 stars down to magnitude 7.6 across 80 charts, compact enough to take anywhere. Never needs charging, never crashes, works at every dark site.",
+      "price_usd": 30,
+      "pros": [
+        "80 charts with 30,796 stars — deep enough for a telescope",
+        "Pocket-size, dews up less than big atlases",
+        "The standard reference every observer recognizes"
+      ],
+      "cons": [
+        "Print is small — bring a red flashlight and readers",
+        "Pages stick together in heavy dew",
+        "Jumbo edition exists if the pocket print is too small"
+      ],
+      "specs": {
+        "Publisher": "Sky & Telescope",
+        "Edition": "2nd",
+        "Stars charted": "30,796 to magnitude 7.6",
+        "Charts": "80",
+        "Size": "15.2 x 22.9 cm"
+      },
+      "amazon_query": "Sky Telescope Pocket Sky Atlas",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Cheshire collimating eyepiece",
+      "slug": "cheshire-collimating-eyepiece",
+      "category": "accessories",
+      "tagline": "The $35 tool that keeps your reflector sharp.",
+      "blurb": "A simple sight tube with a crosshair and reflective ring — the classic tool for collimating (aligning the mirrors of) a Newtonian reflector. Ten minutes with a Cheshire beats guessing forever.",
+      "price_usd": 35,
+      "pros": [
+        "Fast, repeatable collimation without starlight",
+        "One purchase serves every reflector you'll own",
+        "Cheaper than one service-shop visit"
+      ],
+      "cons": [
+        "Learning curve the first couple of times",
+        "1.25-inch barrel only fits 1.25-inch focusers",
+        "Won't fix a fundamentally bad mirror"
+      ],
+      "specs": {
+        "Barrel": "1.25 inch",
+        "Type": "Cheshire (sight tube + crosshair + reflective surface)",
+        "Use": "Newtonian / Dobsonian reflectors"
+      },
+      "amazon_query": "Cheshire collimating eyepiece telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Celestron X-Cel LX 2x Barlow",
+      "slug": "celestron-x-cel-lx-2x-barlow",
+      "category": "accessories",
+      "tagline": "Double every eyepiece you own — the cheapest magnification upgrade.",
+      "blurb": "A 3-element apochromatic Barlow that doubles the magnification of any eyepiece in your case. Slips into the focuser in seconds and effectively gives you two eyepiece sets for the price of one accessory.",
+      "price_usd": 130,
+      "pros": [
+        "Doubles your whole eyepiece collection",
+        "3-element apochromatic design — minimal added aberrations",
+        "T-threaded for camera attachment"
+      ],
+      "cons": [
+        "Adds glass in the light path — slight dimming",
+        "Premium price vs simple 2-element Barlows",
+        "Won't rescue a bad eyepiece"
+      ],
+      "specs": {
+        "Barrel": "1.25 inch",
+        "Magnification": "2x",
+        "Elements": "3 (apochromatic)",
+        "Threading": "T-threads for camera adapters"
+      },
+      "amazon_query": "Celestron X-Cel LX 2x Barlow",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "iOptron SkyGuider Pro",
+      "slug": "ioptron-skyguider-pro",
+      "category": "camera-gear",
+      "tagline": "The tracker for serious Milky Way panoramas and telephoto nightscapes.",
+      "blurb": "A compact equatorial tracker with an 11 lb payload capacity — enough for a DSLR, telephoto lens, and guidescope. Built-in polar scope, multiple tracking rates, and a ST-4 autoguider port for deep-sky work.",
+      "price_usd": 479,
+      "pros": [
+        "11 lb payload — handles telephoto lenses easily",
+        "ST-4 port allows autoguiding for long exposures",
+        "Quiet, compact, runs on 8 AA batteries or USB"
+      ],
+      "cons": [
+        "Learning curve on polar alignment",
+        "Needs a sturdy tripod (sold separately)",
+        "Pricey next to the Star Adventurer 2i"
+      ],
+      "specs": {
+        "Payload": "5 kg (11 lb)",
+        "Tracking rates": "Sidereal, 1/2x, solar, lunar",
+        "Polar scope": "Built-in illuminated",
+        "Power": "8x AA or USB",
+        "Autoguiding": "ST-4 port"
+      },
+      "amazon_query": "iOptron SkyGuider Pro",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Canon EF 50mm f/1.8 STM",
+      "slug": "canon-ef-50mm-f18-stm",
+      "category": "camera-gear",
+      "tagline": "The nifty fifty — the cheapest way into tracked Milky Way shots.",
+      "blurb": "Canon's legendary budget prime: f/1.8 aperture gathers ~8x more light than a kit lens at 50mm. Pair it with a star tracker and a Canon body for sharp, cheap wide-field nightscapes.",
+      "price_usd": 125,
+      "pros": [
+        "f/1.8 gathers huge amounts of light for the price",
+        "Sharp stopped down, tiny, light",
+        "The classic first astro lens on Canon"
+      ],
+      "cons": [
+        "50mm is wide — deep-sky targets stay small",
+        "Plastic build, basic manual focus ring",
+        "EF mount — RF shooters need an adapter"
+      ],
+      "specs": {
+        "Focal length": "50 mm",
+        "Aperture": "f/1.8",
+        "Mount": "Canon EF",
+        "Weight": "160 g"
+      },
+      "amazon_query": "Canon EF 50mm f/1.8 STM",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "ZWO Seestar S50",
+      "slug": "zwo-seestar-s50",
+      "category": "smart-telescopes",
+      "tagline": "The all-in-one smart scope — it finds, tracks, and stacks for you.",
+      "blurb": "A 50mm apochromatic smart telescope with built-in GoTo, plate solving, and live stacking, all controlled from your phone. Point it at the sky and watch deep-sky objects build up on screen — no eyepiece required.",
+      "price_usd": 500,
+      "pros": [
+        "Fully automated — plate solving finds targets itself",
+        "Live stacking shows deep-sky objects from light-polluted skies",
+        "Compact and genuinely portable"
+      ],
+      "cons": [
+        "Tiny 50mm aperture limits fine detail",
+        "Needs a charged battery and your phone/tablet",
+        "Screen observing isn't the same as eyepiece observing"
+      ],
+      "specs": {
+        "Aperture": "50 mm (triplet apochromatic)",
+        "Focal length": "250 mm (f/5)",
+        "Sensor": "Sony IMX462 (2.06 MP)",
+        "Control": "iOS / Android app",
+        "Power": "Built-in rechargeable battery"
+      },
+      "amazon_query": "ZWO Seestar S50 smart telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Dwarf 3 by Dwarflab",
+      "slug": "dwarf-3",
+      "category": "smart-telescopes",
+      "tagline": "Pocket-size smart scope with dual cameras and AI tracking.",
+      "blurb": "Dwarflab's third-generation smart telescope: a telephoto camera plus a wide-angle camera in a package smaller than a soda can, with AI subject tracking. Shoots the Moon, Sun (with filter), deep sky — and birds by day.",
+      "price_usd": 600,
+      "pros": [
+        "Dual cameras: telephoto + wide-angle in one device",
+        "AI tracking follows moving subjects automatically",
+        "Extremely portable — fits in a jacket pocket"
+      ],
+      "cons": [
+        "Small sensor versus dedicated astro cameras",
+        "App-centric workflow — limited manual control",
+        "Newer ecosystem, smaller user community"
+      ],
+      "specs": {
+        "Telephoto": "150 mm equivalent, f/4.3",
+        "Sensor": "Sony IMX678",
+        "Control": "iOS / Android app",
+        "Weight": "~1.2 kg"
+      },
+      "amazon_query": "Dwarflab Dwarf 3 smart telescope",
+      "retailers": [
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
+    },
+    {
+      "name": "Celestron Origin",
+      "slug": "celestron-origin",
+      "category": "smart-telescopes",
+      "tagline": "Observatory-class smart imaging in a 6-inch RASA.",
+      "blurb": "Celestron's flagship smart telescope: a 6-inch f/2.2 RASA optical tube on a fully automated mount with built-in camera and AI-assisted processing. The closest thing to a personal observatory you can buy.",
+      "price_usd": 4000,
+      "pros": [
+        "Fast f/2.2 RASA optics — serious deep-sky speed",
+        "Fully automated imaging with AI processing",
+        "Large 6-inch aperture in a smart scope"
+      ],
+      "cons": [
+        "Around $4,000 — serious money",
+        "Heavy and bulky — not a grab-and-go scope",
+        "Needs external power for long sessions"
+      ],
+      "specs": {
+        "Aperture": "152 mm (6 in)",
+        "Focal length": "335 mm (f/2.2)",
+        "Optical design": "Rowe-Ackermann Schmidt Astrograph",
+        "Sensor": "Sony IMX178",
+        "Control": "iOS / Android app"
+      },
+      "amazon_query": "Celestron Origin smart telescope",
+      "retailers": [
+        {
+          "name": "High Point Scientific",
+          "note": "Specialist astro retailer — join their affiliate program.",
+          "url": "TODO: affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag.",
+          "url": "AMAZON"
+        }
+      ]
     }
   ]
 }

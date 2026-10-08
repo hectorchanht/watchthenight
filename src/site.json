@@ -14,6 +14,10 @@
       "blurb": "Star trackers and mounts that turn an ordinary camera into a deep-sky rig.",
       "label": "Camera gear"
     },
+    "smart-telescopes": {
+      "label": "Smart telescopes",
+      "blurb": "App-controlled telescopes that find, track, and photograph the sky for you — astronomy on autopilot."
+    },
     "telescopes": {
       "blurb": "From first-light tabletop scopes to computerized GoTo rigs — pick the aperture that matches your sky.",
       "label": "Telescopes"
@@ -23,5 +27,6 @@
   "domain": "watchthenight.com",
   "amazon_tag": "watchthenig0a-20",
   "email": "hello@watchthenight.com",
-  "tagline": "Watch the night."
+  "tagline": "Watch the night.",
+  "newsletter_endpoint": ""
 }

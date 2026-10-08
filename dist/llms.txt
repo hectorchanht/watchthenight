@@ -21,12 +21,27 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 - [Celestron NexYZ 3-Axis Smartphone Adapter](https://watchthenight.com/gear/celestron-nexyz-adapter/) — Your phone + any telescope = astrophotography tonight.
 - [Red LED headlamp](https://watchthenight.com/gear/red-led-headlamp/) — Hands-free red light. You'll wonder how you lived without it.
 - [Canon EOS Rebel T7](https://watchthenight.com/gear/canon-eos-rebel-t7/) — The default budget astrophotography DSLR.
+- [Celestron NexStar 6SE](https://watchthenight.com/gear/celestron-nexstar-6se/) — The computerized 6-inch that finds it for you — lighter than the 8SE.
+- [Apertura AD10 10" Dobsonian](https://watchthenight.com/gear/apertura-ad10-dobsonian/) — Ten inches of aperture — the deep-sky step up from the AD8.
+- [Sky-Watcher Evostar 102](https://watchthenight.com/gear/skywatcher-evostar-102/) — The classic 4-inch achromatic refractor — sharp, simple, honest.
+- [Vortex Diamondback HD 10x42](https://watchthenight.com/gear/vortex-diamondback-hd-10x42/) — The mid-range 10x42 that outclasses everything near its price.
+- [Celestron Nature DX 8x42](https://watchthenight.com/gear/celestron-nature-dx-8x42/) — The friendlier 8x42 — wider view, steadier hand-hold.
+- [Turn Left at Orion](https://watchthenight.com/gear/turn-left-at-orion/) — The hundred best things to see in a small telescope — and how to find them.
+- [Sky & Telescope's Pocket Sky Atlas](https://watchthenight.com/gear/pocket-sky-atlas/) — The whole sky in your coat pocket — 30,796 stars, zero batteries.
+- [Cheshire collimating eyepiece](https://watchthenight.com/gear/cheshire-collimating-eyepiece/) — The $35 tool that keeps your reflector sharp.
+- [Celestron X-Cel LX 2x Barlow](https://watchthenight.com/gear/celestron-x-cel-lx-2x-barlow/) — Double every eyepiece you own — the cheapest magnification upgrade.
+- [iOptron SkyGuider Pro](https://watchthenight.com/gear/ioptron-skyguider-pro/) — The tracker for serious Milky Way panoramas and telephoto nightscapes.
+- [Canon EF 50mm f/1.8 STM](https://watchthenight.com/gear/canon-ef-50mm-f18-stm/) — The nifty fifty — the cheapest way into tracked Milky Way shots.
+- [ZWO Seestar S50](https://watchthenight.com/gear/zwo-seestar-s50/) — The all-in-one smart scope — it finds, tracks, and stacks for you.
+- [Dwarf 3 by Dwarflab](https://watchthenight.com/gear/dwarf-3/) — Pocket-size smart scope with dual cameras and AI tracking.
+- [Celestron Origin](https://watchthenight.com/gear/celestron-origin/) — Observatory-class smart imaging in a 6-inch RASA.
 
 ## Categories
 
 - [Accessories](https://watchthenight.com/category/accessories/)
 - [Binoculars](https://watchthenight.com/category/binoculars/)
 - [Camera gear](https://watchthenight.com/category/camera-gear/)
+- [Smart telescopes](https://watchthenight.com/category/smart-telescopes/)
 - [Telescopes](https://watchthenight.com/category/telescopes/)
 
 ## Guides
@@ -35,3 +50,17 @@ Watch the Night is a citizen skywatch gear guide: telescopes, binoculars, star t
 - [Start with binoculars](https://watchthenight.com/guides/start-with-binoculars/) — Why the $110 upgrade beats a $500 telescope for your first night out.
 - [Shoot the night sky with your phone](https://watchthenight.com/guides/smartphone-astrophotography/) — Afocal photography: phone + telescope + a $60 adapter.
 - [What can you actually see with a telescope?](https://watchthenight.com/guides/what-can-you-see/) — Honest expectations: the Moon will blow your mind, galaxies will humble you.
+- [Telescope or binoculars: what should you buy first?](https://watchthenight.com/guides/telescope-vs-binoculars/) — The first purchase decision in this hobby — and why most beginners should start with binoculars.
+- [Telescopes to avoid: 7 red flags for beginners](https://watchthenight.com/guides/telescopes-to-avoid/) — The honest what-NOT-to-buy guide. Spot junk scopes before they kill your interest in the hobby.
+- [Your first night out: a beginner's observing checklist](https://watchthenight.com/guides/first-night-checklist/) — Everything to bring and do on your first real observing session — a practical walkthrough, not theory.
+- [Photograph the Milky Way with gear you already own](https://watchthenight.com/guides/milky-way-with-what-you-own/) — Start astrophotography with a camera you own and lenses you can afford — the nifty-fifty-to-tracker upgrade path.
+
+## Roundups
+
+- [Best telescopes under $500](https://watchthenight.com/roundups/best-telescopes-under-500/) — Ranked by price: the best telescopes you can buy for under $500, with honest tradeoffs for each.
+- [Best binoculars for stargazing](https://watchthenight.com/roundups/best-binoculars-stargazing/) — Ranked by price: the best binoculars for the night sky, from $40 sweepers to the buy-once upgrade.
+- [Best star trackers for beginners](https://watchthenight.com/roundups/best-star-trackers-beginners/) — The two star trackers worth buying first — ranked by price — and how to choose between them.
+
+## Tonight
+
+- [Tonight's sky](https://watchthenight.com/tonight/) — Tonight's moon phase plus Oct–Dec 2026 meteor and planet highlights.
