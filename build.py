@@ -148,6 +148,39 @@ THEME_TOGGLE = """<button class="theme-toggle" id="theme-toggle" aria-label="Tog
 THEME_SCRIPT = """<script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>"""
 
 
+COMPARE_TRAY_SCRIPT = """<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+render();
+})();
+</script>"""
+
+
 def page(title, desc, path, body, jsonld=None):
     canon = BASE + path
     jd = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
@@ -183,6 +216,7 @@ def page(title, desc, path, body, jsonld=None):
 </main>
 {FOOTER}
 {THEME_SCRIPT}
+{COMPARE_TRAY_SCRIPT}
 </body>
 </html>
 """
@@ -191,13 +225,16 @@ def page(title, desc, path, body, jsonld=None):
 def card(p):
     price = f'<p class="price">around ${p["price_usd"]:,}</p>' if p.get("price_usd") else ""
     return f"""
+<div class="cardwrap">
 <a class="card" href="/gear/{p['slug']}/">
   <p class="kicker">{esc(CATS[p['category']]['label'])}</p>
   <h3>{esc(p['name'])}</h3>
   <p class="tagline">{esc(p['tagline'])}</p>
   {price}
   <span class="cta">Read the pick →</span>
-</a>"""
+</a>
+<label class="cmp-add"><input type="checkbox" data-slug="{p['slug']}" aria-label="Add {esc(p['name'])} to compare"> Compare</label>
+</div>"""
 
 
 def buy_box(p):
@@ -321,6 +358,7 @@ data.forEach(function(p){ bySlug[p.slug] = p; });
 var sels = ['A','B','C'].map(function(k){ return document.getElementById('cmp-'+k); });
 var table = document.getElementById('cmp-table');
 var hint = document.getElementById('cmp-hint');
+var diffBox = document.getElementById('cmp-diff');
 function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 function money(n){ return n ? 'around $' + Number(n).toLocaleString('en-US') : '\\u2014'; }
 function render(){
@@ -330,10 +368,17 @@ function render(){
   sels.forEach(function(s,i){ if(s.value) params.set(keys[i], s.value); });
   var qs = params.toString();
   try{ history.replaceState(null,'', qs ? '/compare/?'+qs : '/compare/'); }catch(e){}
+  try{ localStorage.setItem('wtn-cmp', JSON.stringify(sels.map(function(s){ return s.value; }).filter(Boolean))); }catch(e){}
   if(picks.length < 2){ table.hidden = true; hint.hidden = false; return; }
   hint.hidden = true; table.hidden = false;
   var specKeys = [];
   picks.forEach(function(p){ Object.keys(p.specs).forEach(function(k){ if(specKeys.indexOf(k)<0) specKeys.push(k); }); });
+  if(diffBox && diffBox.checked){
+    specKeys = specKeys.filter(function(k){
+      var vals = picks.map(function(p){ return p.specs[k]||''; });
+      return new Set(vals).size > 1;
+    });
+  }
   var html = '<thead><tr><th scope="col"><span class="muted">Pick</span></th>' + picks.map(function(p){
     return '<th scope="col"><a href="/gear/'+p.slug+'/">'+esc(p.name)+'</a><br><span class="muted">'+esc(p.cat)+'</span></th>';
   }).join('') + '</tr></thead><tbody>';
@@ -352,9 +397,16 @@ function render(){
   table.innerHTML = html;
 }
 sels.forEach(function(s){ s.addEventListener('change', render); });
+if(diffBox){ diffBox.addEventListener('change', render); }
 var q = new URLSearchParams(location.search);
 var vals = [q.get('a'), q.get('b'), q.get('c')];
-if(!vals[0] && !vals[1] && !vals[2]){ vals = ['celestron-nexstar-8se','apertura-ad8-dobsonian',null]; }
+if(!vals[0] && !vals[1] && !vals[2]){
+  try{
+    var saved = JSON.parse(localStorage.getItem('wtn-cmp'))||[];
+    if(saved.length >= 2){ vals = [saved[0]||null, saved[1]||null, saved[2]||null]; }
+    else { vals = ['celestron-nexstar-8se','apertura-ad8-dobsonian',null]; }
+  }catch(e){ vals = ['celestron-nexstar-8se','apertura-ad8-dobsonian',null]; }
+}
 vals.forEach(function(v,i){ if(v && bySlug[v]) sels[i].value = v; });
 render();
 })();
@@ -396,6 +448,7 @@ def compare_page():
 <h1>Compare gear side by side</h1>
 <p class="lede">Pick up to three products and compare full specs, prices, strengths and tradeoffs in one table. Every spec below comes straight from our product pages — no hidden rankings.</p>
 <div class="compare-selects">{selects}</div>
+<p><label class="diff-toggle"><input type="checkbox" id="cmp-diff"> Show differences only</label></p>
 <div class="compare-wrap"><table class="compare" id="cmp-table" hidden></table></div>
 <p class="fine" id="cmp-hint">Choose at least two products to start comparing.</p>
 <script type="application/json" id="cmp-data">{data_json}</script>

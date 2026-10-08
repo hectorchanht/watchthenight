@@ -41,6 +41,7 @@
 <h2>Specs</h2>
 <table class="specs"><tr><th>Payload</th><td>5 kg (11 lb)</td></tr><tr><th>Tracking rates</th><td>Sidereal, 1/2x, solar, lunar</td></tr><tr><th>Polar scope</th><td>Built-in illuminated</td></tr><tr><th>Power</th><td>8x AA or USB</td></tr><tr><th>Autoguiding</th><td>ST-4 port</td></tr></table>
 <h2>Also in Camera gear</h2><div class="grid">
+<div class="cardwrap">
 <a class="card" href="/gear/skywatcher-star-adventurer-2i/">
   <p class="kicker">Camera gear</p>
   <h3>Sky-Watcher Star Adventurer 2i</h3>
@@ -48,6 +49,9 @@
   <p class="price">around $430</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="skywatcher-star-adventurer-2i" aria-label="Add Sky-Watcher Star Adventurer 2i to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/canon-eos-rebel-t7/">
   <p class="kicker">Camera gear</p>
   <h3>Canon EOS Rebel T7</h3>
@@ -55,13 +59,18 @@
   <p class="price">around $500</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="canon-eos-rebel-t7" aria-label="Add Canon EOS Rebel T7 to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/canon-ef-50mm-f18-stm/">
   <p class="kicker">Camera gear</p>
   <h3>Canon EF 50mm f/1.8 STM</h3>
   <p class="tagline">The nifty fifty — the cheapest way into tracked Milky Way shots.</p>
   <p class="price">around $125</p>
   <span class="cta">Read the pick →</span>
-</a></div>
+</a>
+<label class="cmp-add"><input type="checkbox" data-slug="canon-ef-50mm-f18-stm" aria-label="Add Canon EF 50mm f/1.8 STM to compare"> Compare</label>
+</div></div>
 </main>
 
 <footer>
@@ -75,5 +84,36 @@
   </div>
 </footer>
 <script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>
+<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+render();
+})();
+</script>
 </body>
 </html>

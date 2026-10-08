@@ -41,6 +41,7 @@
 <h2>Specs</h2>
 <table class="specs"><tr><th>Magnification</th><td>10x</td></tr><tr><th>Aperture</th><td>50 mm</td></tr><tr><th>Prisms</th><td>BAK4 Porro</td></tr></table>
 <h2>Also in Binoculars</h2><div class="grid">
+<div class="cardwrap">
 <a class="card" href="/gear/celestron-skymaster-15x70/">
   <p class="kicker">Binoculars</p>
   <h3>Celestron SkyMaster 15x70</h3>
@@ -48,6 +49,9 @@
   <p class="price">around $110</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="celestron-skymaster-15x70" aria-label="Add Celestron SkyMaster 15x70 to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/celestron-cometron-7x50/">
   <p class="kicker">Binoculars</p>
   <h3>Celestron Cometron 7x50</h3>
@@ -55,13 +59,18 @@
   <p class="price">around $40</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="celestron-cometron-7x50" aria-label="Add Celestron Cometron 7x50 to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/vortex-diamondback-hd-10x42/">
   <p class="kicker">Binoculars</p>
   <h3>Vortex Diamondback HD 10x42</h3>
   <p class="tagline">The mid-range 10x42 that outclasses everything near its price.</p>
   <p class="price">around $230</p>
   <span class="cta">Read the pick →</span>
-</a></div>
+</a>
+<label class="cmp-add"><input type="checkbox" data-slug="vortex-diamondback-hd-10x42" aria-label="Add Vortex Diamondback HD 10x42 to compare"> Compare</label>
+</div></div>
 </main>
 
 <footer>
@@ -75,5 +84,36 @@
   </div>
 </footer>
 <script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>
+<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+render();
+})();
+</script>
 </body>
 </html>

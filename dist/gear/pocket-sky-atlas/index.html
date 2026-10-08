@@ -41,6 +41,7 @@
 <h2>Specs</h2>
 <table class="specs"><tr><th>Publisher</th><td>Sky &amp; Telescope</td></tr><tr><th>Edition</th><td>2nd</td></tr><tr><th>Stars charted</th><td>30,796 to magnitude 7.6</td></tr><tr><th>Charts</th><td>80</td></tr><tr><th>Size</th><td>15.2 x 22.9 cm</td></tr></table>
 <h2>Also in Accessories</h2><div class="grid">
+<div class="cardwrap">
 <a class="card" href="/gear/red-led-astronomy-flashlight/">
   <p class="kicker">Accessories</p>
   <h3>Astronomy red LED flashlight</h3>
@@ -48,6 +49,9 @@
   <p class="price">around $15</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="red-led-astronomy-flashlight" aria-label="Add Astronomy red LED flashlight to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/telrad-reflex-finder/">
   <p class="kicker">Accessories</p>
   <h3>Telrad reflex finder</h3>
@@ -55,13 +59,18 @@
   <p class="price">around $45</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="telrad-reflex-finder" aria-label="Add Telrad reflex finder to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/planisphere-40n/">
   <p class="kicker">Accessories</p>
   <h3>Large planisphere (40°N)</h3>
   <p class="tagline">The whole sky on a spinning wheel. No batteries.</p>
   <p class="price">around $15</p>
   <span class="cta">Read the pick →</span>
-</a></div>
+</a>
+<label class="cmp-add"><input type="checkbox" data-slug="planisphere-40n" aria-label="Add Large planisphere (40°N) to compare"> Compare</label>
+</div></div>
 </main>
 
 <footer>
@@ -75,5 +84,36 @@
   </div>
 </footer>
 <script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>
+<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+render();
+})();
+</script>
 </body>
 </html>

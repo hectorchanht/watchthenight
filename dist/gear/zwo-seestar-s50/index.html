@@ -41,6 +41,7 @@
 <h2>Specs</h2>
 <table class="specs"><tr><th>Aperture</th><td>50 mm (triplet apochromatic)</td></tr><tr><th>Focal length</th><td>250 mm (f/5)</td></tr><tr><th>Sensor</th><td>Sony IMX462 (2.06 MP)</td></tr><tr><th>Control</th><td>iOS / Android app</td></tr><tr><th>Power</th><td>Built-in rechargeable battery</td></tr></table>
 <h2>Also in Smart telescopes</h2><div class="grid">
+<div class="cardwrap">
 <a class="card" href="/gear/dwarf-3/">
   <p class="kicker">Smart telescopes</p>
   <h3>Dwarf 3 by Dwarflab</h3>
@@ -48,13 +49,18 @@
   <p class="price">around $600</p>
   <span class="cta">Read the pick →</span>
 </a>
+<label class="cmp-add"><input type="checkbox" data-slug="dwarf-3" aria-label="Add Dwarf 3 by Dwarflab to compare"> Compare</label>
+</div>
+<div class="cardwrap">
 <a class="card" href="/gear/celestron-origin/">
   <p class="kicker">Smart telescopes</p>
   <h3>Celestron Origin</h3>
   <p class="tagline">Observatory-class smart imaging in a 6-inch RASA.</p>
   <p class="price">around $4,000</p>
   <span class="cta">Read the pick →</span>
-</a></div>
+</a>
+<label class="cmp-add"><input type="checkbox" data-slug="celestron-origin" aria-label="Add Celestron Origin to compare"> Compare</label>
+</div></div>
 </main>
 
 <footer>
@@ -68,5 +74,36 @@
   </div>
 </footer>
 <script>(function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content',t==='light'?'#fbfbfe':'#05070f');try{localStorage.setItem('wtn-theme',t);}catch(e){}});})();</script>
+<script>
+(function(){
+var KEY='wtn-cmp', MAX=3;
+function get(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch(e){ return []; } }
+function set(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+var tray=document.createElement('div');
+tray.className='cmp-tray'; tray.id='cmp-tray';
+document.body.appendChild(tray);
+function render(){
+  var s=get();
+  document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
+  if(s.length>=2){
+    var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\u00d7</button>';
+    tray.classList.add('show');
+    tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
+  }else{
+    tray.classList.remove('show');
+  }
+}
+document.addEventListener('change',function(e){
+  var cb=e.target&&e.target.closest?e.target.closest('.cmp-add input'):null;
+  if(!cb) return;
+  var s=get(), i=s.indexOf(cb.dataset.slug);
+  if(cb.checked&&i<0){ if(s.length>=MAX){ cb.checked=false; return; } s.push(cb.dataset.slug); }
+  if(!cb.checked&&i>=0){ s.splice(i,1); }
+  set(s); render();
+});
+render();
+})();
+</script>
 </body>
 </html>
