@@ -300,7 +300,7 @@ def index_page():
 </section>
 <section>
   <h2>Guides</h2>
-  <div class="grid">""" + "".join(guide_card(g) for g in GUIDES) + """</div>
+  <div class="grid">""" + "".join(guide_card(g) for g in GUIDES) + f"""</div>
 </section>
 <section class="how">
   <h2>How we pick</h2>
@@ -663,7 +663,7 @@ def roundup_card(r):
 def roundups_index():
     body = """
 <h1>Best-of roundups</h1>
-<p class="lede">Ranked, opinionated, honest: our best-of lists, generated from the same product data as every gear page — prices and tradeoffs included.</p>
+<p class="lede">Ranked, opinionated, honest: my best-of lists, built from the same product data as every gear page — prices and tradeoffs included. No sponsored slots, ever.</p>
 <div class="grid">""" + "".join(roundup_card(r) for r in ROUNDUPS) + "</div>"
     return page("Roundups", "Ranked best-of lists: best telescopes under $500, best binoculars for stargazing, best star trackers for beginners.", "/roundups/", body)
 
