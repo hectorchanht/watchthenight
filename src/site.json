@@ -21,6 +21,10 @@
     "telescopes": {
       "blurb": "From first-light tabletop scopes to computerized GoTo rigs — pick the aperture that matches your sky.",
       "label": "Telescopes"
+    },
+    "night-vision": {
+      "label": "Night vision & thermal",
+      "blurb": "See heat and amplify starlight: thermal monoculars that find things in total darkness, and Gen 3 night vision that shows you what they are."
     }
   },
   "description": "Watch the Night is the gear guide I wish someone had handed me: telescopes, binoculars, star trackers and accessories, picked honestly for people who want to see the night sky themselves — and capture what they see. No hype, no junk, just what works.",

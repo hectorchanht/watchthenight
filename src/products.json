@@ -266,7 +266,7 @@
       "category": "telescopes",
       "tagline": "The honest $150 start. No shame in starting here.",
       "blurb": "A 70mm refractor on a simple mount — the classic answer to 'what's a cheap first telescope?' for a decade. It won't beat an 8-inch Dob, obviously, but the Moon looks fantastic and there's zero learning curve. If the hobby doesn't stick, you're out the price of a nice dinner.",
-      "price_usd": 150,
+      "price_usd": 110,
       "pros": [
         "Very affordable entry point",
         "Refractor — no collimation ever",
@@ -1079,6 +1079,230 @@
           "url": "AMAZON"
         }
       ]
+    },
+    {
+      "amazon_query": "AGM TaipanV2 10-256 thermal monocular",
+      "blurb": "The entry point into thermal skywatch: a handheld monocular that renders heat signatures as bright shapes against the cold night sky. No moonlight, no ambient light needed — a warm object moving overhead shows up whether your eyes could ever catch it or not. This is the one to buy if you're curious whether thermal actually works for skywatching.",
+      "category": "night-vision",
+      "cons": [
+        "256x192 sensor is coarse — identification, not detail",
+        "Battery life is modest; carry a spare",
+        "Won't see through clouds or glass"
+      ],
+      "name": "AGM TaipanV2 10-256 Thermal Imaging Monocular",
+      "price_usd": 495,
+      "pros": [
+        "True thermal imaging at the lowest price we've seen",
+        "Works in total darkness — needs zero ambient light",
+        "Handheld and simple: point at the sky, look"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-taipanv2-10-256",
+      "specs": {
+        "Best for": "First thermal / night-sky scanning",
+        "Refresh rate": "50 Hz",
+        "Sensor resolution": "256x192",
+        "Type": "Thermal imaging monocular"
+      },
+      "tagline": "The cheapest real thermal monocular — see heat at night for $495."
+    },
+    {
+      "amazon_query": "AGM TaipanV2 15-256 thermal monocular",
+      "blurb": "The middle TaipanV2: same 256x192 sensor as the 10-256 with a longer lens for more detection range. If the entry model is 'does thermal work for skywatching?', this one is 'let me actually track what I find'. The $100 step up buys you noticeably more time on target.",
+      "category": "night-vision",
+      "cons": [
+        "Same coarse 256x192 sensor",
+        "Narrower field of view than the 10-256",
+        "Won't see through clouds or glass"
+      ],
+      "name": "AGM TaipanV2 15-256 Thermal Imaging Monocular",
+      "price_usd": 595,
+      "pros": [
+        "More detection range than the 10-256",
+        "Same simple handheld operation",
+        "Still under $600 — the sweet spot"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-taipanv2-15-256",
+      "specs": {
+        "Best for": "Tracking warm objects at longer range",
+        "Refresh rate": "50 Hz",
+        "Sensor resolution": "256x192",
+        "Type": "Thermal imaging monocular"
+      },
+      "tagline": "A step up in reach — same sensor, more detection range."
+    },
+    {
+      "amazon_query": "AGM TaipanV2 19-320 thermal monocular",
+      "blurb": "The top of the TaipanV2 line: a 320x240 sensor with a 19mm lens, which means both more detail and more range than the 256 models. This is where thermal stops being a curiosity and starts being an instrument — warm objects resolve into shapes you can actually describe, not just blobs you point at.",
+      "category": "night-vision",
+      "cons": [
+        "Nearly $700 — real money for a first thermal",
+        "Heavier than the smaller Taipans",
+        "Won't see through clouds or glass"
+      ],
+      "name": "AGM TaipanV2 19-320 Thermal Imaging Monocular",
+      "price_usd": 695,
+      "pros": [
+        "320x240 sensor — visibly more detail than 256 models",
+        "19mm lens for longer detection range",
+        "Still handheld and straightforward"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-taipanv2-19-320",
+      "specs": {
+        "Best for": "Serious thermal skywatching",
+        "Refresh rate": "50 Hz",
+        "Sensor resolution": "320x256",
+        "Type": "Thermal imaging monocular"
+      },
+      "tagline": "Higher resolution thermal — the serious skywatch pick."
+    },
+    {
+      "amazon_query": "AGM PVS-14E 3AL1 night vision monocular",
+      "blurb": "The PVS-14 is the benchmark night vision device — the shape you picture when someone says 'night vision goggles' — and the 3AL1 is AGM's Gen 3 version. It amplifies starlight and moonlight into a bright green image, so the night sky looks like the night sky, only visible. If thermal is about detection, this is about observation: you see what you'd see, if your eyes worked at night.",
+      "category": "night-vision",
+      "cons": [
+        "Over $4,000 — a serious commitment",
+        "Needs some ambient light; useless in a cave",
+        "Bright lights can damage the tube — handle with care"
+      ],
+      "name": "AGM PVS-14E 3AL1 Night Vision Monocular",
+      "price_usd": 4195,
+      "pros": [
+        "Gen 3 image intensifier — genuine low-light performance",
+        "Natural view: amplified real light, not a heat map",
+        "The PVS-14 form factor — huge accessory ecosystem"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-pvs-14e-3al1",
+      "specs": {
+        "Best for": "True night-sky observation",
+        "Form factor": "PVS-14",
+        "Generation": "Gen 3",
+        "Type": "Image-intensifier night vision monocular",
+        "Phosphor": "Green (P43)"
+      },
+      "tagline": "Gen 3 night vision — the real thing, not a toy."
+    },
+    {
+      "amazon_query": "AGM PVS-14E 3AW1 night vision monocular",
+      "blurb": "The 3AW1 sits above the 3AL1 in AGM's PVS-14E line — the premium-tube option for buyers who want the cleanest image Gen 3 can deliver. Same legendary form factor, better glass behind it. This is the 'buy once, cry once' pick for night vision skywatching.",
+      "category": "night-vision",
+      "cons": [
+        "$4,495 — the most expensive pick on this site",
+        "Still needs ambient light to work",
+        "Overkill unless you're out under the sky constantly"
+      ],
+      "name": "AGM PVS-14E 3AW1 Night Vision Monocular",
+      "price_usd": 4495,
+      "pros": [
+        "Top-tier Gen 3 tube in the PVS-14E line",
+        "Cleanest low-light image AGM offers in this form",
+        "PVS-14 mounts, helmets and accessories all fit"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-pvs-14e-3aw1",
+      "specs": {
+        "Best for": "Best-in-class night observation",
+        "Form factor": "PVS-14",
+        "Generation": "Gen 3",
+        "Type": "Image-intensifier night vision monocular",
+        "Phosphor": "White (P45)"
+      },
+      "tagline": "The top-spec PVS-14 — for when only the best tube will do."
+    },
+    {
+      "amazon_query": "AGM Fuzion LRF TM35-640 thermal monocular",
+      "blurb": "The Fuzion LRF TM35-640 is AGM's flagship handheld thermal: a 640x512 sensor — four times the pixels of the TaipanV2 19-320 — plus a built-in laser rangefinder that tells you how far away that heat signature is. 'Bright blob, 400 metres out, moving' beats 'bright blob' every time. Price varies by retailer, so check the live price.",
+      "category": "night-vision",
+      "cons": [
+        "Flagship price — check the live number",
+        "Bigger and heavier than the Taipan line",
+        "Rangefinder is for line-of-sight use"
+      ],
+      "name": "AGM Fuzion LRF TM35-640 Thermal Monocular",
+      "pros": [
+        "640x512 sensor — the sharpest thermal image here",
+        "Laser rangefinder gives you distance, not just direction",
+        "Flagship build quality"
+      ],
+      "retailers": [
+        {
+          "name": "AGM Global Vision",
+          "note": "Buy direct — join AGM's affiliate program for the best rate on their own gear.",
+          "url": "TODO: AGM affiliate deep link"
+        },
+        {
+          "name": "Amazon",
+          "note": "Search link with affiliate tag (lower commission, 24h cookie).",
+          "url": "AMAZON"
+        }
+      ],
+      "slug": "agm-fuzion-lrf-tm35-640",
+      "specs": {
+        "Best for": "Flagship thermal skywatching",
+        "Rangefinder": "Built-in laser rangefinder",
+        "Sensor resolution": "640x512",
+        "Type": "Fusion thermal + digital night vision monocular"
+      },
+      "tagline": "640x512 thermal with a laser rangefinder — the flagship.",
+      "price_usd": 2895
     }
   ]
 }

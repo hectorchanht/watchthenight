@@ -381,7 +381,7 @@ def product_page(p):
 <p class="crumb"><a href="/">Home</a> / <a href="/category/{p['category']}/">{esc(CATS[p['category']]['label'])}</a> / {esc(p['name'])}</p>
 <h1>{esc(p['name'])}</h1>
 <p class="tagline big">{esc(p['tagline'])}</p>
-<p class="price big">around ${p['price_usd']:,}</p>
+<p class="price big">{'around $' + format(p['price_usd'], ',d') if p.get('price_usd') else 'Check price'}</p>
 <p class="lede">{esc(p['blurb'])}</p>
 {buy_box(p)}
 <p class="fine"><a href="/compare/?a={p['slug']}">Compare the {esc(p['name'])} with another pick →</a></p>
@@ -403,7 +403,7 @@ def product_page(p):
         "offers": {
             "@type": "Offer",
             "priceCurrency": "USD",
-            "price": p["price_usd"],
+            **({"price": p["price_usd"]} if p.get("price_usd") else {}),
         },
     }
     return page(p["name"], p["tagline"], f"/gear/{p['slug']}/", body, jsonld)
@@ -676,7 +676,7 @@ def roundup_page(r):
         rows.append(f"""
 <article class="rank">
   <p class="kicker">#{i}</p>
-  <h3><a href="/gear/{p['slug']}/">{esc(p['name'])}</a> <span class="price">around ${p['price_usd']:,}</span></h3>
+  <h3><a href="/gear/{p['slug']}/">{esc(p['name'])}</a> <span class="price">{'around $' + format(p['price_usd'], ',d') if p.get('price_usd') else 'Check price'}</span></h3>
   <p class="verdict">{esc(verdict)}</p>
   <p class="tagline">{esc(p['tagline'])}</p>
   <ul class="cons"><li><strong>Watch out:</strong></li>{cons}</ul>
@@ -899,7 +899,7 @@ def dump_sql():
             url_q = url.replace("'", "''")
             print(
                 "INSERT INTO gear_picks (slug, product_name, retailer, url, price_cents) VALUES "
-                f"('{p['slug']}', '{name}', '{ret}', '{url_q}', {int(p['price_usd'] * 100)}) "
+                f"('{p['slug']}', '{name}', '{ret}', '{url_q}', {('NULL' if not p.get('price_usd') else int(p['price_usd'] * 100))}) "
                 "ON CONFLICT(slug, retailer) DO UPDATE SET url=excluded.url, price_cents=excluded.price_cents;"
             )
 
