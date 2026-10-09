@@ -80,7 +80,12 @@ Add an entry to `src/products.json`:
 ## Before launch (Hector's call)
 
 - [ ] Pick final brand name + domain (replace in `src/site.json`)
-- [ ] Contact email (currently `hello@example.com`)
+- [ ] Contact email (currently `hello@watchthenight.com`)
 - [ ] realufo.org → new site funnel links (banner / "observe it yourself" section)
 - [ ] Submit sitemap to Google Search Console + IndexNow submission
 - [ ] PUBLISH RULE: Hector's explicit OK before anything goes live
+
+## Contact
+
+- Site: https://watchthenight.com
+- hello@watchthenight.com
