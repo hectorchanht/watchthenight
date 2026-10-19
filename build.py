@@ -6,7 +6,8 @@
 
 Source of truth: src/products.json (+ src/site.json).
 Amazon tag: env AMAZON_TAG wins, else src/site.json "amazon_tag", else yourtag-20 placeholder.
-Retailer URLs starting with 'TODO:' render as 'link coming soon' placeholders.
+Retailer URLs starting with 'TODO:' are hidden entirely — never rendered as
+'link coming soon' placeholders (Hector: never show upcoming links).
 """
 import datetime
 import html
@@ -246,21 +247,20 @@ def card(p):
 
 
 def buy_box(p):
+    # Retailers without a real URL are never shown — no "link coming soon"
+    # placeholders (Hector 2026-10-18: never show upcoming links).
     rows = []
     for r in p["retailers"]:
         url = retailer_url(r, p)
-        if url:
-            rows.append(
-                f'<div class="buyrow"><div><strong>{esc(r["name"])}</strong>'
-                f'<p>{esc(r.get("note", ""))}</p></div>'
-                f'<a class="btn" href="{esc(url)}" rel="nofollow sponsored noopener" target="_blank">Check price</a></div>'
-            )
-        else:
-            rows.append(
-                f'<div class="buyrow"><div><strong>{esc(r["name"])}</strong>'
-                f'<p>{esc(r.get("note", ""))}</p></div>'
-                f'<span class="btn disabled">Link coming soon</span></div>'
-            )
+        if not url:
+            continue
+        rows.append(
+            f'<div class="buyrow"><div><strong>{esc(r["name"])}</strong>'
+            f'<p>{esc(r.get("note", ""))}</p></div>'
+            f'<a class="btn" href="{esc(url)}" rel="nofollow sponsored noopener" target="_blank">Check price</a></div>'
+        )
+    if not rows:
+        return ""
     return '<div class="buybox"><h2>Where to buy</h2>' + "".join(rows) + "</div>"
 
 

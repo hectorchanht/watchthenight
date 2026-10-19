@@ -35,6 +35,12 @@ Watch the Night is the gear guide I wish someone had handed me: telescopes, bino
 - [ZWO Seestar S50](https://watchthenight.com/gear/zwo-seestar-s50/) — Point it at the sky. Watch galaxies appear on your phone.
 - [Dwarf 3 by Dwarflab](https://watchthenight.com/gear/dwarf-3/) — A smart telescope smaller than a soda can.
 - [Celestron Origin](https://watchthenight.com/gear/celestron-origin/) — A personal observatory that sets itself up.
+- [AGM TaipanV2 10-256 Thermal Imaging Monocular](https://watchthenight.com/gear/agm-taipanv2-10-256/) — The cheapest real thermal monocular — see heat at night for $495.
+- [AGM TaipanV2 15-256 Thermal Imaging Monocular](https://watchthenight.com/gear/agm-taipanv2-15-256/) — A step up in reach — same sensor, more detection range.
+- [AGM TaipanV2 19-320 Thermal Imaging Monocular](https://watchthenight.com/gear/agm-taipanv2-19-320/) — Higher resolution thermal — the serious skywatch pick.
+- [AGM PVS-14E 3AL1 Night Vision Monocular](https://watchthenight.com/gear/agm-pvs-14e-3al1/) — Gen 3 night vision — the real thing, not a toy.
+- [AGM PVS-14E 3AW1 Night Vision Monocular](https://watchthenight.com/gear/agm-pvs-14e-3aw1/) — The top-spec PVS-14 — for when only the best tube will do.
+- [AGM Fuzion LRF TM35-640 Thermal Monocular](https://watchthenight.com/gear/agm-fuzion-lrf-tm35-640/) — 640x512 thermal with a laser rangefinder — the flagship.
 
 ## Categories
 
@@ -43,6 +49,7 @@ Watch the Night is the gear guide I wish someone had handed me: telescopes, bino
 - [Camera gear](https://watchthenight.com/category/camera-gear/)
 - [Smart telescopes](https://watchthenight.com/category/smart-telescopes/)
 - [Telescopes](https://watchthenight.com/category/telescopes/)
+- [Night vision & thermal](https://watchthenight.com/category/night-vision/)
 
 ## Guides
 
@@ -54,6 +61,8 @@ Watch the Night is the gear guide I wish someone had handed me: telescopes, bino
 - [Telescopes to avoid: 7 red flags for beginners](https://watchthenight.com/guides/telescopes-to-avoid/) — Seven red flags I wish someone had shown me before I almost bought junk. Learn from my near-mistakes.
 - [Your first night out: a beginner's observing checklist](https://watchthenight.com/guides/first-night-checklist/) — Everything to bring and do on your first real night out — a practical walkthrough from someone who’s forgotten half of it so you don’t have to.
 - [Photograph the Milky Way with gear you already own](https://watchthenight.com/guides/milky-way-with-what-you-own/) — Start with the camera in your closet and lenses you can afford — the nifty-fifty-to-tracker path, step by step.
+- [Thermal vs night vision: which one actually helps you spot UAP?](https://watchthenight.com/guides/thermal-vs-night-vision/) — Thermal finds things. Night vision shows you what they are. Here's how to pick — with real tradeoffs, not marketing.
+- [How to choose your first thermal monocular without wasting $500](https://watchthenight.com/guides/first-thermal-monocular/) — Resolution, refresh rate, lens size — and the three real budget tiers, mapped to actual products.
 
 ## Roundups
 
