@@ -226,6 +226,7 @@ def page(title, desc, path, body, jsonld=None):
 {FOOTER}
 {THEME_SCRIPT}
 {COMPARE_TRAY_SCRIPT}
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "589f6786bf174cd6934c47915c9e5de3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """
