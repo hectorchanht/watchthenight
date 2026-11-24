@@ -37,7 +37,7 @@ SITE = load("site.json")
 AMAZON_TAG = os.environ.get("AMAZON_TAG") or SITE.get("amazon_tag") or "yourtag-20"
 PRODUCTS = load("products.json")["products"]
 GUIDES = load("guides.json")["guides"]
-GLOSSARY = load("glossary.json")["terms"]
+GLOSSARY = load("glossary.json")["terms"] if os.path.exists(os.path.join(SRC, "glossary.json")) else []
 CATS = SITE["categories"]
 TONIGHT = None
 _tonight_path = os.path.join(SRC, "tonight.json")
@@ -107,9 +107,49 @@ def retailer_url(r, product):
 
 # ---------------------------------------------------------------- templates
 
+# --- Icon system (Dawn-Design §8: labels an icon can carry are icons) -------
+# Lucide-style inline SVG, same stroke style as the theme toggle. Fixed 20px
+# via the .ic class in style.css; every icon link/button keeps aria-label/title.
+def _ic(paths):
+    return ('<svg class="ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" '
+            'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+            'aria-hidden="true">' + paths + '</svg>')
+
+ICONS = {
+    "telescopes": _ic('<path d="m6 18 8.5-8.5"/><path d="M13 3l8 8-2.5.5L13 6z"/><path d="M10 14l-2 6"/><path d="M10 14l4 6"/><path d="M6 20h8"/>'),
+    "binoculars": _ic('<circle cx="8" cy="15" r="4"/><circle cx="16" cy="15" r="4"/><path d="M8 11V5h8v6"/><path d="M12 9V5"/>'),
+    "camera-gear": _ic('<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>'),
+    "smart-telescopes": _ic('<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>'),
+    "accessories": _ic('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
+    "night-vision": _ic('<path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/>'),
+    "roundups": _ic('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
+    "tonight": _ic('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'),
+    "guides": _ic('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
+    "compare": _ic('<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>'),
+    "finder": _ic('<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>'),
+    "about": _ic('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'),
+    "home": _ic('<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'),
+    "arrow": _ic('<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'),
+    "cart": _ic('<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>'),
+    "send": _ic('<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>'),
+    "rss": _ic('<path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><line x1="4" x2="4.01" y1="20" y2="20"/>'),
+    "file": _ic('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>'),
+    "mail": _ic('<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>'),
+    "grid": _ic('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>'),
+    "dollar": _ic('<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'),
+    "aperture": _ic('<circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/>'),
+    "cpu": _ic('<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/>'),
+    "filter": _ic('<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>'),
+}
+HOME_LINK = '<a href="/" aria-label="Home" title="Home">' + ICONS["home"] + '</a>'
+CTA_ARROW = '<span class="cta">' + ICONS["arrow"] + '</span>'
+CMP_LABEL = '<label class="cmp-add"><input type="checkbox" data-slug="{slug}" aria-label="Add {name} to compare">' + ICONS["compare"] + '</label>'
+
 NAV_LINKS = "".join(
-    f'<a href="/category/{c}/">{esc(v["label"])}</a>' for c, v in CATS.items()
-) + '<a href="/roundups/">Roundups</a><a href="/tonight/">Tonight</a><a href="/guides/">Guides</a>'
+    f'<a href="/category/{c}/" aria-label="{esc(v["label"])}" title="{esc(v["label"])}">{ICONS.get(c, ICONS["guides"])}</a>' for c, v in CATS.items()
+) + ('<a href="/roundups/" aria-label="Roundups" title="Roundups">' + ICONS["roundups"] + '</a>'
+     '<a href="/tonight/" aria-label="Tonight" title="Tonight">' + ICONS["tonight"] + '</a>'
+     '<a href="/guides/" aria-label="Guides" title="Guides">' + ICONS["guides"] + '</a>')
 
 def newsletter_block(compact=False):
     ep = SITE.get("newsletter_endpoint", "")
@@ -117,7 +157,7 @@ def newsletter_block(compact=False):
         form = (
             f'<form class="nl-form" method="post" action="{esc(ep)}">'
             '<input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">'
-            '<button class="btn" type="submit">Subscribe</button></form>'
+            '<button class="btn btn-ic" type="submit" aria-label="Subscribe" title="Subscribe">' + ICONS["send"] + '</button></form>'
         )
     else:
         form = '<p class="nl-soon">Email alerts are coming soon — check back.</p>'
@@ -134,10 +174,10 @@ FOOTER = f"""
 <footer>
   <div class="wrap">
     <p class="brand">{esc(SITE['brand'])}</p>
-    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/compare/">Compare</a><a href="/finder/">Finder</a><a href="/about/">About</a></nav>
+    <nav class="footer-nav" aria-label="Site">{NAV_LINKS}<a href="/compare/" aria-label="Compare" title="Compare">{ICONS["compare"]}</a><a href="/finder/" aria-label="Finder" title="Finder">{ICONS["finder"]}</a><a href="/about/" aria-label="About" title="About">{ICONS["about"]}</a></nav>
     <p class="disc">Affiliate disclosure: {esc(SITE['brand'])} is reader-supported. When you buy through links on our site we may earn an affiliate commission — it costs you nothing extra. As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate; check the retailer for the live price.</p>
     {newsletter_block(compact=True)}
-    <p class="fine"><a href="/about/">About</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></p>
+    <p class="fine"><a href="/about/" aria-label="About" title="About">{ICONS["about"]}</a> · <a href="/feed.xml" aria-label="RSS feed" title="RSS feed">{ICONS["rss"]}</a> · <a href="/llms.txt" aria-label="llms.txt" title="llms.txt">{ICONS["file"]}</a> · <a href="mailto:{esc(SITE['email'])}">{ICONS["mail"]} {esc(SITE['email'])}</a></p>
     <p class="fine">© {datetime.date.today().year} {esc(SITE['brand'])}. Look up.</p>
   </div>
 </footer>"""
@@ -163,7 +203,7 @@ function render(){
   document.querySelectorAll('.cmp-add input').forEach(function(cb){ cb.checked=s.indexOf(cb.dataset.slug)>=0; });
   if(s.length>=2){
     var q=s.map(function(x,i){ return 'abc'[i]+'='+encodeURIComponent(x); }).join('&');
-    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn" href="/compare/?'+q+'">Compare now</a><button class="cmp-clear" aria-label="Clear selection">\\u00d7</button>';
+    tray.innerHTML='<span class="muted">'+s.length+' selected</span><a class="btn btn-ic" href="/compare/?'+q+'" aria-label="Compare now" title="Compare now">__CMP_ICON__</a>'<button class="cmp-clear" aria-label="Clear selection">\\u00d7</button>';
     tray.classList.add('show');
     tray.querySelector('.cmp-clear').addEventListener('click',function(){ set([]); render(); });
   }else{
@@ -181,7 +221,7 @@ document.addEventListener('change',function(e){
 window.__wtnTrayRender=render;
 render();
 })();
-</script>"""
+</script>""".replace("__CMP_ICON__", ICONS["compare"])
 
 
 def page(title, desc, path, body, jsonld=None):
@@ -226,7 +266,7 @@ def page(title, desc, path, body, jsonld=None):
 {FOOTER}
 {THEME_SCRIPT}
 {COMPARE_TRAY_SCRIPT}
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "589f6786bf174cd6934c47915c9e5de3"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "589f6786bf174cd6934c47915c9e5de3"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """
@@ -241,9 +281,9 @@ def card(p):
   <h3>{esc(p['name'])}</h3>
   <p class="tagline">{esc(p['tagline'])}</p>
   {price}
-  <span class="cta">Read the pick →</span>
+  {CTA_ARROW}
 </a>
-<label class="cmp-add"><input type="checkbox" data-slug="{p['slug']}" aria-label="Add {esc(p['name'])} to compare"> Compare</label>
+<label class="cmp-add" title="Compare"><input type="checkbox" data-slug="{p['slug']}" aria-label="Add {esc(p['name'])} to compare">{ICONS["compare"]}</label>
 </div>"""
 
 
@@ -258,7 +298,7 @@ def buy_box(p):
         rows.append(
             f'<div class="buyrow"><div><strong>{esc(r["name"])}</strong>'
             f'<p>{esc(r.get("note", ""))}</p></div>'
-            f'<a class="btn" href="{esc(url)}" rel="nofollow sponsored noopener" target="_blank">Check price</a></div>'
+            f'<a class="btn btn-ic" href="{esc(url)}" rel="nofollow sponsored noopener" target="_blank" aria-label="Check price at {esc(r["name"])}" title="Check price at {esc(r["name"])}">{ICONS["cart"]}</a></div>'
         )
     if not rows:
         return ""
@@ -271,7 +311,7 @@ def index_page():
     cats_html = "".join(
         f'<a class="card" href="/category/{c}/"><p class="kicker">{len([p for p in PRODUCTS if p["category"] == c])} picks</p>'
         f"<h3>{esc(v['label'])}</h3><p class='tagline'>{esc(v['blurb'])}</p>"
-        f'<span class="cta">Browse →</span></a>'
+        f'{CTA_ARROW}</a>'
         for c, v in CATS.items()
     )
     picks_html = "".join(card(p) for p in PRODUCTS)
@@ -314,7 +354,7 @@ def index_page():
 def category_page(cat, meta):
     items = [p for p in PRODUCTS if p["category"] == cat]
     body = f"""
-<p class="crumb"><a href="/">Home</a> / {esc(meta['label'])}</p>
+<p class="crumb">{HOME_LINK} / {esc(meta['label'])}</p>
 <h1>{esc(meta['label'])}</h1>
 <p class="lede">{esc(meta['blurb'])}</p>
 <div class="grid">{''.join(card(p) for p in items)}</div>"""
@@ -379,13 +419,13 @@ def product_page(p):
     related = [q for q in PRODUCTS if q["category"] == p["category"] and q["slug"] != p["slug"]][:3]
     rel_html = "".join(card(q) for q in related)
     body = f"""
-<p class="crumb"><a href="/">Home</a> / <a href="/category/{p['category']}/">{esc(CATS[p['category']]['label'])}</a> / {esc(p['name'])}</p>
+<p class="crumb">{HOME_LINK} / <a href="/category/{p['category']}/">{esc(CATS[p['category']]['label'])}</a> / {esc(p['name'])}</p>
 <h1>{esc(p['name'])}</h1>
 <p class="tagline big">{esc(p['tagline'])}</p>
 <p class="price big">{'around $' + format(p['price_usd'], ',d') if p.get('price_usd') else 'Check price'}</p>
 <p class="lede">{esc(p['blurb'])}</p>
 {buy_box(p)}
-<p class="fine"><a href="/compare/?a={p['slug']}">Compare the {esc(p['name'])} with another pick →</a></p>
+<p class="fine"><a href="/compare/?a={p['slug']}" aria-label="Compare the {esc(p['name'])} with another pick" title="Compare the {esc(p['name'])} with another pick">{ICONS["compare"]}</a></p>
 <div class="cols">
   <div><h2>Why we like it</h2><ul class="pros">{pros}</ul></div>
   <div><h2>Keep in mind</h2><ul class="cons">{cons}</ul></div>
@@ -452,7 +492,7 @@ function render(){
   });
   row('Pros', picks.map(function(p){ return '<ul class="pros">'+p.pros.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }));
   row('Cons', picks.map(function(p){ return '<ul class="cons">'+p.cons.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }));
-  row('Full review', picks.map(function(p){ return '<a class="btn" href="/gear/'+p.slug+'/">Read the full pick</a>'; }));
+  row('Full review', picks.map(function(p){ return '<a class="btn btn-ic" href="/gear/'+p.slug+'/" aria-label="Read the full pick: '+esc(p.name)+'" title="Read the full pick">__ARROW_ICON__</a>'; }));
   html += '</tbody>';
   table.innerHTML = html;
 }
@@ -470,7 +510,7 @@ if(!vals[0] && !vals[1] && !vals[2]){
 vals.forEach(function(v,i){ if(v && bySlug[v]) sels[i].value = v; });
 render();
 })();
-</script>"""
+</script>""".replace("__ARROW_ICON__", ICONS["arrow"])
 
 
 def compare_page():
@@ -499,16 +539,16 @@ def compare_page():
         for c, v in CATS.items()
     )
     selects = "".join(
-        f'<div><label for="cmp-{k}">Product {k}</label>'
+        f'<div><label for="cmp-{k}">{ICONS["compare"]}<span class="sr-only">Product {k}</span></label>'
         f'<select id="cmp-{k}"><option value="">— Choose —</option>{opts}</select></div>'
         for k in ("A", "B", "C")
     )
     body = f"""
-<p class="crumb"><a href="/">Home</a> / Compare</p>
+<p class="crumb">{HOME_LINK} / Compare</p>
 <h1>Compare gear side by side</h1>
 <p class="lede">Pick up to three products and compare full specs, prices, strengths and tradeoffs in one table. Every spec comes straight from our product pages — no hidden rankings, no thumb on the scale.</p>
 <div class="compare-selects">{selects}</div>
-<p><label class="diff-toggle"><input type="checkbox" id="cmp-diff"> Show differences only</label></p>
+<p><label class="diff-toggle"><input type="checkbox" id="cmp-diff">{ICONS["filter"]}<span class="sr-only">Show differences only</span></label></p>
 <div class="compare-wrap"><table class="compare" id="cmp-table" hidden></table></div>
 <p class="fine" id="cmp-hint">Choose at least two products to start comparing.</p>
 <script type="application/json" id="cmp-data">{data_json}</script>
@@ -543,7 +583,7 @@ var fCat=document.getElementById('f-cat'), fPrice=document.getElementById('f-pri
 fPrice.max=pMax; fPrice.value=pMax; fAper.max=aMax; fAper.value=0;
 function cardHtml(p){
   var price = p.price ? '<p class="price">around $'+Number(p.price).toLocaleString('en-US')+'</p>' : '';
-  return '<div class="cardwrap"><a class="card" href="/gear/'+p.slug+'/"><p class="kicker">'+esc(p.catlabel)+'</p><h3>'+esc(p.name)+'</h3><p class="tagline">'+esc(p.tagline)+'</p>'+price+'<span class="cta">Read the pick \\u2192</span></a><label class="cmp-add"><input type="checkbox" data-slug="'+p.slug+'" aria-label="Add '+esc(p.name)+' to compare"> Compare</label></div>';
+  return '<div class="cardwrap"><a class="card" href="/gear/'+p.slug+'/"><p class="kicker">'+esc(p.catlabel)+'</p><h3>'+esc(p.name)+'</h3><p class="tagline">'+esc(p.tagline)+'</p>'+price+'<span class="cta">__ARROW_ICON__</span></a><label class="cmp-add" title="Compare"><input type="checkbox" data-slug="'+p.slug+'" aria-label="Add '+esc(p.name)+' to compare">__CMP_ICON__</label></div>';
 }
 function render(){
   var cat=fCat.value, mp=parseFloat(fPrice.value), ma=parseFloat(fAper.value), go=fGoto.checked;
@@ -563,7 +603,7 @@ function render(){
 [fCat,fPrice,fAper,fGoto].forEach(function(el){ el.addEventListener('input', render); el.addEventListener('change', render); });
 render();
 })();
-</script>"""
+</script>""".replace("__ARROW_ICON__", ICONS["arrow"]).replace("__CMP_ICON__", ICONS["compare"])
 
 
 def finder_page():
@@ -584,14 +624,14 @@ def finder_page():
         f'<option value="{c}">{esc(v["label"])}</option>' for c, v in CATS.items()
     )
     body = f"""
-<p class="crumb"><a href="/">Home</a> / Finder</p>
+<p class="crumb">{HOME_LINK} / Finder</p>
 <h1>Gear finder</h1>
 <p class="lede">Filter every pick by what matters to you — category, budget, aperture, GoTo. Like a phone finder, but for the night sky. I'll sort the bargains to the top.</p>
 <div class="finder-filters">
-  <div><label for="f-cat">Category</label><select id="f-cat">{cat_opts}</select></div>
-  <div><label for="f-price">Max price: <output id="f-price-out"></output></label><input type="range" id="f-price" min="0" step="50" value="4000"></div>
-  <div><label for="f-aper">Min aperture: <output id="f-aper-out"></output></label><input type="range" id="f-aper" min="0" step="10" value="0"></div>
-  <div><label class="check" for="f-goto"><input type="checkbox" id="f-goto"> GoTo / computerized only</label></div>
+  <div><label for="f-cat">{ICONS["grid"]}<span class="sr-only">Category</span></label><select id="f-cat">{cat_opts}</select></div>
+  <div><label for="f-price">{ICONS["dollar"]}<span class="sr-only">Max price:</span> <output id="f-price-out"></output></label><input type="range" id="f-price" min="0" step="50" value="4000"></div>
+  <div><label for="f-aper">{ICONS["aperture"]}<span class="sr-only">Min aperture:</span> <output id="f-aper-out"></output></label><input type="range" id="f-aper" min="0" step="10" value="0"></div>
+  <div><label class="check" for="f-goto"><input type="checkbox" id="f-goto">{ICONS["cpu"]}<span class="sr-only">GoTo / computerized only</span></label></div>
 </div>
 <p class="fine" id="f-count"></p>
 <div class="grid" id="f-results"></div>
@@ -626,7 +666,7 @@ def guide_card(g):
   <p class="kicker">Guide</p>
   <h3>{esc(g['title'])}</h3>
   <p class="tagline">{esc(g['description'])}</p>
-  <span class="cta">Read the guide →</span>
+  {CTA_ARROW}
 </a>"""
 
 
@@ -640,7 +680,7 @@ def guides_index():
 
 def guide_page(g):
     body = f"""
-<p class="crumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / {esc(g['title'])}</p>
+<p class="crumb">{HOME_LINK} / <a href="/guides/">Guides</a> / {esc(g['title'])}</p>
 <h1>{esc(g['title'])}</h1>
 { g['body_html'] }
 <h2>More guides</h2>
@@ -657,7 +697,7 @@ def roundup_card(r):
   <p class="kicker">{n} ranked picks</p>
   <h3>{esc(r['title'])}</h3>
   <p class="tagline">{esc(r['description'])}</p>
-  <span class="cta">See the ranking →</span>
+  {CTA_ARROW}
 </a>"""
 
 
@@ -681,10 +721,10 @@ def roundup_page(r):
   <p class="verdict">{esc(verdict)}</p>
   <p class="tagline">{esc(p['tagline'])}</p>
   <ul class="cons"><li><strong>Watch out:</strong></li>{cons}</ul>
-  <a class="cta" href="/gear/{p['slug']}/">Read the full pick →</a>
+  <a class="cta" href="/gear/{p['slug']}/" aria-label="Read the full pick: {esc(p['name'])}" title="Read the full pick">{ICONS["arrow"]}</a>
 </article>""")
     body = f"""
-<p class="crumb"><a href="/">Home</a> / <a href="/roundups/">Roundups</a> / {esc(r['title'])}</p>
+<p class="crumb">{HOME_LINK} / <a href="/roundups/">Roundups</a> / {esc(r['title'])}</p>
 <h1>{esc(r['title'])}</h1>
 <p class="lede">{esc(r['intro'])}</p>
 {''.join(rows)}
